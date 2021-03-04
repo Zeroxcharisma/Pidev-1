@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.db3a4.gui2;
+package edu.db3a4.gui;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -22,20 +22,21 @@ import javafx.stage.Stage;
  *
  * @author House
  */
-public class HomeScreen extends Application {
+public class HomePage extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AddTournoi.fxml"));
+            Parent root = FXMLLoader.
+               load(getClass().getResource("AddPerson.fxml"));
+            
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Hello World!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

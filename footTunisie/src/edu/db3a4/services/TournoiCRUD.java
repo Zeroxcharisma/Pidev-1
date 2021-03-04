@@ -34,11 +34,13 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
     @Override
     public void ajouterTournoi(Tournoi t) {
         try {
-        String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi)"
-        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"')";
-            Statement st = MyConnection.getInstance().getCnx()
-                    .createStatement();
-            st.executeUpdate(requete);
+            
+            PreparedStatement statement = MyConnection.getInstance().getCnx()
+            .prepareStatement("INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi,image) VALUES (?,?,'"+t.getDateTournoi()+"',?,?)");
+            statement.setString(1, t.getNomTournoi());
+            statement.setInt(2, t.getNbr_equipe());
+            statement.setString(4, t.getTerrainTournoi());
+            statement.setBlob(5, t.getImage());
             System.out.println("Tournoi ajoutée");
             
         } catch (SQLException ex) {

@@ -83,14 +83,17 @@ public class AddTournoiController implements Initializable {
     }    
 
     @FXML
-    private void ajouterTournoi(ActionEvent event) {
+    private void ajouterTournoi(ActionEvent event) throws FileNotFoundException {
     
             /// SAUVEGARDE DANS LA BD
             String nomT = nomTournoi.getText();
             String nomTerrain = terrain.getValue();
             Integer nbr_Equipe = nbrEquipe.getValue();
             LocalDate dateT = dateTournoi.getValue();
-           
+            FileChooser fc = new FileChooser();
+            File selectedFile = fc.showOpenDialog(null);
+            FileInputStream fileInput = new FileInputStream(selectedFile);
+            
             Tournoi p = new Tournoi(14, nomT, nbr_Equipe, dateT, nomTerrain);          
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.ajouterTournoi(p);
