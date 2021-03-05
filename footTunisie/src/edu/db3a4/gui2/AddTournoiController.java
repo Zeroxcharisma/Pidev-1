@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -57,14 +58,17 @@ public class AddTournoiController implements Initializable {
     @FXML
     private TextField nomTournoi;
 
+     
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
     @Override
+    
     public void initialize(URL url, ResourceBundle rb) {
         nbrEquipe.getItems().addAll(4,6,8,10);
+        
          try {
             String requete = "SELECT nom FROM  terrain";
             Statement st = MyConnection.getInstance().getCnx()
@@ -81,6 +85,7 @@ public class AddTournoiController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }    
+      
 
     @FXML
     private void ajouterTournoi(ActionEvent event) throws FileNotFoundException {
@@ -90,17 +95,15 @@ public class AddTournoiController implements Initializable {
             String nomTerrain = terrain.getValue();
             Integer nbr_Equipe = nbrEquipe.getValue();
             LocalDate dateT = dateTournoi.getValue();
-            FileChooser fc = new FileChooser();
-            File selectedFile = fc.showOpenDialog(null);
-            FileInputStream fileInput = new FileInputStream(selectedFile);
-            
+           
             Tournoi p = new Tournoi(14, nomT, nbr_Equipe, dateT, nomTerrain);          
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.ajouterTournoi(p);
             JOptionPane.showMessageDialog(null, "Tournoi ajouté");
-       
  
     }
+
+
 
     
     }
