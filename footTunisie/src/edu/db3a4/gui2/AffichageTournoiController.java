@@ -9,6 +9,7 @@ import edu.db3a4.entities.Tournoi;
 import edu.db3a4.services.TournoiCRUD;
 import edu.db3a4.tools.MyConnection;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -131,22 +132,14 @@ public class AffichageTournoiController implements Initializable {
         String id = tf_id.getText();
         Integer id1 = Integer.parseInt(id);
         TournoiCRUD pcd = new TournoiCRUD();
+       
          
         tf_nom.setText(pcd.rechercheTournoi(id1).getNomTournoi());
         pickerDate.setValue(pcd.rechercheTournoi(id1).getDateTournoi());
         cmbTerrain.setValue(pcd.rechercheTournoi(id1).getTerrainTournoi());
         tf_nbrE.setValue(pcd.rechercheTournoi(id1).getNbr_equipe()); 
-        try {
-        Blob blob = pcd.rechercheTournoi(id1).getImage();
-        InputStream inputStream = blob.getBinaryStream();
-        Image img = new Image(inputStream);
+        Image img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\"+pcd.rechercheTournoi(id1).getImage()));
         image.setImage(img);
-        } catch (SQLException ex) {
-            Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-
-  	                     
     }
 
     @FXML

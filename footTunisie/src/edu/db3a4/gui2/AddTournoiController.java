@@ -33,6 +33,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -57,6 +59,8 @@ public class AddTournoiController implements Initializable {
     private Button btnAjout;
     @FXML
     private TextField nomTournoi;
+    @FXML
+    private Button img;
 
      
     /**
@@ -65,7 +69,6 @@ public class AddTournoiController implements Initializable {
      * @param rb
      */
     @Override
-    
     public void initialize(URL url, ResourceBundle rb) {
         nbrEquipe.getItems().addAll(4,6,8,10);
         
@@ -88,20 +91,40 @@ public class AddTournoiController implements Initializable {
       
 
     @FXML
-    private void ajouterTournoi(ActionEvent event) throws FileNotFoundException {
+    private void ajouterTournoi(ActionEvent event) {
     
             /// SAUVEGARDE DANS LA BD
             String nomT = nomTournoi.getText();
             String nomTerrain = terrain.getValue();
             Integer nbr_Equipe = nbrEquipe.getValue();
             LocalDate dateT = dateTournoi.getValue();
-           
-            Tournoi p = new Tournoi(14, nomT, nbr_Equipe, dateT, nomTerrain);          
+            
+            File file ;
+            Tournoi p = new Tournoi(14, nomT, nbr_Equipe, dateT, nomTerrain, addImg());          
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.ajouterTournoi(p);
             JOptionPane.showMessageDialog(null, "Tournoi ajouté");
- 
+            
     }
+
+    @FXML
+    private File addImg() {
+       FileChooser fileChooser = new FileChooser();
+       fileChooser.setTitle("Ajouter une image");
+ fileChooser.getExtensionFilters().addAll(
+   new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+         
+    File selectedFile = fileChooser.showOpenDialog(null);
+
+    if (selectedFile != null) {
+
+        System.out.println("File selected: " + selectedFile.getPath());
+    }
+    else {
+        System.out.println("File selection cancelled.");
+    }
+     return selectedFile;
+        }
 
 
 

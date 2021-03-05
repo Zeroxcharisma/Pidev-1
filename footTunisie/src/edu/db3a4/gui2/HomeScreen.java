@@ -31,7 +31,7 @@ public class HomeScreen extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("AffichageTournoi.fxml"));
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("Gestion Tournoi");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

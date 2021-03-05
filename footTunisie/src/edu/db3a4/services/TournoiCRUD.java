@@ -9,6 +9,7 @@ import edu.db3a4.entities.Tournoi;
 import edu.db3a4.gui2.AffichageTournoiController;
 import edu.db3a4.interfaces.ITournoi;
 import edu.db3a4.tools.MyConnection;
+import java.io.File;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,11 +35,12 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
     @Override
     public void ajouterTournoi(Tournoi t) {
         try {
-             String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi)"
-        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"')";
+             String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi,image)"
+        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"','"+t.getImage().getName()+"')";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             st.executeUpdate(requete);
+            System.out.println(t.getImage().getAbsolutePath());
             System.out.println("Tournoi ajoutée");
             
         } catch (SQLException ex) {
@@ -108,7 +110,8 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
                 p.setNbr_equipe(rs.getInt(3));
                 p.setDateTournoi(rs.getDate(4).toLocalDate());
                 p.setTerrainTournoi(rs.getString(5));
-                p.setImage(rs.getBlob(6));
+                File file = new File(rs.getString(6));
+                p.setImage(file);
                 
             }
         } catch (SQLException ex) {

@@ -6,6 +6,7 @@
 package edu.db3a4.entities;
 
 import java.awt.Image;
+import java.io.File;
 import java.sql.Blob;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -20,14 +21,12 @@ public class Tournoi {
     private Integer nbr_equipe;
     private LocalDate dateTournoi;
     private String terrainTournoi;
-    private Blob image;
+    private File image;
     
     public Tournoi() {
     }
 
-    public Tournoi(Blob image){
-        this.image = image;
-    }
+   
  public Tournoi(int id, String nomTournoi, Integer nbr_equipe, LocalDate dateTournoi, String terrainTournoi) {
         this.id = id;
         this.nomTournoi = nomTournoi;
@@ -35,7 +34,7 @@ public class Tournoi {
         this.dateTournoi = dateTournoi;
         this.terrainTournoi = terrainTournoi;
     }
- public Tournoi(int id, String nomTournoi, Integer nbr_equipe, LocalDate dateTournoi, String terrainTournoi, Blob image) {
+ public Tournoi(int id, String nomTournoi, Integer nbr_equipe, LocalDate dateTournoi, String terrainTournoi, File image) {
         this.id = id;
         this.nomTournoi = nomTournoi;
         this.nbr_equipe = nbr_equipe;
@@ -47,11 +46,11 @@ public class Tournoi {
         return dateTournoi;
     }
 
-    public Blob getImage() {
+    public File getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(File image) {
         this.image = image;
     }
 
