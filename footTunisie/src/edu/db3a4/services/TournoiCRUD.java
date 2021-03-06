@@ -85,7 +85,7 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                 
-                observableListLocataire.add( new Tournoi(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getDate(4).toLocalDate(),rs.getString(5)));
+                observableListLocataire.add( new Tournoi(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getDate(4).toLocalDate(),rs.getString(5),new File(rs.getString(6))));
             }
             }
          catch (SQLException ex) {

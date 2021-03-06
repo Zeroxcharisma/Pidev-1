@@ -5,18 +5,44 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.AddTournoiController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242529;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.AddTournoiController">
    <children>
-      <Label layoutX="37.0" layoutY="28.0" text="Nom Tournoi" />
-      <Label layoutX="37.0" layoutY="102.0" text="Date tournoi" />
-      <Label layoutX="37.0" layoutY="165.0" text="nbr equipe" />
-      <Label layoutX="37.0" layoutY="240.0" text="Terrain" />
-      <TextField fx:id="nomTournoi" layoutX="144.0" layoutY="24.0" />
-      <DatePicker fx:id="dateTournoi" layoutX="143.0" layoutY="98.0" prefHeight="25.0" prefWidth="150.0" />
-      <ComboBox fx:id="nbrEquipe" layoutX="143.0" layoutY="170.0" prefWidth="150.0" />
-      <ComboBox fx:id="terrain" layoutX="143.0" layoutY="236.0" prefWidth="150.0" />
-      <Button fx:id="btnAjout" layoutX="123.0" layoutY="350.0" mnemonicParsing="false" onAction="#ajouterTournoi" prefHeight="25.0" prefWidth="354.0" text="ajouter" />
+      <Pane layoutX="189.0" layoutY="-1.0" prefHeight="407.0" prefWidth="411.0" style="-fx-background-color: #242529;">
+         <children>
+            <Label layoutX="36.0" layoutY="71.0" text="Nom Tournoi" textFill="WHITE" />
+            <Label layoutX="38.0" layoutY="124.0" text="Date tournoi" textFill="WHITE" />
+            <Label layoutX="42.0" layoutY="187.0" text="nbr equipe" textFill="WHITE" />
+            <Label layoutX="50.0" layoutY="250.0" text="Terrain" textFill="WHITE" />
+            <ComboBox fx:id="terrain" layoutX="131.0" layoutY="246.0" prefWidth="150.0" />
+            <ComboBox fx:id="nbrEquipe" layoutX="131.0" layoutY="183.0" prefHeight="25.0" prefWidth="149.0" />
+            <DatePicker fx:id="dateTournoi" layoutX="131.0" layoutY="120.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="nomTournoi" layoutX="129.0" layoutY="65.0" />
+            <Button fx:id="btnAjout" layoutX="240.0" layoutY="344.0" mnemonicParsing="false" onAction="#ajouterTournoi" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Insérer image &amp; ajouter" />
+         </children>
+      </Pane>
+      <Pane layoutY="-2.0" prefHeight="407.0" prefWidth="189.0" style="-fx-background-color: #242529;">
+         <children>
+            <Pane prefHeight="108.0" prefWidth="189.0" style="-fx-background-color: #CE0025;">
+               <children>
+                  <Label layoutX="29.0" layoutY="41.0" text="FootTunisie" textFill="#030303">
+                     <font>
+                        <Font name="Eras Bold ITC" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="178.0" layoutY="54.0" prefHeight="355.0" prefWidth="11.0" style="-fx-background-color: #CE0025;" />
+            <Button fx:id="gestion" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#gestion" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Gestion" />
+            <Button layoutX="14.0" layoutY="234.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Button" />
+            <Button layoutX="14.0" layoutY="290.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Button" />
+            <ImageView fx:id="logoImg" fitHeight="97.0" fitWidth="132.0" layoutX="37.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnAjout1" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="ajouter" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -60,7 +60,11 @@ public class AddTournoiController implements Initializable {
     @FXML
     private TextField nomTournoi;
     @FXML
-    private Button img;
+    private ImageView logoImg;
+    @FXML
+    private Button btnAjout1;
+    @FXML
+    private Button gestion;
 
      
     /**
@@ -72,6 +76,15 @@ public class AddTournoiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         nbrEquipe.getItems().addAll(4,6,8,10);
         
+        Image img;
+        try {
+            img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\logo.png"));
+              logoImg.setImage(img);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AddTournoiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
          try {
             String requete = "SELECT nom FROM  terrain";
             Statement st = MyConnection.getInstance().getCnx()
@@ -89,7 +102,6 @@ public class AddTournoiController implements Initializable {
         }
     }    
       
-
     @FXML
     private void ajouterTournoi(ActionEvent event) {
     
@@ -107,17 +119,15 @@ public class AddTournoiController implements Initializable {
             
     }
 
-    @FXML
     private File addImg() {
        FileChooser fileChooser = new FileChooser();
        fileChooser.setTitle("Ajouter une image");
+       File defaultDirectory = new File("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images");
+       fileChooser.setInitialDirectory(defaultDirectory);
  fileChooser.getExtensionFilters().addAll(
    new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-         
     File selectedFile = fileChooser.showOpenDialog(null);
-
     if (selectedFile != null) {
-
         System.out.println("File selected: " + selectedFile.getPath());
     }
     else {
@@ -126,9 +136,22 @@ public class AddTournoiController implements Initializable {
      return selectedFile;
         }
 
+    @FXML
+    private void gestion(ActionEvent event) throws IOException {
+             FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("AffichageTournoi.fxml"));
+            Parent root = loader.load();
+            nomTournoi.getScene().setRoot(root);
+    }
 
+    @FXML
+    private void ajouter(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("AddTournoi.fxml"));
+            Parent root = loader.load();
+            nomTournoi.getScene().setRoot(root);
+    }
 
-    
     }
     
 
