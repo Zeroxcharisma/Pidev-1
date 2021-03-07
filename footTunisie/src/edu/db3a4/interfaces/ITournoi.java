@@ -20,4 +20,6 @@ public interface ITournoi<T> {
      public void updateTournoi(Integer id, String nomT, Integer nbrE, LocalDate date, String terrain);
      public List<T> displayTournoi();
      public Tournoi rechercheTournoi(Integer t);
+     public String getEquipes(Integer id);
+
 }

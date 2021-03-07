@@ -32,10 +32,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -65,6 +68,10 @@ public class AddTournoiController implements Initializable {
     private Button btnAjout1;
     @FXML
     private Button gestion;
+    @FXML
+    private Label labelE;
+    @FXML
+    private Button btnCalen;
 
      
     /**
@@ -76,6 +83,9 @@ public class AddTournoiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         nbrEquipe.getItems().addAll(4,6,8,10);
         
+//nbrEquipe.getVisibleRowCount()
+       
+
         Image img;
         try {
             img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\logo.png"));
@@ -103,16 +113,17 @@ public class AddTournoiController implements Initializable {
     }    
       
     @FXML
-    private void ajouterTournoi(ActionEvent event) {
+    private void ajouterTournoi(ActionEvent event)  {
     
+        
+        QuatreEquipeController eq = new QuatreEquipeController();
             /// SAUVEGARDE DANS LA BD
             String nomT = nomTournoi.getText();
             String nomTerrain = terrain.getValue();
             Integer nbr_Equipe = nbrEquipe.getValue();
             LocalDate dateT = dateTournoi.getValue();
             
-            File file ;
-            Tournoi p = new Tournoi(14, nomT, nbr_Equipe, dateT, nomTerrain, addImg());          
+            Tournoi p = new Tournoi(14, nomT, nbr_Equipe, dateT, nomTerrain, addImg(),labelE.getText());          
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.ajouterTournoi(p);
             JOptionPane.showMessageDialog(null, "Tournoi ajouté");
@@ -150,8 +161,107 @@ public class AddTournoiController implements Initializable {
                     .getResource("AddTournoi.fxml"));
             Parent root = loader.load();
             nomTournoi.getScene().setRoot(root);
+            
     }
 
+    public void Previous(String nomTournoi1, String terrain1, Integer nbr, LocalDate date){
+         nomTournoi.setText(nomTournoi1);
+             terrain.setValue(terrain1);
+            nbrEquipe.setValue(nbr);
+            dateTournoi.setValue(date);
+    }
+    public String LabelEadd(String i){
+        labelE.setText(i);
+        return labelE.getText();
+    }
+
+    @FXML
+    private void cmbAct(ActionEvent event) throws IOException {
+          if(nbrEquipe.getValue() == 4){
+              try{
+             FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("QuatreEquipe.fxml"));
+            Parent root = (Parent)loader.load();
+            QuatreEquipeController quatre = loader.getController();
+            quatre.nbr = nbrEquipe.getValue();
+            quatre.date = dateTournoi.getValue();
+            quatre.nom = nomTournoi.getText();
+            quatre.terrain = terrain.getValue();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
+            stage1.close();
+              }catch (IOException e) {
+                Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, e);
+              }
+            }
+            else if(nbrEquipe.getValue() == 8){
+              try{
+             FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("HuitEquipe.fxml"));
+            Parent root = (Parent)loader.load();
+            HuitEquipeController quatre = loader.getController();
+            quatre.nbr = nbrEquipe.getValue();
+            quatre.date = dateTournoi.getValue();
+            quatre.nom = nomTournoi.getText();
+            quatre.terrain = terrain.getValue();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
+            stage1.close();
+              }catch (IOException e) {
+                Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, e);
+              }
+            }
+          else if(nbrEquipe.getValue() == 6){
+              try{
+             FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("SixEquipe.fxml"));
+            Parent root = (Parent)loader.load();
+            SixEquipeController quatre = loader.getController();
+            quatre.nbr = nbrEquipe.getValue();
+            quatre.date = dateTournoi.getValue();
+            quatre.nom = nomTournoi.getText();
+            quatre.terrain = terrain.getValue();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
+            stage1.close();
+              }catch (IOException e) {
+                Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, e);
+              }
+            }
+          else if(nbrEquipe.getValue() == 10){
+              try{
+             FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("DixEquipe.fxml"));
+            Parent root = (Parent)loader.load();
+            DixEquipeController quatre = loader.getController();
+            quatre.nbr = nbrEquipe.getValue();
+            quatre.date = dateTournoi.getValue();
+            quatre.nom = nomTournoi.getText();
+            quatre.terrain = terrain.getValue();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
+            stage1.close();
+              }catch (IOException e) {
+                Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, e);
+              }
+            }
+    }
+
+    @FXML
+    private void aficherCalen(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("AffichageTournoi.fxml"));
+            Parent root = loader.load();
+            nomTournoi.getScene().setRoot(root);
+    }
     }
     
 

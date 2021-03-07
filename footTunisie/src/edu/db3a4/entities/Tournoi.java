@@ -22,6 +22,7 @@ public class Tournoi {
     private LocalDate dateTournoi;
     private String terrainTournoi;
     private File image;
+    private String equipes;
     
     public Tournoi() {
     }
@@ -34,13 +35,14 @@ public class Tournoi {
         this.dateTournoi = dateTournoi;
         this.terrainTournoi = terrainTournoi;
     }
- public Tournoi(int id, String nomTournoi, Integer nbr_equipe, LocalDate dateTournoi, String terrainTournoi, File image) {
+ public Tournoi(int id, String nomTournoi, Integer nbr_equipe, LocalDate dateTournoi, String terrainTournoi, File image, String equipes) {
         this.id = id;
         this.nomTournoi = nomTournoi;
         this.nbr_equipe = nbr_equipe;
         this.dateTournoi = dateTournoi;
         this.terrainTournoi = terrainTournoi;
         this.image = image;
+        this.equipes = equipes;
     }
     public LocalDate getDateTournoi() {
         return dateTournoi;
@@ -50,6 +52,15 @@ public class Tournoi {
         return image;
     }
 
+    public void setEquipes(String equipes) {
+        this.equipes = equipes;
+    }
+
+    public String getEquipes() {
+        return equipes;
+    }
+    
+    
     public void setImage(File image) {
         this.image = image;
     }

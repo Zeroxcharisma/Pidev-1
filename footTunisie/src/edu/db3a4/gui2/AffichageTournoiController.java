@@ -23,9 +23,11 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -34,6 +36,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -45,6 +48,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -95,9 +99,11 @@ public class AffichageTournoiController implements Initializable {
     private ImageView logoImg;
     @FXML
     private Button btnAjout1;
+    
     @FXML
     private TableColumn<Tournoi, String> tbImg;
     @FXML
+    private Button calendrier;
 
     /**
      * Initializes the controller class.
@@ -107,6 +113,7 @@ public class AffichageTournoiController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
                 tf_nbrE.getItems().addAll(4,6,8,10);
+                
                 
                Image img;
   try {
@@ -204,6 +211,94 @@ public class AffichageTournoiController implements Initializable {
             cmbTerrain.setValue(tournoi.getTerrainTournoi());
             Image img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\"+tournoi.getImage()));
             image.setImage(img);
+    }
+
+    @FXML
+    private void afficheCalendar(ActionEvent event) throws IOException {
+       TournoiCRUD pcd = new TournoiCRUD();
+       if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 4){
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("Calendar.fxml"));
+                   Parent root = (Parent)loader.load();
+            Integer id = Integer.parseInt(tf_id.getText());
+            String date1 = pickerDate.getValue().toString();
+            String[] parts = pcd.getEquipes(id).split(",");  
+            Random random = new Random();
+            int nb = 14+random.nextInt(21-14);
+            int nb1 = 14+random.nextInt(21-14);
+            CalendarController calendar = loader.getController();
+            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),String.valueOf(nb1));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();}
+       else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 8){
+            FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("Calendar1.fxml"));
+                   Parent root = (Parent)loader.load();
+            Integer id = Integer.parseInt(tf_id.getText());
+            String date1 = pickerDate.getValue().toString();
+            String[] parts = pcd.getEquipes(id).split(",");  
+            Random random = new Random();
+            int nb = 14+random.nextInt(21-14);
+            int nb1 = 14+random.nextInt(21-14);
+            int nb2 = 14+random.nextInt(21-14);
+            int nb3 = 14+random.nextInt(21-14);
+            Calendar1Controller calendar = loader.getController();
+            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
+                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
+                    String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
+                    pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
+                    String.valueOf(nb2),String.valueOf(nb3));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+       }
+           else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 6){
+            FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("Calendar2.fxml"));
+                   Parent root = (Parent)loader.load();
+            Integer id = Integer.parseInt(tf_id.getText());
+            String date1 = pickerDate.getValue().toString();
+            String[] parts = pcd.getEquipes(id).split(",");  
+            Random random = new Random();
+            int nb = 14+random.nextInt(21-14);
+            int nb1 = 14+random.nextInt(21-14);
+            int nb2 = 14+random.nextInt(21-14);
+            Calendar2Controller calendar = loader.getController();
+            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
+                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
+                    String.valueOf(nb1),parts[4], parts[5],
+                    pickerDate.getValue().plusDays(2).toString(),
+                    String.valueOf(nb2));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+       }
+      else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 10){
+            FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("Calendar3.fxml"));
+                   Parent root = (Parent)loader.load();
+            Integer id = Integer.parseInt(tf_id.getText());
+            String date1 = pickerDate.getValue().toString();
+            String[] parts = pcd.getEquipes(id).split(",");  
+            Random random = new Random();
+            int nb = 14+random.nextInt(21-14);
+            int nb1 = 14+random.nextInt(21-14);
+            int nb2 = 14+random.nextInt(21-14);
+            int nb3 = 14+random.nextInt(21-14);
+            int nb4 = 14+random.nextInt(21-14);
+            Calendar3Controller calendar = loader.getController();
+            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
+                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
+                    String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
+                    pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
+                    String.valueOf(nb2),String.valueOf(nb3),
+                    parts[8],parts[9],pickerDate.getValue().plusDays(4).toString(),String.valueOf(nb4)
+                    );
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+       }
     }
 
   

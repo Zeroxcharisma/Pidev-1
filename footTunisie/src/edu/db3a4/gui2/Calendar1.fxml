@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.Calendar1Controller">
+   <children>
+      <Label fx:id="lab1" layoutX="98.0" layoutY="68.0" text="Label" />
+      <Label fx:id="lab3" layoutX="430.0" layoutY="68.0" text="Label" />
+      <Label fx:id="lab2" layoutX="98.0" layoutY="114.0" text="Label" />
+      <Label fx:id="lab4" layoutX="430.0" layoutY="114.0" text="Label" />
+      <Label fx:id="labd1" layoutX="236.0" layoutY="68.0" text="Label" />
+      <Label fx:id="labd2" layoutX="236.0" layoutY="114.0" text="Label" />
+      <Label fx:id="time1" layoutX="310.0" layoutY="68.0" text="Label" />
+      <Label fx:id="time2" layoutX="310.0" layoutY="114.0" text="Label" />
+      <Label fx:id="lab11" layoutX="98.0" layoutY="154.0" text="Label" />
+      <Label fx:id="lab31" layoutX="430.0" layoutY="154.0" text="Label" />
+      <Label fx:id="lab21" layoutX="98.0" layoutY="200.0" text="Label" />
+      <Label fx:id="lab41" layoutX="430.0" layoutY="200.0" text="Label" />
+      <Label fx:id="labd11" layoutX="236.0" layoutY="154.0" text="Label" />
+      <Label fx:id="labd21" layoutX="236.0" layoutY="200.0" text="Label" />
+      <Label fx:id="time11" layoutX="310.0" layoutY="154.0" text="Label" />
+      <Label fx:id="time21" layoutX="310.0" layoutY="200.0" text="Label" />
+      <Label layoutX="330.0" layoutY="68.0" text="H" />
+      <Label layoutX="330.0" layoutY="200.0" text="H" />
+      <Label layoutX="330.0" layoutY="154.0" text="H" />
+      <Label layoutX="330.0" layoutY="114.0" text="H" />
+   </children>
+</AnchorPane>

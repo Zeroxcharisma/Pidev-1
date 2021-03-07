@@ -17,12 +17,14 @@
             <Label layoutX="36.0" layoutY="71.0" text="Nom Tournoi" textFill="WHITE" />
             <Label layoutX="38.0" layoutY="124.0" text="Date tournoi" textFill="WHITE" />
             <Label layoutX="42.0" layoutY="187.0" text="nbr equipe" textFill="WHITE" />
-            <Label layoutX="50.0" layoutY="250.0" text="Terrain" textFill="WHITE" />
-            <ComboBox fx:id="terrain" layoutX="131.0" layoutY="246.0" prefWidth="150.0" />
-            <ComboBox fx:id="nbrEquipe" layoutX="131.0" layoutY="183.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label layoutX="50.0" layoutY="270.0" text="Terrain" textFill="WHITE" />
+            <ComboBox fx:id="terrain" layoutX="131.0" layoutY="266.0" prefWidth="150.0" />
+            <ComboBox fx:id="nbrEquipe" layoutX="131.0" layoutY="183.0" onAction="#cmbAct" prefHeight="25.0" prefWidth="149.0" />
             <DatePicker fx:id="dateTournoi" layoutX="131.0" layoutY="120.0" prefHeight="25.0" prefWidth="149.0" />
             <TextField fx:id="nomTournoi" layoutX="129.0" layoutY="65.0" />
             <Button fx:id="btnAjout" layoutX="240.0" layoutY="344.0" mnemonicParsing="false" onAction="#ajouterTournoi" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Insérer image &amp; ajouter" />
+            <Label fx:id="labelE" layoutX="132.0" layoutY="232.0" prefHeight="17.0" prefWidth="255.0" textFill="WHITE" />
+            <Label layoutX="44.0" layoutY="231.0" text="Equipe " textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutY="-2.0" prefHeight="407.0" prefWidth="189.0" style="-fx-background-color: #242529;">
@@ -38,10 +40,10 @@
             </Pane>
             <Pane layoutX="178.0" layoutY="54.0" prefHeight="355.0" prefWidth="11.0" style="-fx-background-color: #CE0025;" />
             <Button fx:id="gestion" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#gestion" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Gestion" />
-            <Button layoutX="14.0" layoutY="234.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Button" />
+            <Button fx:id="btnCalen" layoutX="14.0" layoutY="234.0" mnemonicParsing="false" onAction="#aficherCalen" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Calendrier" />
             <Button layoutX="14.0" layoutY="290.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Button" />
             <ImageView fx:id="logoImg" fitHeight="97.0" fitWidth="132.0" layoutX="37.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnAjout1" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="ajouter" />
+            <Button fx:id="btnAjout1" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Ajouter" />
          </children>
       </Pane>
    </children>

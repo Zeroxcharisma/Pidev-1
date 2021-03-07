@@ -30,13 +30,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class TournoiCRUD implements ITournoi<Tournoi>{
         public ObservableList<Tournoi> observableListLocataire = FXCollections.observableArrayList();
+        String equipes;
+        Integer nbr;
 
 
     @Override
     public void ajouterTournoi(Tournoi t) {
         try {
-             String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi,image)"
-        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"','"+t.getImage().getName()+"')";
+             String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi,image,equipes)"
+        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"','"+t.getImage().getName()+"','"+t.getEquipes()+"')";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             st.executeUpdate(requete);
@@ -85,7 +87,7 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                 
-                observableListLocataire.add( new Tournoi(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getDate(4).toLocalDate(),rs.getString(5),new File(rs.getString(6))));
+                observableListLocataire.add( new Tournoi(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getDate(4).toLocalDate(),rs.getString(5),new File(rs.getString(6)),rs.getString(7)));
             }
             }
          catch (SQLException ex) {
@@ -119,6 +121,35 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
         }
         return p;
     }
-    
-    
+        @Override
+    public String getEquipes(Integer id){
+     try {
+            String requete = "SELECT equipes FROM tournoi WHERE id = " +id+ ";";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                 equipes = rs.getString("equipes");
+                 
+            }    
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+     return equipes;
+}
+ public Integer getNombre(Integer id){
+     try {
+            String requete = "SELECT nbr_equipe FROM tournoi WHERE id = " +id+ ";";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                 nbr = rs.getInt("nbr_equipe");
+                 
+            }    
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+     return nbr;
+}   
 }
