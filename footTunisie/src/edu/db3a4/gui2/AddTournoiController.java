@@ -72,6 +72,8 @@ public class AddTournoiController implements Initializable {
     private Label labelE;
     @FXML
     private Button btnCalen;
+    @FXML
+    private Button StatTerrain;
 
      
     /**
@@ -261,6 +263,18 @@ public class AddTournoiController implements Initializable {
                     .getResource("AffichageTournoi.fxml"));
             Parent root = loader.load();
             nomTournoi.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void stats(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("Statistique.fxml"));
+            Parent root = (Parent)loader.load();
+          
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+           
     }
     }
     

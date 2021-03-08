@@ -41,7 +41,7 @@
             <Pane layoutX="178.0" layoutY="54.0" prefHeight="355.0" prefWidth="11.0" style="-fx-background-color: #CE0025;" />
             <Button fx:id="gestion" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#gestion" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Gestion" />
             <Button fx:id="btnCalen" layoutX="14.0" layoutY="234.0" mnemonicParsing="false" onAction="#aficherCalen" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Calendrier" />
-            <Button layoutX="14.0" layoutY="290.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Button" />
+            <Button fx:id="StatTerrain" layoutX="14.0" layoutY="290.0" mnemonicParsing="false" onAction="#stats" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Stats terrain" />
             <ImageView fx:id="logoImg" fitHeight="97.0" fitWidth="132.0" layoutX="37.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btnAjout1" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #CE0025;" text="Ajouter" />
          </children>

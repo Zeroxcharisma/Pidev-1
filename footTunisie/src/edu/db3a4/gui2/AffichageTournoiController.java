@@ -104,6 +104,8 @@ public class AffichageTournoiController implements Initializable {
     private TableColumn<Tournoi, String> tbImg;
     @FXML
     private Button calendrier;
+    @FXML
+    private Button StatsTerrain;
 
     /**
      * Initializes the controller class.
@@ -299,6 +301,17 @@ public class AffichageTournoiController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
        }
+    }
+
+    @FXML
+    private void stats(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("Statistique.fxml"));
+            Parent root = (Parent)loader.load();
+          
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
     }
 
   
