@@ -58,6 +58,8 @@ public class Calendar3Controller implements Initializable {
     private Label labd211;
     @FXML
     private Label time211;
+    @FXML
+    private Label nomT;
 
     /**
      * Initializes the controller class.
@@ -70,7 +72,7 @@ public class Calendar3Controller implements Initializable {
             String equipe4,String date1,String date2, String time, 
             String time3, String equipe5,String equipe6,String equipe7,
             String equipe8,String date3,String date4, String time5, String time6,
-            String equipe9, String equipe10,String date5, String time7){
+            String equipe9, String equipe10,String date5, String time7, String nomTt){
         lab1.setText(equipe1);
         lab3.setText(equipe2);
         lab2.setText(equipe3);
@@ -91,6 +93,7 @@ public class Calendar3Controller implements Initializable {
         labd211.setText(date5);
         time211.setText(time7);
         lab411.setText(equipe10);
+        nomT.setText(nomTt);
     }
     
 }

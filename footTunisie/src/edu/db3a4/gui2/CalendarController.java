@@ -34,6 +34,8 @@ public class CalendarController implements Initializable {
     private Label time1;
     @FXML
     private Label time2;
+    @FXML
+    private Label nomT;
 
     /**
      * Initializes the controller class.
@@ -42,7 +44,7 @@ public class CalendarController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    public void sett(String equipe1,String equipe2,String equipe3,String equipe4,String date1,String date2, String time, String time3){
+    public void sett(String equipe1,String equipe2,String equipe3,String equipe4,String date1,String date2, String time, String time3, String nomTt){
         lab1.setText(equipe1);
         lab3.setText(equipe2);
         lab2.setText(equipe3);
@@ -51,6 +53,7 @@ public class CalendarController implements Initializable {
         labd2.setText(date2);
         time1.setText(time);
         time2.setText(time3);
+        nomT.setText(nomTt);
     }
     
 }

@@ -50,6 +50,8 @@ public class Calendar1Controller implements Initializable {
     private Label time11;
     @FXML
     private Label time21;
+    @FXML
+    private Label nomT;
 
     /**
      * Initializes the controller class.
@@ -61,7 +63,7 @@ public class Calendar1Controller implements Initializable {
     public void sett(String equipe1,String equipe2,String equipe3,
             String equipe4,String date1,String date2, String time, 
             String time3,    String equipe5,String equipe6,String equipe7,
-            String equipe8,String date3,String date4, String time5, String time6){
+            String equipe8,String date3,String date4, String time5, String time6, String nomTt){
         lab1.setText(equipe1);
         lab3.setText(equipe2);
         lab2.setText(equipe3);
@@ -78,6 +80,7 @@ public class Calendar1Controller implements Initializable {
         labd21.setText(date4);
         time11.setText(time5);
         time21.setText(time6);
+        nomT.setText(nomTt);
     }
     
 }

@@ -116,15 +116,9 @@ public class AffichageTournoiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
                 tf_nbrE.getItems().addAll(4,6,8,10);
                 
-                
-               Image img;
-  try {
-            img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\logo.png"));
+                Image img;
+            img = new Image("/images/logo.png");
               logoImg.setImage(img);
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AddTournoiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
        try {
             String requete = "SELECT nom FROM  terrain";
             Statement st = MyConnection.getInstance().getCnx()
@@ -161,7 +155,8 @@ public class AffichageTournoiController implements Initializable {
         pickerDate.setValue(pcd.rechercheTournoi(id1).getDateTournoi());
         cmbTerrain.setValue(pcd.rechercheTournoi(id1).getTerrainTournoi());
         tf_nbrE.setValue(pcd.rechercheTournoi(id1).getNbr_equipe()); 
-        Image img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\"+pcd.rechercheTournoi(id1).getImage()));
+        
+        Image img = new Image("/images/"+pcd.rechercheTournoi(id1).getImage());
         image.setImage(img);
     }
 
@@ -211,7 +206,7 @@ public class AffichageTournoiController implements Initializable {
             tf_nbrE.setValue(tournoi.getNbr_equipe());
             pickerDate.setValue(tournoi.getDateTournoi());
             cmbTerrain.setValue(tournoi.getTerrainTournoi());
-            Image img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\"+tournoi.getImage()));
+            Image img = new Image("/images/"+tournoi.getImage());
             image.setImage(img);
     }
 
@@ -223,15 +218,18 @@ public class AffichageTournoiController implements Initializable {
                     .getResource("Calendar.fxml"));
                    Parent root = (Parent)loader.load();
             Integer id = Integer.parseInt(tf_id.getText());
+            String nomTt = tf_nom.getText();
             String date1 = pickerDate.getValue().toString();
             String[] parts = pcd.getEquipes(id).split(",");  
             Random random = new Random();
             int nb = 14+random.nextInt(21-14);
             int nb1 = 14+random.nextInt(21-14);
             CalendarController calendar = loader.getController();
-            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),String.valueOf(nb1));
+            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),String.valueOf(nb1),nomTt);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setTitle("Calendrier tournoi");
+        stage.getIcons().add(new Image("/images/calendar.png"));
             stage.show();}
        else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 8){
             FXMLLoader loader = new FXMLLoader(getClass()
@@ -239,6 +237,7 @@ public class AffichageTournoiController implements Initializable {
                    Parent root = (Parent)loader.load();
             Integer id = Integer.parseInt(tf_id.getText());
             String date1 = pickerDate.getValue().toString();
+            String nomTt = tf_nom.getText();
             String[] parts = pcd.getEquipes(id).split(",");  
             Random random = new Random();
             int nb = 14+random.nextInt(21-14);
@@ -250,9 +249,11 @@ public class AffichageTournoiController implements Initializable {
                     pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
                     String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
                     pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
-                    String.valueOf(nb2),String.valueOf(nb3));
+                    String.valueOf(nb2),String.valueOf(nb3),nomTt);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+             stage.setTitle("Calendrier tournoi");
+        stage.getIcons().add(new Image("/images/calendar.png"));
             stage.show();
        }
            else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 6){
@@ -261,6 +262,7 @@ public class AffichageTournoiController implements Initializable {
                    Parent root = (Parent)loader.load();
             Integer id = Integer.parseInt(tf_id.getText());
             String date1 = pickerDate.getValue().toString();
+            String nomTt = tf_nom.getText();
             String[] parts = pcd.getEquipes(id).split(",");  
             Random random = new Random();
             int nb = 14+random.nextInt(21-14);
@@ -271,9 +273,11 @@ public class AffichageTournoiController implements Initializable {
                     pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
                     String.valueOf(nb1),parts[4], parts[5],
                     pickerDate.getValue().plusDays(2).toString(),
-                    String.valueOf(nb2));
+                    String.valueOf(nb2),nomTt);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+             stage.setTitle("Calendrier tournoi");
+        stage.getIcons().add(new Image("/images/calendar.png"));
             stage.show();
        }
       else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 10){
@@ -282,6 +286,7 @@ public class AffichageTournoiController implements Initializable {
                    Parent root = (Parent)loader.load();
             Integer id = Integer.parseInt(tf_id.getText());
             String date1 = pickerDate.getValue().toString();
+            String nomTt = tf_nom.getText();
             String[] parts = pcd.getEquipes(id).split(",");  
             Random random = new Random();
             int nb = 14+random.nextInt(21-14);
@@ -295,10 +300,12 @@ public class AffichageTournoiController implements Initializable {
                     String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
                     pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
                     String.valueOf(nb2),String.valueOf(nb3),
-                    parts[8],parts[9],pickerDate.getValue().plusDays(4).toString(),String.valueOf(nb4)
-                    );
+                    parts[8],parts[9],pickerDate.getValue().plusDays(4).toString(),String.valueOf(nb4),
+                    nomTt);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+             stage.setTitle("Calendrier tournoi");
+        stage.getIcons().add(new Image("/images/calendar.png"));
             stage.show();
        }
     }
@@ -311,6 +318,8 @@ public class AffichageTournoiController implements Initializable {
           
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+             stage.setTitle("Statistique terrain");
+        stage.getIcons().add(new Image("/images/stats.png"));
             stage.show();
     }
 

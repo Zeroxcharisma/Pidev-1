@@ -85,17 +85,13 @@ public class AddTournoiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         nbrEquipe.getItems().addAll(4,6,8,10);
         
-//nbrEquipe.getVisibleRowCount()
        
 
         Image img;
-        try {
-            img = new Image(new FileInputStream("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images\\logo.png"));
+            img = new Image("/images/logo.png");
               logoImg.setImage(img);
 
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AddTournoiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
       
          try {
             String requete = "SELECT nom FROM  terrain";
@@ -191,6 +187,8 @@ public class AddTournoiController implements Initializable {
             quatre.terrain = terrain.getValue();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+             stage.setTitle("Selectioner equipes");
+        stage.getIcons().add(new Image("/images/select.png"));
             stage.show();
             Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
             stage1.close();
@@ -210,6 +208,8 @@ public class AddTournoiController implements Initializable {
             quatre.terrain = terrain.getValue();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setTitle("Selectioner equipes");
+        stage.getIcons().add(new Image("/images/select.png"));
             stage.show();
             Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
             stage1.close();
@@ -229,6 +229,8 @@ public class AddTournoiController implements Initializable {
             quatre.terrain = terrain.getValue();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setTitle("Selectioner equipes");
+        stage.getIcons().add(new Image("/images/select.png"));
             stage.show();
             Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
             stage1.close();
@@ -248,6 +250,8 @@ public class AddTournoiController implements Initializable {
             quatre.terrain = terrain.getValue();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setTitle("Selectioner equipes");
+        stage.getIcons().add(new Image("/images/select.png"));
             stage.show();
             Stage stage1 = (Stage) nbrEquipe.getScene().getWindow();
             stage1.close();
@@ -261,7 +265,9 @@ public class AddTournoiController implements Initializable {
     private void aficherCalen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass()
                     .getResource("AffichageTournoi.fxml"));
+       
             Parent root = loader.load();
+            
             nomTournoi.getScene().setRoot(root);
     }
 
@@ -270,9 +276,10 @@ public class AddTournoiController implements Initializable {
          FXMLLoader loader = new FXMLLoader(getClass()
                     .getResource("Statistique.fxml"));
             Parent root = (Parent)loader.load();
-          
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setTitle("Statistique Terrains");
+        stage.getIcons().add(new Image("/images/stats.png"));
             stage.show();
            
     }
