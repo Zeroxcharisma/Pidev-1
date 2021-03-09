@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -28,11 +29,12 @@ public class HomeScreen extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AffichageTournoi.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AddTournoi.fxml"));
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("Gestion Tournoi");
             primaryStage.setScene(scene);
+            primaryStage.getIcons().add(new Image("/images/logo.png"));
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);

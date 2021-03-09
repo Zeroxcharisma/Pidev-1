@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #373737;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.AddResultatController">
+   <children>
+      <ComboBox fx:id="score2" layoutX="330.0" layoutY="234.0" prefWidth="150.0" />
+      <ComboBox fx:id="check" layoutX="349.0" layoutY="148.0" prefWidth="150.0" />
+      <ComboBox fx:id="score1" layoutX="341.0" layoutY="197.0" prefWidth="150.0" />
+      <ComboBox fx:id="check1" layoutX="361.0" layoutY="96.0" prefWidth="150.0" />
+      <DatePicker fx:id="date" layoutX="318.0" layoutY="284.0" />
+      <Button fx:id="btnAdd" layoutX="361.0" layoutY="326.0" mnemonicParsing="false" onAction="#aJOUTERRESULTAT" text="Ajouter" />
+      <Pane layoutX="-2.0" layoutY="99.0" prefHeight="302.0" prefWidth="193.0">
+         <children>
+            <Pane prefHeight="257.0" prefWidth="206.0">
+               <children>
+                  <Button disable="true" layoutX="28.0" layoutY="22.0" mnemonicParsing="false" opacity="0.98" prefHeight="33.0" prefWidth="142.0" style="-fx-background-color: #CE0025;" text="Accueil" />
+                  <Button disable="true" layoutX="28.0" layoutY="79.0" mnemonicParsing="false" opacity="0.98" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #CE0025;" text="Ajouter" />
+                  <Button disable="true" layoutX="28.0" layoutY="129.0" mnemonicParsing="false" opacity="0.98" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #CE0025;" text="Affichage" />
+                  <Button disable="true" layoutX="28.0" layoutY="184.0" mnemonicParsing="false" opacity="0.98" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #CE0025;" text="Statistique" />
+                  <Pane layoutX="182.0" layoutY="-99.0" prefHeight="401.0" prefWidth="11.0" style="-fx-background-color: #CE0025;" />
+                  <ImageView fitHeight="83.0" fitWidth="193.0" layoutX="-1.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="196.0" layoutY="4.0" prefHeight="83.0" prefWidth="418.0" style="-fx-background-color: #373737;">
+         <children>
+            <Label layoutX="157.0" layoutY="51.0" prefHeight="18.0" prefWidth="127.0" style="-fx-background-color: #373737;" text="Ajouter Matche" textFill="RED" />
+            <Button fx:id="a" layoutX="359.0" layoutY="-3.0" mnemonicParsing="false" onAction="#en" text="EN">
+               <graphic>
+                  <ImageView fx:id="icon" fitHeight="18.0" fitWidth="29.0" onMouseClicked="#english" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@201.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="-4.0" layoutY="-4.0" prefHeight="108.0" prefWidth="186.0" style="-fx-background-color: #CE0025;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="428.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="52.0" layoutY="46.0" prefHeight="17.0" prefWidth="134.0" style="-fx-background-color: #CE0025;" text="FootTunisie" />
+         </children>
+      </Pane>
+      <Label layoutX="219.0" layoutY="100.0" prefHeight="17.0" prefWidth="52.0" text="EqUIPE1" textFill="RED" />
+      <Label layoutX="219.0" layoutY="152.0" prefHeight="17.0" prefWidth="52.0" text="Equipe2" textFill="RED" />
+      <Label layoutX="220.0" layoutY="201.0" text="but Equipe1" textFill="RED" />
+      <Label layoutX="206.0" layoutY="242.0" prefHeight="17.0" prefWidth="91.0" text="but rquipe2" textFill="RED" />
+      <Label layoutX="206.0" layoutY="288.0" prefHeight="17.0" prefWidth="91.0" text="Date Match" textFill="RED" />
+   </children>
+</AnchorPane>

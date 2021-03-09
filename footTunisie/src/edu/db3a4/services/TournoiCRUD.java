@@ -9,6 +9,7 @@ import edu.db3a4.entities.Tournoi;
 import edu.db3a4.gui2.AffichageTournoiController;
 import edu.db3a4.interfaces.ITournoi;
 import edu.db3a4.tools.MyConnection;
+import java.io.File;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,16 +30,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class TournoiCRUD implements ITournoi<Tournoi>{
         public ObservableList<Tournoi> observableListLocataire = FXCollections.observableArrayList();
+        String equipes;
+        Integer nbr;
 
 
     @Override
     public void ajouterTournoi(Tournoi t) {
         try {
-        String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi)"
-        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"')";
+             String requete = "INSERT INTO tournoi (nomTournoi,nbr_equipe,dateTournoi,terrainTournoi,image,equipes)"
+        + "VALUES ('"+t.getNomTournoi()+"','"+t.getNbr_equipe()+"','"+t.getDateTournoi()+"','"+t.getTerrainTournoi()+"','"+t.getImage().getName()+"','"+t.getEquipes()+"')";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             st.executeUpdate(requete);
+            System.out.println(t.getImage().getAbsolutePath());
             System.out.println("Tournoi ajoutée");
             
         } catch (SQLException ex) {
@@ -46,20 +50,7 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
         }
     
     }
- public void ajouterImg(Tournoi t) {
-        try {
-            String requete = "INSERT INTO tournoi (image)"
-                    + "VALUES ('"+t.getImage()+"')";
-            Statement st = MyConnection.getInstance().getCnx()
-                    .createStatement();
-            st.executeUpdate(requete);
-            System.out.println("Image ajoutée");
-            
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    
-    }
+ 
         @Override
     public void supprimerTournoi(Integer id) {
         try {
@@ -96,7 +87,7 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                 
-                observableListLocataire.add( new Tournoi(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getDate(4).toLocalDate(),rs.getString(5)));
+                observableListLocataire.add( new Tournoi(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getDate(4).toLocalDate(),rs.getString(5),new File(rs.getString(6)),rs.getString(7)));
             }
             }
          catch (SQLException ex) {
@@ -121,7 +112,8 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
                 p.setNbr_equipe(rs.getInt(3));
                 p.setDateTournoi(rs.getDate(4).toLocalDate());
                 p.setTerrainTournoi(rs.getString(5));
-                p.setImage(rs.getBlob(6));
+                File file = new File(rs.getString(6));
+                p.setImage(file);
                 
             }
         } catch (SQLException ex) {
@@ -129,6 +121,35 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
         }
         return p;
     }
-    
-    
+        @Override
+    public String getEquipes(Integer id){
+     try {
+            String requete = "SELECT equipes FROM tournoi WHERE id = " +id+ ";";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                 equipes = rs.getString("equipes");
+                 
+            }    
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+     return equipes;
+}
+ public Integer getNombre(Integer id){
+     try {
+            String requete = "SELECT nbr_equipe FROM tournoi WHERE id = " +id+ ";";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                 nbr = rs.getInt("nbr_equipe");
+                 
+            }    
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+     return nbr;
+}   
 }

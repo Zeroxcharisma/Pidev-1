@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #39A67f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.SixEquipeController">
+   <children>
+      <ComboBox fx:id="eq1" layoutX="122.0" layoutY="82.0" onAction="#del1" prefWidth="150.0" />
+      <ComboBox fx:id="eq2" layoutX="122.0" layoutY="155.0" onAction="#del2" prefWidth="150.0" />
+      <ComboBox fx:id="eq4" layoutX="122.0" layoutY="226.0" onAction="#del3" prefWidth="150.0" />
+      <Button fx:id="btn" layoutX="320.0" layoutY="353.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="120.0" text="Ajouter" />
+      <Label layoutX="56.0" layoutY="87.0" text="Equipe 1" />
+      <Label layoutX="56.0" layoutY="230.0" text="Equipe 3" />
+      <Label layoutX="56.0" layoutY="159.0" text="Equipe 2" />
+      <ComboBox fx:id="eq11" layoutX="398.0" layoutY="79.0" onAction="#del5" prefWidth="150.0" />
+      <ComboBox fx:id="eq21" layoutX="398.0" layoutY="151.0" onAction="#del6" prefWidth="150.0" />
+      <ComboBox fx:id="eq41" layoutX="398.0" layoutY="222.0" onAction="#del7" prefWidth="150.0" />
+      <Label layoutX="332.0" layoutY="83.0" text="Equipe 4" />
+      <Label layoutX="332.0" layoutY="226.0" text="Equipe 6" />
+      <Label layoutX="332.0" layoutY="155.0" text="Equipe 5" />
+   </children>
+</AnchorPane>

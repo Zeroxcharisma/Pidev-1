@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="813.0" prefWidth="1109.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.db3a4.guiEquipe.EquipeFXMLController">
+   <children>
+      <Button fx:id="btn_ajouter_equipe" layoutX="70.0" layoutY="472.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" text="Ajouter une équipe">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_modifier_equipe" layoutX="314.0" layoutY="472.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" text="Modifier une équipe">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_supprimer_equipe" layoutX="602.0" layoutY="472.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" text="Supprimer une équipe" />
+      <Button fx:id="btn_rechercher_equipe" layoutX="845.0" layoutY="472.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" text="Rechercher une équipe" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="347.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des équipes" wrappingWidth="414.6708984375">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="45.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="387.0" fitWidth="288.0" layoutX="411.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../presentation%20pidev/LOGO-FFF.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
