@@ -6,7 +6,7 @@
 package edu.db3a4.services;
 
 import edu.db3a4.entities.Resultat;
-import edu.db3a4.gui2.DisplayPersonController;
+
 import edu.db3a4.interfaces.IResultat;
 import edu.db3a4.tools.MyConnection;
 import java.sql.PreparedStatement;
@@ -18,8 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Side;
+import javafx.scene.chart.PieChart;
+import javafx.util.Duration;
 
 /**
  *
@@ -27,13 +31,14 @@ import javafx.collections.ObservableList;
  */
 public class ResultatCrud implements IResultat<Resultat> {
     public ObservableList<Resultat> observableListLocataire = FXCollections.observableArrayList();
+    int i=2;
 
 
     @Override
     public void ajouterResultat(Resultat t) {
        try {
-            String requete = "INSERT INTO resultat(equipe_1,equipe_2,score_1,score_2,note,date_matche,gagant)"
-                    + "VALUES ('"+t.getNomequipe1()+"','"+t.getNomequipe2()+"','"+t.getScoreequipe1()+"','"+t.getScoreequipe2()+"','"+t.getNote()+"','"+t.getDate()+"','"+t.getGangant()+"')";
+            String requete = "INSERT INTO resultat(id,equipe_1,equipe_2,score_1,score_2,note,gagant,carton,occaison)"
+                    + "VALUES ('"+t.getId()+"','"+t.getNomequipe1()+"','"+t.getNomequipe2()+"','"+t.getScoreequipe1()+"','"+t.getScoreequipe2()+"','"+t.getNote()+"','"+t.getGangant()+"','"+t.getCarton()+"','"+t.getOccaison()+"')";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             st.executeUpdate(requete);
@@ -59,11 +64,11 @@ public class ResultatCrud implements IResultat<Resultat> {
                     .createStatement();
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
-            observableListLocataire.add( new Resultat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getDate(7).toLocalDate(),rs.getString(8)));
+            observableListLocataire.add( new Resultat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9)));
             }
             }
          catch (SQLException ex) {
-            Logger.getLogger(DisplayPersonController.class.getName()).log(Level.SEVERE, null, ex);
+          
         }
           
           return observableListLocataire;
@@ -104,9 +109,10 @@ public class ResultatCrud implements IResultat<Resultat> {
                p.setScoreequipe1(rs.getInt(4));
                 p.setScoreequipe2(rs.getInt(5));
                 p.setNote(rs.getInt(6));
-                p.setDate(rs.getDate(7).toLocalDate());
-                p.setGangant(rs.getString(8));
-                
+               
+                p.setGangant(rs.getString(7));
+               p.setCarton(rs.getInt(8));
+               p.setOccaison(rs.getInt(9));
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -115,10 +121,10 @@ public class ResultatCrud implements IResultat<Resultat> {
     }
 
     @Override
-    public void updateResultat(Integer id, String e1, String e2, Integer sc1, Integer sc2, LocalDate date) {
+    public void updateResultat(Integer id, String e1, String e2, Integer sc1, Integer sc2) {
      try {
             PreparedStatement pst = MyConnection.getInstance().getCnx()
-                    .prepareStatement("UPDATE resultat SET equipe_1 = '"+e1+"', equipe_2 = '"+e2+"', score_1 = '"+sc1+"', score_2 = '"+sc2+"', date_matche= '"+date+"' WHERE id = '"+id+"'");
+                    .prepareStatement("UPDATE resultat SET equipe_1 = '"+e1+"', equipe_2 = '"+e2+"', score_1 = '"+sc1+"', score_2 = '"+sc2+"' WHERE id = '"+id+"'");
             pst.executeUpdate();
             System.out.println("Resultat modifiée");
         } catch (SQLException ex) {
@@ -126,25 +132,449 @@ public class ResultatCrud implements IResultat<Resultat> {
         }
     }
 
+ 
+
     @Override
-    public ObservableList<Resultat> matchjour(String date) {
-            try {
-            String requete = "SELECT *FROM resultat WHERE equipe_1 = "+ date+ "; ";
+    public ObservableList<Resultat> matchjour() {
+        LocalDate date=LocalDate.now();
+          try {
+            String requete = "SELECT *FROM resultat WHERE date_matche = "+ date+ "; ";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
-            observableListLocataire.add( new Resultat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getDate(7).toLocalDate(),rs.getString(8)));
+            observableListLocataire.add( new Resultat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9)));
             }
             }
          catch (SQLException ex) {
-            Logger.getLogger(DisplayPersonController.class.getName()).log(Level.SEVERE, null, ex);
+          
         }
           
           return observableListLocataire;
-       
     }
 
+    @Override
+    public ObservableList<Resultat> displayPersonss() {
+       try {
+            String requete = "SELECT id,equipe_1,equipe_2,max(score_1) FROM resultat ";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+            observableListLocataire.add( new Resultat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9)));
+            }
+            }
+         catch (SQLException ex) {
+         
+        }
+          
+          return observableListLocataire;
+    }
+
+    @Override
+    public int displayequipe1() {
+    
+       try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='CA'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+      
+    }
+
+    @Override
+    public int displayequipe2() {
+     try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='CAE'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+    }
+
+    @Override
+    public int displayequipe3() {
+     try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='YNA'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+    }
+
+    @Override
+    public int displayequipe4() {
+        try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='MKH'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+    }
+
+    @Override
+    public int displayequipe5() {
+        try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='TZB'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+    }
+
+    @Override
+    public int displayequipe6() {
+       try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='CAP'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+    }
+
+    @Override
+    public int displayequipe7() {
+      try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='boj'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+      
+    }
+
+    @Override
+    public int displayequipe18() {
+        
+try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='NULL'";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+    }
+
+    @Override
+    public int score1() {
+        try {
+            String requete = "SELECT sum(score_1) as num FROM  resultat";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+        
+        
+    }
+
+    @Override
+    public int score1CAE(String a) {
+        try {
+            String requete = "SELECT sum(score_1) as num FROM  resultat  where equipe_1='"+a+"'; ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+        
+    }
+
+    @Override
+    public int score2CAE(String a) {
+              try {
+            String requete = "SELECT sum(score_2) as num FROM  resultat  where equipe_2='"+a+"'; ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+    }
+
+    @Override
+    public int n1CAE(String a) {
+        try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where equipe_1= '"+a+"'; ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+    }
+     
+    
+
+    @Override
+    public int n2CAE(String a) {
+         try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where equipe_2='"+a+"'; ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+    }
+
+    @Override
+    public int winner(String a) {
+        try {
+            String requete = "SELECT COUNT(*) as num FROM  resultat where gagant='"+a+"'; ";
+            
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+                int i = rs.getInt("num");
+                
+                
+                return i;
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ResultatCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+   
+        return i;
+        
+    }
+
+    @Override
+    public int b2e1(String a) {
+         try {
+            String requete = "SELECT sum(score_1) as num FROM  resultat  where equipe_2='"+a+"'; ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+        
+    }
+
+    @Override
+    public int b1e2(String a) {
+         try {
+            String requete = "SELECT sum(score_2) as num FROM  resultat  where equipe_1='"+a+"'; ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               int i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+        
+       
+    }
+      
  
  
  

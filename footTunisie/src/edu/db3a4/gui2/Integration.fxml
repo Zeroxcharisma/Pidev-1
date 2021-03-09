@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.db3a4.gui2.IntegrationController">
+   <children>
+      <Button fx:id="Tournoi" layoutX="175.0" layoutY="77.0" mnemonicParsing="false" onAction="#Tournoi" text="Button" />
+      <Button fx:id="terrain" layoutX="175.0" layoutY="145.0" mnemonicParsing="false" onAction="#terrain" text="Button" />
+   </children>
+</AnchorPane>

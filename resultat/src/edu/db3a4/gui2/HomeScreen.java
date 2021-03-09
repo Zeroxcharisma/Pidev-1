@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -28,10 +29,10 @@ public class HomeScreen extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AddResultat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Statistiqueni.fxml"));
             Scene scene = new Scene(root);
-            
-            primaryStage.setTitle("Hello World!");
+            primaryStage.getIcons().add(new Image("/images/logo.jpg"));
+            primaryStage.setTitle("Foottunisie!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

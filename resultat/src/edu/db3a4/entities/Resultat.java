@@ -24,12 +24,14 @@ public class Resultat {
      private int scoreequipe1;
       private  int scoreequipe2;
       private float note;
+       private  int carton;
+          private  int occaison;
       
-  private  LocalDate date = LocalDate.now();  
+ 
    private String gangant;
       public Resultat () {
     }
-      public Resultat (int id,String nomeequipe1,String nomeequipe2,int scoreequipe1,int scoreequipe2,float note, LocalDate date,String gangant)
+      public Resultat (int id,String nomeequipe1,String nomeequipe2,int scoreequipe1,int scoreequipe2,float note,String gangant,int carton,int occaison)
       {
           this.id=id;
           this.nomequipe1=nomeequipe1;
@@ -37,8 +39,10 @@ public class Resultat {
                   this.scoreequipe1=scoreequipe1;
                   this.scoreequipe2=scoreequipe2;
                   this.note=note;
-                  this.date=date;
+             
                   this.gangant=gangant;
+                  this.carton=carton;
+                  this.occaison=occaison;
                   
       }
 
@@ -74,12 +78,26 @@ public class Resultat {
         return id;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+  
+
+    public void setCarton(int carton) {
+        this.carton = carton;
+    }
+
+    public void setOccaison(int occaison) {
+        this.occaison = occaison;
     }
 
     public String getGangant() {
         return gangant;
+    }
+
+    public int getCarton() {
+        return carton;
+    }
+
+    public int getOccaison() {
+        return occaison;
     }
 
     
@@ -107,9 +125,7 @@ public class Resultat {
         return scoreequipe2;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
+   
 
    
 
@@ -117,7 +133,7 @@ public class Resultat {
       
   
      public String toString() {
-        return ""  + id + "," + nomequipe1 + "," + nomequipe2+ "," + scoreequipe1+"," + scoreequipe2+", note=" + note+"," + date+'}';
+        return ""  + id + "," + nomequipe1 + "," + nomequipe2+ "," + scoreequipe1+"," + scoreequipe2+", note=" + note+'}';
     }
 }
 

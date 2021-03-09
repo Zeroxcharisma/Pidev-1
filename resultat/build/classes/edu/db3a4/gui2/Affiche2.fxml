@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.Affiche2Controller">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="718.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="726.0" style="-fx-background-color: white;">
+               <children>
+                  <TableView fx:id="tr" layoutX="178.0" layoutY="363.0" onMouseClicked="#tabv" onMousePressed="#test" prefHeight="193.0" prefWidth="472.0" style="-fx-background-color: white;">
+                    <columns>
+                      <TableColumn fx:id="cid" prefWidth="41.0" text="ID" />
+                      <TableColumn fx:id="ce1" minWidth="0.0" prefWidth="54.0" text="equipe1" />
+                        <TableColumn fx:id="ce2" minWidth="0.0" prefWidth="64.0" text="equipe2" />
+                        <TableColumn fx:id="cs1" minWidth="0.0" prefWidth="57.0" text="but equipe 1" />
+                        <TableColumn fx:id="cs2" minWidth="0.0" prefWidth="52.0" text="but equipe 2" />
+                        <TableColumn fx:id="note" minWidth="0.0" prefWidth="48.0" text="note" />
+                        <TableColumn fx:id="ga" minWidth="0.0" prefWidth="37.0" text="gagnant" />
+                        <TableColumn fx:id="carton" minWidth="0.0" prefWidth="57.0" text="carton" />
+                        <TableColumn fx:id="occ" minWidth="0.0" prefWidth="26.0" text="occasion" />
+                    </columns>
+                  </TableView>
+                  <Pane layoutX="-60.0" layoutY="-3.0" prefHeight="116.0" prefWidth="786.0" style="-fx-background-color: #39A67f;">
+                     <children>
+                        <Label layoutX="117.0" layoutY="38.0" text="FootTunisie">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="en2" layoutX="701.0" layoutY="-2.0" mnemonicParsing="false" onAction="#englishaff" prefHeight="32.0" prefWidth="75.0" text="EN" />
+                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="660.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@201.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="44.0" fitWidth="46.0" layoutX="73.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Soccer_Ball_icon-icons.com_76265.png" />
+                           </image></ImageView>
+                        <AnchorPane layoutX="225.0" layoutY="69.0" prefHeight="274.0" prefWidth="544.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="23.0" text="Afficher match :" textFill="#39a67f">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tid" alignment="CENTER" layoutX="31.0" layoutY="70.0" promptText="id" />
+                              <TextField fx:id="tb1" alignment="CENTER" layoutX="31.0" layoutY="118.0" promptText="but equipe 1" />
+                              <TextField fx:id="winner" alignment="CENTER" layoutX="31.0" layoutY="164.0" promptText="carton" />
+                              <TextField fx:id="te1" alignment="CENTER" layoutX="199.0" layoutY="70.0" promptText="equipe1" />
+                              <TextField fx:id="tb2" alignment="CENTER" layoutX="199.0" layoutY="118.0" promptText="but equipe 2" />
+                              <TextField fx:id="cartonr" alignment="CENTER" layoutX="199.0" layoutY="164.0" promptText="carton" />
+                              <TextField fx:id="te2" alignment="CENTER" cache="true" layoutX="371.0" layoutY="70.0" promptText="equipe2" />
+                              <TextField fx:id="tnt" alignment="CENTER" layoutX="371.0" layoutY="118.0" promptText="note matche" />
+                              <TextField fx:id="occcc" alignment="CENTER" layoutX="371.0" layoutY="164.0" promptText="occasion" />
+                              <Button fx:id="btnselect11" layoutX="230.0" layoutY="222.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="98.0" text="modifier" textFill="#39a67f" />
+                              <Button fx:id="btnselect1" layoutX="348.0" layoutY="222.0" mnemonicParsing="false" onAction="#delte" prefHeight="32.0" prefWidth="98.0" text="supprimer" textFill="#39a67f" />
+                              <Button fx:id="btnselect" layoutX="469.0" layoutY="222.0" mnemonicParsing="false" onAction="#affiche" prefHeight="32.0" prefWidth="75.0" text="recherche" textFill="#39a67f" />
+                              <BorderPane layoutX="8.0" prefHeight="6.0" prefWidth="531.0" style="-fx-background-color: #39A67f;" />
+                              <BorderPane layoutX="7.0" layoutY="267.0" prefHeight="6.0" prefWidth="531.0" style="-fx-background-color: #39A67f;" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="138.0" layoutY="105.0" prefHeight="465.0" prefWidth="13.0" style="-fx-background-color: #39A67f;" />
+                  <Button layoutX="14.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Accueil" textFill="#39a67f" />
+                  <Button layoutX="14.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonaafiche" prefHeight="25.0" prefWidth="115.0" text="Afficher" textFill="#39a67f" />
+                  <Button layoutX="14.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonajout" prefHeight="25.0" prefWidth="115.0" text="Ajouter" textFill="#39a67f" />
+                  <Button layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonstats" prefHeight="25.0" prefWidth="115.0" text="Statistique" textFill="#39a67f" />
+                  <ImageView fitHeight="141.0" fitWidth="128.0" layoutX="8.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@151633899_107329488066891_8765761299153868074_o.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

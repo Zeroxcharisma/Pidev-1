@@ -7,6 +7,7 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Resultat;
 import edu.db3a4.services.ResultatCrud;
+import edu.db3a4.tests.SmsSender;
 import edu.db3a4.tools.MyConnection;
 
 import java.io.IOException;
@@ -15,10 +16,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,11 +31,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+
 
 
 /**
@@ -53,11 +60,14 @@ public class AddResultatController implements Initializable {
     @FXML
     private ComboBox<Integer> score2;
     @FXML
-    private DatePicker date;
+    private ComboBox<Integer> carton;
     @FXML
-    private ImageView icon;
+    private ComboBox<Integer> occaison;
+    private ComboBox<Integer> checkid;
     @FXML
-    private Button a;
+    private DatePicker pickerd;
+    @FXML
+    private ComboBox<Integer> idd1;
 
 
       
@@ -66,7 +76,7 @@ public class AddResultatController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       
 
          try {
             String requete = "SELECT nom_equipe FROM  equipe";
@@ -75,17 +85,57 @@ public class AddResultatController implements Initializable {
             ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                
-                check.getItems().addAll(rs.getString("nom_equipe"));
+                
                       check1.getItems().addAll(rs.getString("nom_equipe"));
+                      String h=check1.getValue();
+                     check.getItems().addAll(rs.getString("nom_equipe"));
+
+                        
+                         
+                           
+        
+                   
+                      
               
             }
           
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        score1.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
-         score2.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+  
+      
+        score1.getItems().addAll(0,1,2,3,4,5,6,7,8,9,10);
+      
+         score2.getItems().addAll(0,1,2,3,4,5,6,7,8,9,10);
+         
+        carton.getItems().addAll(0,1,2,3,4,5,6,7,8,9,10);
+        occaison.getItems().addAll(0,1,2,3,4,5,6,7,8,9,10);
         
+
+            try {
+            String requete = "SELECT id FROM  evenement";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+               
+                
+                   idd1.getItems().addAll(rs.getInt("id"));
+
+                        
+                         
+                           
+        
+                   
+                      
+              
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+  
+                
         
     }    
         // TODO
@@ -97,12 +147,21 @@ public class AddResultatController implements Initializable {
         Stage primaryStage= new Stage();
           try {
             /// SAUVEGARDE DANS LA BD
+               Integer id = idd1.getValue();
             String resNom1 = check1.getValue();
+           
             String resnom2 = check.getValue();
             Integer resscore1= score1.getValue();
               Integer resscore2= score2.getValue();
-              Integer note=(score2.getValue()* score1.getValue())*2;
+          float a= (float) ((score1.getValue()+ score2.getValue())*0.6);
+          float d= (float) (carton.getValue()*0.1);
+          float b=(float) (occaison.getValue()*0.5);
+          float note=(a+b)-d;
+          
               String S= new String();
+              Integer c= carton.getValue();
+              Integer o=occaison.getValue();
+              
               if(resscore1>resscore2)
               {
                   S=resNom1;
@@ -117,42 +176,38 @@ public class AddResultatController implements Initializable {
                    S="Null";
                }
               
- LocalDate resdate= date.getValue();
-         Resultat r= new Resultat(15,resNom1,resnom2,resscore1,resscore2,note,resdate,S);
+
+         Resultat r= new Resultat(id,resNom1,resnom2,resscore1,resscore2,note,S,c,o);
            ResultatCrud rcr= new ResultatCrud();
+            
+       
            rcr.ajouterResultat(r);
-            JOptionPane.showMessageDialog(null, "Personne ajouté");
-              
+            JOptionPane.showMessageDialog(null, "Resultat ajouté");
+        
+          
+             
             /// SAUVEGARDE DANS LA BD
             
             
             //REDIRECTION
-            FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("AddPerson.fxml"));
-            Parent root = loader.load();
-            
-            DisplayPersonController dpc = loader.getController();
-            Scene scene = new Scene(root);
-            
-            primaryStage.setTitle("Hello World!");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-            
+          
+             Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affiche2.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
         
             } catch (IOException ex) {
-            Logger.getLogger(AddPersonController.class.getName()).log(Level.SEVERE, null, ex);
+         
         }
     }
 
-    @FXML
-    private void english(MouseEvent event) {
-    }
 
-    @FXML
     private void en(ActionEvent event) {
      
        try {
-           Parent exercices_parent = FXMLLoader.load(getClass().getResource("affichage.fxml"));
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Englishaad2.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
            
@@ -166,5 +221,102 @@ public class AddResultatController implements Initializable {
             
         
     }
+
+    @FXML
+    private void changement(ActionEvent event) {
+        String res=check1.getValue();
+        check.getItems().removeAll(res);
+    }
+
+    private void aaaa(ActionEvent event) {
+        /// SAUVEGARDE DANS LA BD
+        Integer id= checkid.getValue();
+        String resNom1 = check1.getValue();
+        String resnom2 = check.getValue();
+        Integer resscore1= score1.getValue();
+        Integer resscore2= score2.getValue();
+        float a= (float) ((score1.getValue()+ score2.getValue())*0.6);
+        float d= (float) (carton.getValue()*0.1);
+        float b=(float) (occaison.getValue()*0.5);
+        float note=(a+b)-d;
+        String S= new String();
+        Integer c= carton.getValue();
+        Integer o=occaison.getValue();
+        if(resscore1>resscore2)
+        {
+            S=resNom1;
+            
+        }
+        if(resscore1<resscore2)
+        {
+            S=resnom2;
+        }
+        if(resscore1==resscore2)
+        {
+            S="Null";
+        }
+        Resultat r= new Resultat(id,resNom1,resnom2,resscore1,resscore2,note,S,c,o);
+        ResultatCrud rcr= new ResultatCrud();
+        rcr.ajouterResultat(r);
+        JOptionPane.showMessageDialog(null, "Resultat ajouté");
+        
+    }
+
+    @FXML
+    private void buttonajout(ActionEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("AddResultat.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+            
+    }
+    
+
+    @FXML
+    private void buttonaffiche(ActionEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affiche2.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+            
+    }
+    
+
+    @FXML
+    private void buttonstats(ActionEvent event) {
+          try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Stats2.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+            
+    }
+    
+  
+
+  
     
 }

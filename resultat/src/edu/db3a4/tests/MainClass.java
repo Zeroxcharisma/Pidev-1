@@ -7,6 +7,7 @@ package edu.db3a4.tests;
 
 import edu.db3a4.entities.Personne;
 import edu.db3a4.services.PersonneCRUD;
+import edu.db3a4.services.ResultatCrud;
 import edu.db3a4.tools.MyConnection;
 import java.time.LocalDate;
 
@@ -21,11 +22,26 @@ public class MainClass {
         MyConnection mc2 = MyConnection.getInstance();
         System.out.println(mc.hashCode()+"--"+mc2.hashCode());
         Personne p = new Personne(2, "Iheb", "Mohamed");
-        PersonneCRUD pcd = new PersonneCRUD();
-        pcd.updatePersonne(p);
-              LocalDate date = LocalDate.now();  
-              System.out.println(date);
-              
-       // System.out.println(pcd.displayPersons());
+       ResultatCrud pcd = new   ResultatCrud();
+       int k=pcd.displayequipe2();
+
+  int d=  pcd.score1CAE("TZB");
+  int e=pcd.score2CAE("TZB");
+  int f=pcd.n1CAE("TZB");
+  int y=pcd.n2CAE("TZB");
+  int l=pcd.winner("TZB");
+      
+          int c=f+y;
+          System.out.println(c);
+         float u=(float)l/c;
+         float ui=u*6;
+              System.out.println(ui);
+         
+       
+                                   
+                            
+                        
+                            
+     
     }
 }

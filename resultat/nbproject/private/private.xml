@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/EnglishaddController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/AddResultatController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/HomeScreen.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/services/ResultatCrud.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/DisplayResultatController.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/tools/MyConnection.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui/HomePage.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/services/PersonneCRUD.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/AddPersonController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/AffichageController.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/interfaces/IResultat.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Documents/NetBeansProjects/test1/src/edu/db3a4/gui2/DisplayPersonController.java</file>
         </group>
     </open-files>
 </project-private>
