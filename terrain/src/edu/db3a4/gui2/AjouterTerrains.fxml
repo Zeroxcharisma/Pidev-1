@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="714.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.AddPersonController">
+   <children>
+      <Button layoutX="20.0" layoutY="259.0" mnemonicParsing="false" onAction="#AfficherT" prefHeight="25.0" prefWidth="142.0" text="Afficher" textFill="#39a67f" />
+      <Button layoutX="20.0" layoutY="315.0" mnemonicParsing="false" onAction="#pc" prefHeight="25.0" prefWidth="142.0" text="Statistique" textFill="#39a67f" />
+      <Button layoutX="20.0" layoutY="369.0" mnemonicParsing="false" onAction="#PaiAjout" prefHeight="25.0" prefWidth="142.0" text="Paiement" textFill="#39a67f" />
+      <Pane prefHeight="116.0" prefWidth="741.0" style="-fx-background-color: #39A67f;">
+         <children>
+            <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="22.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@football.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="38.0" text="FootTunisie">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="328.0" layoutY="75.0" prefHeight="339.0" prefWidth="304.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="15.0" layoutY="14.0" text="Ajout :" textFill="#39a67f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="63.0" prefHeight="17.0" prefWidth="41.0" text="Nom :" textFill="#39a67f" />
+            <TextField fx:id="tfNom" layoutX="107.0" layoutY="59.0" promptText="Nom Terrain" />
+            <Label layoutX="21.0" layoutY="113.0" text="Type :" textFill="#39a67f" />
+            <ComboBox fx:id="tfType" layoutX="107.0" layoutY="109.0" onAction="#dimensionUPD" prefWidth="150.0" promptText="Type Terrain" />
+            <Label layoutX="13.0" layoutY="170.0" prefHeight="25.0" prefWidth="69.0" text="Dimension :" textFill="#39a67f" />
+            <TextField fx:id="tfTaille" editable="false" layoutX="108.0" layoutY="170.0" promptText="Dimensions Terrain" />
+            <Label layoutX="33.0" layoutY="228.0" text="Lieu :" textFill="#39a67f" />
+            <TextField fx:id="tfLieu" layoutX="107.0" layoutY="224.0" promptText="Lieu Terrain" />
+            <Button fx:id="btnAdd" layoutX="68.0" layoutY="294.0" mnemonicParsing="false" onAction="#ajouterPersonne" prefHeight="31.0" prefWidth="125.0" text="Ajouter" textFill="#39a67f" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="182.0" layoutY="116.0" prefHeight="371.0" prefWidth="12.0" style="-fx-background-color: #39A67f;" />
+      <Button layoutX="20.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Accueil" textFill="#39a67f" />
+      <Button layoutX="20.0" layoutY="203.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Ajouter" textFill="#39a67f" />
+      <ImageView fitHeight="101.0" fitWidth="115.0" layoutX="34.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@155382921_941431369936376_798008119060119575_n.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

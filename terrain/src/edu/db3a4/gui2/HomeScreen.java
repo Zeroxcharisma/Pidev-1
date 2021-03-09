@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -31,8 +32,10 @@ public class HomeScreen extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("AffichageTerrains.fxml"));
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("");
             primaryStage.setScene(scene);
+            
+            primaryStage.getIcons().add(new Image("/image/football.png"));
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);

@@ -61,8 +61,9 @@ public class PersonneCRUD implements IPersonne<Personne>{
 
     @Override
     public void supprimerPersonne(Personne t) {
-        try {
-            String requete = "DELETE FROM personne where id=?";
+     
+            try {
+           String requete = "DELETE FROM terrain where id=?";
             PreparedStatement pst = MyConnection.getInstance().getCnx()
                     .prepareStatement(requete);
             pst.setInt(1, t.getId());
