@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.cours.gui.AffichereservationController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane id="AnchorPane" layoutY="-7.0" prefHeight="536.0" prefWidth="798.0">
+               <children>
+                  <TableView fx:id="tr" layoutX="217.0" layoutY="99.0" onMouseClicked="#recherche" onMousePressed="#test" prefHeight="177.0" prefWidth="356.0" style="-fx-background-color: *;">
+                     <columns>
+                        <TableColumn fx:id="cid" prefWidth="38.0" text="ID" />
+                        <TableColumn fx:id="ct" minWidth="0.0" prefWidth="45.0" text="T" />
+                        <TableColumn fx:id="cd" minWidth="0.0" prefWidth="123.0" text="Date" />
+                        <TableColumn fx:id="ctemps" minWidth="0.0" prefWidth="64.0" text="Temps" />
+                        <TableColumn fx:id="cp" minWidth="0.0" prefWidth="79.0" text="Prix(DT)" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="S" layoutX="616.0" layoutY="187.0" mnemonicParsing="false" onAction="#DELET" text="Supprimer" />
+                  <TextField fx:id="aaaa" layoutX="450.0" layoutY="294.0" promptText="Terrain" />
+                  <Button fx:id="S1" layoutX="311.0" layoutY="393.0" mnemonicParsing="false" onAction="#affiche" text="Rechercher par ID" />
+                  <DatePicker fx:id="aaaaa" editable="false" layoutX="211.0" layoutY="343.0" promptText="Date" />
+                  <Button fx:id="S2" layoutX="481.0" layoutY="393.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
+                  <TextField fx:id="c" layoutX="450.0" layoutY="343.0" promptText="Temps" />
+                  <Pane layoutX="-12.0" prefHeight="85.0" prefWidth="814.0" style="-fx-background-color: #39A67f;">
+                     <children>
+                        <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="22.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Soccer_Ball_icon-icons.com_76265.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="67.0" layoutY="38.0" text="FootTunisie">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="128.0" fitWidth="187.0" layoutX="14.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@151633899_107329488066891_8765761299153868074_o.jpg" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="prixnet" editable="false" layoutX="347.0" layoutY="457.0" promptText="Bénéfice Brut" />
+                  <Button layoutX="575.0" layoutY="457.0" mnemonicParsing="false" onAction="#PRIXFINAL" text="Calculuer" />
+                  <Pane layoutX="189.0" layoutY="81.0" prefHeight="457.0" prefWidth="13.0" style="-fx-background-color: #39A67f;" />
+                  <Button layoutX="35.0" layoutY="129.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #39A67f;" text="Accueil" />
+                  <Button layoutX="35.0" layoutY="202.0" mnemonicParsing="false" onAction="#buttonajout" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #39A67f;" text="Ajouter" />
+                  <Button layoutX="35.0" layoutY="269.0" mnemonicParsing="false" onAction="#buttonaafiche" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #39A67f;" text="Afficher" />
+                  <Button layoutX="35.0" layoutY="343.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #39A67f;" text="Button" />
+                  <TextField fx:id="b" layoutX="228.0" layoutY="294.0" promptText="ID" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

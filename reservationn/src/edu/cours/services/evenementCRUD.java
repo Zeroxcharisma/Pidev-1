@@ -26,11 +26,11 @@ import javafx.collections.ObservableList;
   
     
     try {
-             String requete= "INSERT INTO evenement(terrain,idequipe1,idequipe2,date)" +  "VALUES ('"+e.getterrain()+"','"+e.getidequipe1()+"','"+e.getidequipe2()+"','"+e.getDate()+"')";
+             String requete= "INSERT INTO evenement(terrain,date,temps,prix)" +  "VALUES ('"+e.getTerrain()+"','"+e.getDate()+"','"+e.getTemps()+"','"+e.getPrix()+"')";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             st.executeUpdate(requete);
-            System.out.println("resultat ajoutée");
+            System.out.println("reservation ajoutée");
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -63,7 +63,7 @@ import javafx.collections.ObservableList;
                     .createStatement();
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
-           observableListLocataire.add(new evenement(rs.getInt("id"),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5).toLocalDate()));
+           observableListLocataire.add(new evenement(rs.getInt("id"),rs.getString(2),rs.getDate(3).toLocalDate(),rs.getString(4),rs.getString(5)));
             }
             }
          catch (SQLException ex) {
@@ -94,29 +94,125 @@ return observableListLocataire;
             ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                 e.setId(rs.getInt("id"));
-               e.setterrain(rs.getString(2));
-               e.setidequipe1(rs.getString(3));
-               e.setidequipe2(rs.getString(4));
-               e.setDate(rs.getDate(5).toLocalDate());
-                
+               e.setTerrain(rs.getString(2));
+               e.setDate(rs.getDate(3).toLocalDate());
+                e.setTemps(rs.getString(4));
+
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return e;
     }
-        public void updateResultat(Integer id, String e1, String e2, String sc1, LocalDate date) {
+        public void updateResultat(Integer id, String e1,  LocalDate date, String temps) {
      try {
             PreparedStatement pst = MyConnection.getInstance().getCnx()
-                    .prepareStatement("UPDATE evenement  SET terrain = '"+e1+"', idequipe1= '"+e2+"', idequipe2 = '"+sc1+"', date= '"+date+"' WHERE id = '"+id+"'");
+                    .prepareStatement("UPDATE evenement  SET terrain = '"+e1+"', date= '"+date+"', temps= '"+temps+"' WHERE id = '"+id+"'");
             pst.executeUpdate();
             System.out.println("reservation modifiée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
+          public   LocalDate  date() {
+               LocalDate i=  LocalDate.now();
+         try {
+          String requete = "SELECT *FROM evenement ";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               i = rs.getDate(3).toLocalDate();
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return i;
+        
+       
+    }
+           public   String  temps() {
+              String s = null;
+         try {
+          String requete = "SELECT *FROM evenement ";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+ 
+            while(rs.next() ){
+               s = rs.getString(4);
+              
+
+                  return s; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+        return s;
+        
+       
+    }
+    public int b1e2() {
+ int i = 0;
+         try {
+            String requete = "SELECT sum(prix) as num FROM  evenement ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+                i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+           
+        return i;
+        
+       
+    }
+    public int b2e2()
+             {
+ int i = 0;
+         try {
+            String requete = "SELECT count(*) as num FROM  evenement ";
+             
+            
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+ 
+            while(rs.next() ){
+                i = rs.getInt("num");
+              
+
+                  return i; 
+         
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+           
+        return i;
+        
+       
+    }
     
 }
   

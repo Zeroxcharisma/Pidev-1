@@ -14,43 +14,45 @@ import java.time.LocalDate;
 public class evenement {
      private int id;
     private String terrain;
-    private String  idequipe1;
-    private String  idequipe2;
   private  LocalDate date = LocalDate.now();  
+      private String  temps;
+      String prix;
+
     
 
     public evenement() {
     }
 
-    public evenement(int id,  String terrain, String idequipe1, String idequipe2, LocalDate date) {
+    public evenement(int id,  String terrain, LocalDate date,String temps,String prix) {
         this.id = id;
         this.terrain = terrain;
-        this.idequipe1 = idequipe1;
-        this.idequipe2 = idequipe2;
-                  this.date=date;
-        
+        this.date=date;
+          this.temps = temps;
+        this.prix=prix;
     }
 
-    public evenement(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public evenement(int aInt) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     public int getId() {
         return id;
     }
 
-    public String getterrain() {
+    public String getTerrain() {
         return terrain;
     }
 
-    public String getidequipe1() {
-        return idequipe1;
+    public String getTemps() {
+        return temps;
     }
-    public String getidequipe2() {
-        return idequipe2;
-    }
+  
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public String getPrix() {
+        return prix;
     }
 
    
@@ -61,17 +63,20 @@ public class evenement {
         this.id = id;
     }
 
-    public void setterrain(String terrain) {
+    public void setTerrain(String terrain) {
         this.terrain = terrain;
     }
 
-    public void setidequipe1(String idequipe1) {
-        this.idequipe1 = idequipe1;
+    public void setPrix(String prix) {
+        this.prix = prix;
+    }
+    
+
+    public void setTemps(String temps) {
+        this.temps = temps;
     }
 
-    public void setidequipe2(String idequipe2) {
-        this.idequipe2 = idequipe2;
-    }
+  
 
     public void setDate(LocalDate date) {
         this.date = date;
@@ -79,10 +84,9 @@ public class evenement {
      @Override
     public String toString() {
         
-        //return ""  + id + "," + terrain + "," + idequipe1 + "," + idequipe2+"," + date+'}';
-        //return ""  + id + "," + terrain + "," + idequipe1+"," + date+'}'; 
+       
         
-        return "evenement{" + "id=" + id + ", terrain=" + terrain + ", idequipe1=" + idequipe1 + ",idequipe2 =" + idequipe2 +  ",date=" + date +   '}';
+        return "evenement{" + "id=" + id + ", terrain=" + terrain +  ",date=" + date +", temps=" + temps +   '}';
     }
 
     }
