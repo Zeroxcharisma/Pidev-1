@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="729.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.AffichageTerrainsController">
+    <stylesheets>
+        <URL value="@affichageterrains.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="affichage" layoutX="297.0" layoutY="292.0" onMouseClicked="#tabAffiche" prefHeight="186.0" prefWidth="335.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="55.0" text="ID" />
+          <TableColumn fx:id="rNom" prefWidth="66.0" text="Nom" />
+            <TableColumn fx:id="rType" prefWidth="70.0" text="Type" />
+            <TableColumn fx:id="rTaille" prefWidth="67.0" text="Taille" />
+            <TableColumn fx:id="rLieu" minWidth="2.0" prefWidth="76.0" text="Lieu" />
+        </columns>
+      </TableView>
+      <Button layoutX="29.0" layoutY="257.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Affichage" textFill="#39a67f" />
+      <Button layoutX="29.0" layoutY="316.0" mnemonicParsing="false" onAction="#StatT" prefHeight="25.0" prefWidth="135.0" text="Statistque" textFill="#39a67f" />
+      <Pane layoutX="-2.0" prefHeight="116.0" prefWidth="737.0" style="-fx-background-color: #39A67f;">
+         <children>
+            <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="22.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@football.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="38.0" text="FootTunisie">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="221.0" layoutY="69.0" prefHeight="200.0" prefWidth="502.0" style="-fx-background-color: white;">
+               <children>
+                  <TextField fx:id="id1" alignment="CENTER" layoutX="15.0" layoutY="60.0" promptText="ID" />
+                  <ComboBox fx:id="type1" layoutX="15.0" layoutY="101.0" onAction="#DimensionUPD" prefWidth="150.0" promptText="Type  Terrain" />
+                  <TextField fx:id="lieu1" alignment="CENTER" layoutX="15.0" layoutY="143.0" promptText="Lieu Terrain" />
+                  <TextField fx:id="nom1" alignment="CENTER" layoutX="184.0" layoutY="60.0" promptText="Nom Terrain" />
+                  <TextField fx:id="taille1" editable="false" layoutX="184.0" layoutY="101.0" promptText="Dimensions" />
+                  <Button fx:id="Supp1" layoutX="186.0" layoutY="143.0" mnemonicParsing="false" onAction="#SupprimerID" text="Supprimer" textFill="#39a67f" />
+                  <Button fx:id="Rech1" layoutX="275.0" layoutY="143.0" mnemonicParsing="false" onAction="#RechercherID" text="Rechercher" textFill="#39a67f" />
+                  <TextField fx:id="Sur1" editable="false" layoutX="375.0" layoutY="60.0" prefHeight="25.0" prefWidth="115.0" promptText="Surface du Terrain" />
+                  <Button fx:id="calcul" layoutX="396.0" layoutY="101.0" mnemonicParsing="false" onAction="#calculS" text="Calcul surface" textFill="#39a67f" />
+                  <Button fx:id="Rech11" layoutX="360.0" layoutY="143.0" mnemonicParsing="false" onAction="#Modifer" prefHeight="25.0" prefWidth="72.0" text="Modifer" textFill="#39a67f" />
+                  <Label layoutX="15.0" layoutY="14.0" text="Affichage :" textFill="#39a67f">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+      <Pane layoutX="177.0" layoutY="107.0" prefHeight="371.0" prefWidth="17.0" style="-fx-background-color: #39A67f;" />
+      <ImageView fitHeight="88.0" fitWidth="87.0" layoutX="53.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@155382921_941431369936376_798008119060119575_n.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="29.0" layoutY="202.0" mnemonicParsing="false" onAction="#AjouterT" prefHeight="25.0" prefWidth="135.0" text="Ajouter" textFill="#39a67f" />
+      <Button layoutX="29.0" layoutY="373.0" mnemonicParsing="false" onAction="#PaieT" prefHeight="25.0" prefWidth="135.0" text="Paiement" textFill="#39a67f" />
+      <Button fx:id="acceuil" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" onAction="#acceuil" prefHeight="25.0" prefWidth="135.0" text="Accueil" textFill="#39a67f" />
+   </children>
+</AnchorPane>
