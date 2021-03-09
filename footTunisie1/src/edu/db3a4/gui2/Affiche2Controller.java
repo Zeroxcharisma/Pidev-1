@@ -145,7 +145,7 @@ public class Affiche2Controller implements Initializable {
   
    tnt.setText(String.valueOf(pcd.rechercherres(id1).getNote()));
  
-        
+        winner.setText(pcd.rechercherres(id1).getGangant());
  
  cartonr.setText(String.valueOf(pcd.rechercherres(id1).getCarton()));
   occcc.setText(String.valueOf(pcd.rechercherres(id1).getOccaison()));

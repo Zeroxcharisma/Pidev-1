@@ -38,31 +38,19 @@ import javafx.stage.Stage;
 public class Stats2Controller implements Initializable {
 
     @FXML
-    private TableView<?> tr;
-    @FXML
-    private TableColumn<?, ?> cid;
-    @FXML
-    private TableColumn<?, ?> ce1;
-    @FXML
-    private TableColumn<?, ?> ce2;
-    @FXML
-    private TableColumn<?, ?> cs1;
-    @FXML
-    private TableColumn<?, ?> cs2;
-    @FXML
-    private TableColumn<?, ?> note;
-    @FXML
-    private TableColumn<?, ?> ga;
-    @FXML
-    private TableColumn<?, ?> carton;
-    @FXML
-    private TableColumn<?, ?> occ;
-    @FXML
     private Button en2;
     @FXML
     private TextField noteequipe;
     @FXML
     private ComboBox<String> equipe;
+    @FXML
+    private TextField m;
+    @FXML
+    private TextField bm;
+    @FXML
+    private TextField be;
+    @FXML
+    private TextField g;
 
     /**
      * Initializes the controller class.
@@ -94,13 +82,6 @@ public class Stats2Controller implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void tabv(MouseEvent event) {
-    }
-
-    @FXML
-    private void test(MouseEvent event) {
-    }
 
     @FXML
     private void englishaff(ActionEvent event) {
@@ -126,8 +107,15 @@ public class Stats2Controller implements Initializable {
               float ui=r*6;
               float kl=ui+p;
               float notefinal=(float)kl/q;
-              
+              if(notefinal>10)
+              {
+                  notefinal=10;
+              }
     noteequipe.setText(String.valueOf(notefinal));
+    m.setText(String.valueOf(x));
+    bm.setText(String.valueOf(p));
+    be.setText(String.valueOf(n));
+    g.setText (String.valueOf(f));
     }
 
     @FXML

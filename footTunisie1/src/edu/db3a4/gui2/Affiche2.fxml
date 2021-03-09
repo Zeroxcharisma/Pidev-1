@@ -57,7 +57,7 @@
                               </Label>
                               <TextField fx:id="tid" alignment="CENTER" layoutX="31.0" layoutY="70.0" promptText="id" />
                               <TextField fx:id="tb1" alignment="CENTER" layoutX="31.0" layoutY="118.0" promptText="but equipe 1" />
-                              <TextField fx:id="winner" alignment="CENTER" layoutX="31.0" layoutY="164.0" promptText="carton" />
+                              <TextField fx:id="winner" alignment="CENTER" layoutX="31.0" layoutY="164.0" promptText="winner" />
                               <TextField fx:id="te1" alignment="CENTER" layoutX="199.0" layoutY="70.0" promptText="equipe1" />
                               <TextField fx:id="tb2" alignment="CENTER" layoutX="199.0" layoutY="118.0" promptText="but equipe 2" />
                               <TextField fx:id="cartonr" alignment="CENTER" layoutX="199.0" layoutY="164.0" promptText="carton" />
@@ -74,10 +74,10 @@
                      </children>
                   </Pane>
                   <Pane layoutX="138.0" layoutY="105.0" prefHeight="465.0" prefWidth="13.0" style="-fx-background-color: #39A67f;" />
-                  <Button fx:id="acceuil" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#acceuil" prefHeight="25.0" prefWidth="115.0" text="Accueil" textFill="#39a67f" />
-                  <Button layoutX="14.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonaafiche" prefHeight="25.0" prefWidth="115.0" text="Afficher" textFill="#39a67f" />
-                  <Button layoutX="14.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonajout" prefHeight="25.0" prefWidth="115.0" text="Ajouter" textFill="#39a67f" />
-                  <Button layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonstats" prefHeight="25.0" prefWidth="115.0" text="Statistique" textFill="#39a67f" />
+                  <Button fx:id="acceuil" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#acceuil" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Accueil" />
+                  <Button layoutX="14.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonaafiche" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Afficher" />
+                  <Button layoutX="14.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonajout" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Ajouter" />
+                  <Button layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonstats" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Statistique" />
                   <ImageView fitHeight="141.0" fitWidth="128.0" layoutX="8.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@151633899_107329488066891_8765761299153868074_o.jpg" />

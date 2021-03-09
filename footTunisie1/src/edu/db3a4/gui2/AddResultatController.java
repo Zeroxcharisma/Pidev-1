@@ -159,7 +159,10 @@ public class AddResultatController implements Initializable {
           float d= (float) (carton.getValue()*0.1);
           float b=(float) (occaison.getValue()*0.5);
           float note=(a+b)-d;
-          
+          if(note>10)
+          {
+           note=10;   
+          }
               String S= new String();
               Integer c= carton.getValue();
               Integer o=occaison.getValue();
