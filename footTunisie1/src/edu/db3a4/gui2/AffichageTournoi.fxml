@@ -21,7 +21,7 @@
             <URL value="@affichageterrains.css" />
          </stylesheets>
          <children>
-            <ImageView fx:id="logoImg" fitHeight="116.0" fitWidth="149.0" layoutX="22.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="logoImg" fitHeight="104.0" fitWidth="135.0" layoutX="25.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <Pane layoutX="187.0" layoutY="134.0" prefHeight="354.0" prefWidth="553.0" style="-fx-background-color: white;">

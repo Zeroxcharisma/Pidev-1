@@ -3,42 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AddTournoiController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/statistiqueni.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/IntegrationController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/englishdisplay.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/StatistiqueController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/SondageController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/interfaces/IPersonne.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AddPersonController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AffichageTournoiController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/entities/Resultat.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/Stats2Controller.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/services/PersonneCRUD.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/Affiche2.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/calcul.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/tests/SmsSender1.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/Statistique_1.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/HomeScreen.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/CalculController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/StatistiqueniController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/StatistiqueController_1.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/StatsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/sondage.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AffichageTerrains.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/tests/SmsSender11.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AjouterTerrains.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/test.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AddResultatController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/entities/Personne.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/stats.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/stats2.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/services/ResultatCrud.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/interfaces/IResultat.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/AffichageTerrainsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/affichageneglish.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/Sondage.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/footTunisie/src/edu/db3a4/gui2/Affiche2Controller.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/IntegrationController.java</file>
         </group>
     </open-files>
 </project-private>

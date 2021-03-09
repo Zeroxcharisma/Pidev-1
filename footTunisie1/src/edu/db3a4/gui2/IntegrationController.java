@@ -33,6 +33,14 @@ public class IntegrationController implements Initializable {
     private Button terrain;
     @FXML
     private Button resultat;
+    @FXML
+    private Button equipe;
+    @FXML
+    private Button paris;
+    @FXML
+    private Button reservation;
+    @FXML
+    private Button resultat2;
 
     /**
      * Initializes the controller class.
@@ -48,7 +56,7 @@ public class IntegrationController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("AddTournoi.fxml"));
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
-            primaryStage.setTitle("Gestion Tournoi");
+            primaryStage.setTitle("Gestion Tournois");
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image("/images/logo.png"));
             primaryStage.show();
@@ -65,7 +73,7 @@ public class IntegrationController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("AjouterTerrains.fxml"));
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
-            primaryStage.setTitle("Gestion Tournoi");
+            primaryStage.setTitle("Gestion Terrains");
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image("/images/logo.png"));
             primaryStage.show();
@@ -82,7 +90,7 @@ public class IntegrationController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("AddResultat.fxml"));
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
-            primaryStage.setTitle("Gestion Tournoi");
+            primaryStage.setTitle("Gestion Resultats");
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image("/images/logo.png"));
             primaryStage.show();
@@ -91,6 +99,22 @@ public class IntegrationController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void equipe(ActionEvent event) {
+    }
+
+    @FXML
+    private void paris(ActionEvent event) {
+    }
+
+    @FXML
+    private void reservation(ActionEvent event) {
+    }
+
+    @FXML
+    private void resultat2(ActionEvent event) {
     }
     
 }
