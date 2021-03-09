@@ -29,12 +29,12 @@ public class HomeScreen extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("addTournoi.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AddTournoi.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Gestion Tournoi");
             primaryStage.setScene(scene);
-            primaryStage.getIcons().add(new Image("/images/tournoi.png"));
+            primaryStage.getIcons().add(new Image("/images/logo.png"));
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);

@@ -9,6 +9,7 @@ import com.mysql.jdbc.Blob;
 import edu.db3a4.entities.Tournoi;
 import edu.db3a4.services.TournoiCRUD;
 import edu.db3a4.tools.MyConnection;
+import edu.db3a4.tests.SmsSender;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -125,7 +126,8 @@ public class AddTournoiController implements Initializable {
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.ajouterTournoi(p);
             JOptionPane.showMessageDialog(null, "Tournoi ajouté");
-            
+//            SmsSender s = new SmsSender();
+//            s.send("Welcome to FootTunisie : Tournoi "+nomT+" ajouté pour le "+dateT+" à " +nomTerrain ,"b");
     }
 
     private File addImg() {

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.HuitEquipeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #39A67f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.HuitEquipeController">
    <children>
       <ComboBox fx:id="eq1" layoutX="112.0" layoutY="73.0" onAction="#del1" prefWidth="150.0" />
       <ComboBox fx:id="eq2" layoutX="112.0" layoutY="145.0" onAction="#del2" prefWidth="150.0" />
