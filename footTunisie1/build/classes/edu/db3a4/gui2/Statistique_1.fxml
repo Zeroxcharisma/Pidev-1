@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="685.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.StatistiqueController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="685.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.StatistiqueController_1">
    <children>
       <BarChart fx:id="dt" prefHeight="405.0" prefWidth="393.0" style="-fx-background-color: white;" title="diagramme à bâtons">
         <xAxis>

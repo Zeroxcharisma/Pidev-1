@@ -182,6 +182,23 @@ public class Stats2Controller implements Initializable {
            Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
+
+    @FXML
+    private void acceuil(ActionEvent event) {
+          try {
+            Parent root = FXMLLoader.load(getClass().getResource("Integration.fxml"));
+            Scene scene = new Scene(root);
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("acceuil");
+            primaryStage.setScene(scene);
+            primaryStage.getIcons().add(new javafx.scene.image.Image("/images/logo.png"));
+            primaryStage.show();
+            Stage stage1 = (Stage) m.getScene().getWindow();
+            stage1.close();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     }
     
 

@@ -39,7 +39,7 @@
                            </children>
                         </Pane>
                         <Pane layoutX="167.0" layoutY="111.0" prefHeight="465.0" prefWidth="17.0" style="-fx-background-color: #39A67f;" />
-                        <Button layoutX="27.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Accueil" />
+                        <Button layoutX="27.0" layoutY="142.0" mnemonicParsing="false" onAction="#acceuil" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Accueil" />
                         <Button layoutX="32.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonaffiche" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Afficher" />
                         <Button layoutX="27.0" layoutY="209.0" mnemonicParsing="false" onAction="#buttonajout" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Ajouter" />
                         <Button layoutX="32.0" layoutY="349.0" mnemonicParsing="false" onAction="#buttonstats" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #39A67f;" text="Statistique" />
