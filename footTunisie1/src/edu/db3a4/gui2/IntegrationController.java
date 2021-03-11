@@ -111,6 +111,19 @@ public class IntegrationController implements Initializable {
 
     @FXML
     private void reservation(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("Ajouterservatiob.fxml"));
+            Scene scene = new Scene(root);
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("Gestion Reservation");
+            primaryStage.setScene(scene);
+            primaryStage.getIcons().add(new Image("/images/logo.png"));
+            primaryStage.show();
+            Stage stage1 = (Stage) Tournoi.getScene().getWindow();
+            stage1.close();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
