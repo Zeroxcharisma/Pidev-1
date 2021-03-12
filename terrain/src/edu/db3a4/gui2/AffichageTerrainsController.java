@@ -8,6 +8,7 @@ package edu.db3a4.gui2;
 import edu.db3a4.entities.Personne;
 import edu.db3a4.services.PersonneCRUD;
 import edu.db3a4.tools.MyConnection;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
@@ -35,6 +36,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -116,7 +118,7 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
                nom1.setText(rs.getString(2));
                type1.setValue(rs.getString(3));
                taille1.setText(rs.getString(4));
-                              lieu1.setText(rs.getString(5));
+               lieu1.setText(rs.getString(5));
     
             }
           
@@ -131,10 +133,6 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
 
     @FXML
     private void SupprimerID(ActionEvent event) throws IOException {
-        
-       
-      
-           
            
                       JOptionPane jop = new JOptionPane();
     int option = jop.showConfirmDialog(null, "Voulez-vous vraiment supprimer le terrain?", "Supression", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
@@ -265,6 +263,26 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
              stage.setTitle("Calcul Paiement");
             stage.show();
     }
+
+    @FXML
+    private void threezerosix(ActionEvent event) throws IOException {
+        
+        View s = new View();
+        String[] args = {};
+        s.main(args);
+
+    }
+
+    
+    private void showNewFrame() {
+    
+    JFrame frame = new JFrame("Search Window" );
+    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    frame.setSize( 500,120 );
+    frame.setLocationRelativeTo( null );
+    frame.setVisible( true );   
+
+}
 
 }
 

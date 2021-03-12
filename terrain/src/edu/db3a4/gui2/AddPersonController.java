@@ -67,13 +67,11 @@ public class AddPersonController implements Initializable {
             String resLieu = tfLieu.getText();
             Personne p = new Personne(14, resNom, resType, resTaille, resLieu);
             PersonneCRUD pcd = new PersonneCRUD();
-            //SmsSender S=new  SmsSender();
-            //S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom +"Lieu : "+resLieu,"b");
             pcd.ajouterPersonne(p);
             JOptionPane.showMessageDialog(null, "Terrain ajouté");
-            
-                    
-            
+   
+            SmsSender S=new  SmsSender();
+            S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom + " | "+"Lieu : "+resLieu,"b");
      
                    
             //notif

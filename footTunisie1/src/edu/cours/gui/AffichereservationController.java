@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.db3a4.gui2;
+package edu.cours.gui;
 
+import edu.db3a4.services.PersonneCRUD;
 import edu.db3a4.entities.evenement;
+import edu.db3a4.gui2.AjouterservatiobController;
 import edu.db3a4.services.evenementCRUD;
 import edu.db3a4.tools.MyConnection;
 import java.io.IOException;
@@ -42,27 +44,43 @@ import javax.swing.JOptionPane;
  *
  * @author chahine
  */
-public class AjouterservatiobController implements Initializable {
+public class AffichereservationController implements Initializable {
 
-      @FXML
-    private DatePicker date;
+
     @FXML
-    private Button btnAdd;
-    private ComboBox<String> check1;
-    private ComboBox<String> check;
+    private TableView<evenement> tr;
     @FXML
-    private ComboBox<String> terrain;
+    private TableColumn<evenement,Integer> cid;
     @FXML
-    private ComboBox<String> temps;
-   
+    private TableColumn<evenement,String> ct;
+        @FXML
+    private TableColumn<evenement,String> cp;
+     @FXML
+    private TableColumn<evenement,String> ctemps;
+    @FXML
+    private TableColumn<evenement,LocalDate> cd;
+     public ObservableList<evenement> observableListLocataire = FXCollections.observableArrayList();
+    @FXML
+    private Button S;
   
+    @FXML
     private TextField aaaa;
+    @FXML
     private DatePicker aaaaa;
+    @FXML
+    private Button S1;
+    @FXML
     private TextField b;
+    @FXML
+    private Button S2;
   
+    @FXML
     private TextField c;
     @FXML
-    private TextField txtprix;
+    private TextField prixnet;
+    @FXML
+    private ComboBox<String> ii;
+
 
 
     /**
@@ -75,35 +93,14 @@ public class AjouterservatiobController implements Initializable {
                                  
                       
                                                                              
-        
-        // TODO
-        
-    
            try {
-            String requete = "SELECT nom FROM  terrain";
+            String requete = "SELECT id FROM evenement ";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                
-                terrain.getItems().addAll(rs.getString("nom"));
-
-            }
-          
-        } 
-        
-        catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-            try {
-            String requete = "SELECT temps FROM  temps";
-            Statement st = MyConnection.getInstance().getCnx()
-                    .createStatement();
-            ResultSet rs =  st.executeQuery(requete);
-            while(rs.next()){
-               
-                temps.getItems().addAll(rs.getString("temps"));
+                ii.getItems().addAll(rs.getString("id"));
 
             }
           
@@ -142,7 +139,29 @@ public class AjouterservatiobController implements Initializable {
         
         
         
-        
+          try {
+            String requete = "SELECT *FROM evenement ";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+           observableListLocataire.add(new evenement(rs.getInt("id"),rs.getString(2),rs.getDate(3).toLocalDate(),rs.getString(4),rs.getString(5)));
+            }
+            }
+         catch (SQLException ex) {
+         }
+          
+          
+          
+          
+          
+          cid.setCellValueFactory(new PropertyValueFactory<evenement,Integer>("id"));
+                                ct.setCellValueFactory(new PropertyValueFactory<evenement,String>("terrain"));
+                                      cd.setCellValueFactory(new PropertyValueFactory<evenement,LocalDate>("date"));
+                                                            ctemps.setCellValueFactory(new PropertyValueFactory<evenement,String>("temps"));
+                                                              cp.setCellValueFactory(new PropertyValueFactory<evenement,String>("prix"));
+
+                                      tr.setItems((observableListLocataire));
         
         
         
@@ -169,47 +188,30 @@ public class AjouterservatiobController implements Initializable {
                 
     }    
 
-    @FXML
     private void ajout(ActionEvent event) {
-          try {
-              String Terrain=terrain.getValue();
-              String Temps=temps.getValue();
-              LocalDate resdate= date.getValue();
-              String p= txtprix.getText();
-              evenement e = new evenement(22,Terrain,resdate,Temps,p);
-              
-              evenementCRUD pcd= new   evenementCRUD();
-              LocalDate d= pcd.date();
-              String s=pcd.temps();
-              if(!d.isEqual(resdate)||(!s.equals(Temps)))
-              {
-                  pcd.addEvenement(e);
-                  JOptionPane.showMessageDialog(null, "Reservation ajouté");
-                  
-              }
-              
-              if(d.isEqual(resdate)&&(s.equals(temps)))
-              {
-                  JOptionPane.showMessageDialog(null, "Reservation refuse");
-              }
-              Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affichereservation.fxml"));
-              Scene ex_section_scene = new Scene(exercices_parent);
-              Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
-              
-              second_stage.setScene(ex_section_scene);
-              second_stage.show();
-          } catch (IOException ex) {
-              Logger.getLogger(AjouterservatiobController.class.getName()).log(Level.SEVERE, null, ex);
-          }
+
            
          
        
     }
 
+    @FXML
+    private void test(MouseEvent event) {
+        
+    }
 
+    @FXML
+    private void DELET(ActionEvent event) {
+        evenement e= tr.getSelectionModel().getSelectedItem();
+          
+  evenementCRUD pcd= new   evenementCRUD();
+           pcd.supprimerResultat(e);
+           tr.setItems((ObservableList<evenement>) pcd.displaye());
+    }
 
+    @FXML
     private void affiche(ActionEvent event) {
-           String id = b.getText();
+           String id = ii.getValue();
         Integer id1 = Integer.parseInt(id);
         
           evenementCRUD pcd= new   evenementCRUD();
@@ -218,35 +220,62 @@ public class AjouterservatiobController implements Initializable {
 
    aaaaa.setValue((pcd.rechercherres(id1).getDate()));
                 c.setText(pcd.rechercherres(id1).getTemps());
-
+                int a=pcd.b1e2();
+                int b=pcd.b2e2();
+                int c=b*16;
+              int  prixfinal=a-c;
+                
 
     }
-
 
     @FXML
+    private void modifier(ActionEvent event) {
+         String id = b.getText();
+         Integer id1 = Integer.parseInt(id);
+         String nbr_Equipe =aaaa .getText(); 
+         LocalDate dateT = aaaaa.getValue();
+         String temps = c.getText();
+         
+         
+
+           evenementCRUD pcd= new   evenementCRUD();
+          pcd.updateResultat(id1,nbr_Equipe,dateT,temps);
+            tr.setItems((ObservableList<evenement>) pcd.displaye());
+    }
+
     private void prixcalcule(ActionEvent event) {
-        String s=terrain.getValue();
-        if(s.equals("T1"))
-        {
-            txtprix.setText("70");
-    }
-          if(s.equals("T2"))
-        {
-            txtprix.setText("90");
-    }
-              if(s.equals("T3"))
-        {
-            txtprix.setText("120");
-    }
+      
           
     }
 
+    @FXML
     private void recherche(MouseEvent event) {
-     
+        evenement e=tr.getSelectionModel().getSelectedItem();
+         aaaaa.setValue(e.getDate());
+         aaaa.setText(e.getTerrain());
+         b.setText(String.valueOf(e.getId()));
+  c.setText(e.getTemps());
     }
-@FXML
+
+    @FXML
+    private void PRIXFINAL(ActionEvent event) {
+           evenementCRUD pcd= new   evenementCRUD();
+
+
+
+ 
+                int a=pcd.b1e2();
+                int b=pcd.b2e2();
+                int c=b*16;
+              int  prixfinal=a-c;
+                
+prixnet.setText(String.valueOf(prixfinal));
+        
+    }
+
+    @FXML
     private void buttonajout(ActionEvent event) {
-         try {
+          try {
            Parent exercices_parent = FXMLLoader.load(getClass().getResource("Ajouterservatiob.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -261,11 +290,10 @@ public class AjouterservatiobController implements Initializable {
             
     }
     
-
-    @FXML
-    private void buttonaffiche(ActionEvent event) {
-         try {
-           Parent exercices_parent = FXMLLoader.load(getClass().getResource("affichereservation.fxml"));
+        @FXML
+    private void buttonaafiche(ActionEvent event) {
+          try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affichereservation.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
            
@@ -278,22 +306,4 @@ public class AjouterservatiobController implements Initializable {
        }
             
     }
-      @FXML
-      private void acceuil(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("Integration.fxml"));
-            Scene scene = new Scene(root);
-            Stage primaryStage = new Stage();
-            primaryStage.setTitle("acceuil");
-            primaryStage.setScene(scene);
-            primaryStage.getIcons().add(new javafx.scene.image.Image("/images/logo.png"));
-            primaryStage.show();
-            Stage stage1 = (Stage) txtprix.getScene().getWindow();
-            stage1.close();
-        } catch (IOException ex) {
-            Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    
 }
