@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
  * 
  * @author Leonardo Ono (ono.leo@gmail.com)
  */
-public class View extends Canvas implements MouseMotionListener {
+public class ViewS extends Canvas implements MouseMotionListener {
 
     private BufferedImage sphereImage;
     private final BufferedImage offscreenImage;
@@ -43,9 +43,9 @@ public class View extends Canvas implements MouseMotionListener {
     private int mouseX, mouseY;
     private BufferStrategy bs;
 
-    public View() {
+    public ViewS() {
         try {
-            BufferedImage sphereTmpImage = ImageIO.read(getClass().getResourceAsStream("/res/gazon.jpg"));
+            BufferedImage sphereTmpImage = ImageIO.read(getClass().getResourceAsStream("/res/sable.jpg"));
             sphereImage = new BufferedImage(sphereTmpImage.getWidth(), sphereTmpImage.getHeight(), BufferedImage.TYPE_INT_RGB);
             sphereImage.getGraphics().drawImage(sphereTmpImage, 0, 0, null);
             sphereImageBuffer = ((DataBufferInt) sphereImage.getRaster().getDataBuffer()).getData();
@@ -161,7 +161,7 @@ public class View extends Canvas implements MouseMotionListener {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                View view = new View();
+                ViewS view = new ViewS(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 JFrame frame = new JFrame();
                 frame.setTitle("Terrain en 360");
                 frame.setSize(800, 600);

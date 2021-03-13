@@ -1,4 +1,4 @@
-package view;
+package edu.db3a4.gui2;
 
 import java.awt.Canvas;
 import java.awt.Graphics2D;
@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
  * 
  * @author Leonardo Ono (ono.leo@gmail.com)
  */
-public class View extends Canvas implements MouseMotionListener {
+public class ViewT extends Canvas implements MouseMotionListener {
 
     private BufferedImage sphereImage;
     private final BufferedImage offscreenImage;
@@ -43,9 +43,9 @@ public class View extends Canvas implements MouseMotionListener {
     private int mouseX, mouseY;
     private BufferStrategy bs;
 
-    public View() {
+    public ViewT() {
         try {
-            BufferedImage sphereTmpImage = ImageIO.read(getClass().getResourceAsStream("/res/park.jpg"));
+            BufferedImage sphereTmpImage = ImageIO.read(getClass().getResourceAsStream("/res/salle.jpg"));
             sphereImage = new BufferedImage(sphereTmpImage.getWidth(), sphereTmpImage.getHeight(), BufferedImage.TYPE_INT_RGB);
             sphereImage.getGraphics().drawImage(sphereTmpImage, 0, 0, null);
             sphereImageBuffer = ((DataBufferInt) sphereImage.getRaster().getDataBuffer()).getData();
@@ -161,11 +161,11 @@ public class View extends Canvas implements MouseMotionListener {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                View view = new View();
+                ViewT view = new ViewT(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 JFrame frame = new JFrame();
-                frame.setTitle("Java 360 Sphere Image Viewer");
+                frame.setTitle("Terrain en 360");
                 frame.setSize(800, 600);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.setLocationRelativeTo(null);
                 frame.getContentPane().add(view);
                 frame.setResizable(false);
@@ -175,5 +175,7 @@ public class View extends Canvas implements MouseMotionListener {
             }
         });
     }    
+
+
     
 }
