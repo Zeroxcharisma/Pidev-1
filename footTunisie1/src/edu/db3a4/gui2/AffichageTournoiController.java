@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -230,7 +231,7 @@ public class AffichageTournoiController implements Initializable {
             image.setImage(img);
             TournoiCRUD pcd = new TournoiCRUD();
             LocalDate lt = LocalDate.now(); 
-            int i = 0;
+            
             String[] parts = pcd.getEquipes(tournoi.getId()).split(",");
              try {
             
@@ -433,4 +434,5 @@ public class AffichageTournoiController implements Initializable {
         }
     }
 
+   
 }

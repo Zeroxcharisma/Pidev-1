@@ -113,7 +113,9 @@ public class AddTournoiController implements Initializable {
       
     @FXML
     private void ajouterTournoi(ActionEvent event)  {
-    
+     if (nomTournoi.getText().trim().isEmpty() || terrain.getValue().trim().isEmpty() || nbrEquipe.getValue().toString().trim().isEmpty() || dateTournoi.getValue().toString().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Veuillez inserer tout les champs");
+    }else{
         
         QuatreEquipeController eq = new QuatreEquipeController();
             /// SAUVEGARDE DANS LA BD
@@ -128,6 +130,7 @@ public class AddTournoiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Tournoi ajouté");
 //            SmsSender s = new SmsSender();
 //            s.send("Welcome to FootTunisie : Tournoi "+nomT+" ajouté pour le "+dateT+" à " +nomTerrain ,"b");
+    }
     }
 
     private File addImg() {
@@ -163,6 +166,7 @@ public class AddTournoiController implements Initializable {
             nomTournoi.getScene().setRoot(root);
             
     }
+    
 
     public void Previous(String nomTournoi1, String terrain1, Integer nbr, LocalDate date){
          nomTournoi.setText(nomTournoi1);
@@ -170,6 +174,8 @@ public class AddTournoiController implements Initializable {
             nbrEquipe.setValue(nbr);
             dateTournoi.setValue(date);
     }
+    
+    
     public String LabelEadd(String i){
         labelE.setText(i);
         return labelE.getText();
@@ -262,6 +268,7 @@ public class AddTournoiController implements Initializable {
               }
             }
     }
+    
 
     private void aficherCalen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass()
