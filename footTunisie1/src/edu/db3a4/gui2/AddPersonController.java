@@ -29,6 +29,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 //import org.controlsfx.control.Notifications;
 
 /**
@@ -69,8 +70,8 @@ public class AddPersonController implements Initializable {
             String resLieu = tfLieu.getText();
             Personne p = new Personne(14, resNom, resType, resTaille, resLieu);
             PersonneCRUD pcd = new PersonneCRUD();
-            //SmsSender1 S=new  SmsSender1();
-            //S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom +"Lieu : "+resLieu,"b");
+            SmsSender1 S=new  SmsSender1();
+            S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom + " | "+"Lieu : "+resLieu,"b");
             pcd.ajouterPersonne(p);
             JOptionPane.showMessageDialog(null, "Terrain ajouté");
             
@@ -79,19 +80,19 @@ public class AddPersonController implements Initializable {
      
                    
             //notif
-//            Notifications notificationBuilder = Notifications.create().title("Terrain ajouté avec succés !")
-//                     .text("").graphic(null)
-//                     .hideAfter(javafx.util.Duration.seconds(5))
-//                    .position(Pos.CENTER).darkStyle()
-//                    .onAction(new EventHandler<ActionEvent>() {
-//                @Override
-//                public void handle(ActionEvent event) {
-//                    System.out.println("Clicked on notification");
-//    
-//                }
-//                    });
-//            notificationBuilder.showInformation();
-//                  
+            Notifications notificationBuilder = Notifications.create().title("Terrain ajouté avec succés !")
+                     .text("").graphic(null)
+                     .hideAfter(javafx.util.Duration.seconds(5))
+                    .position(Pos.CENTER).darkStyle()
+                    .onAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    System.out.println("Clicked on notification");
+    
+                }
+                    });
+            notificationBuilder.showInformation();
+                  
                    
             
             //REDIRECTIO

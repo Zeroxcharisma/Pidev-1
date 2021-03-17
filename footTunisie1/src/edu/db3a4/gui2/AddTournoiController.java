@@ -5,7 +5,7 @@
  */
 package edu.db3a4.gui2;
 
-import com.mysql.jdbc.Blob;
+//import com.mysql.jdbc.Blob;
 import edu.db3a4.entities.Tournoi;
 import edu.db3a4.services.TournoiCRUD;
 import edu.db3a4.tools.MyConnection;

@@ -171,26 +171,36 @@ public class AjouterservatiobController implements Initializable {
 
     @FXML
     private void ajout(ActionEvent event) {
-         String Terrain=terrain.getValue();
-         String Temps=temps.getValue();
-         LocalDate resdate= date.getValue();
-         String p= txtprix.getText();
-       evenement e = new evenement(22,Terrain,resdate,Temps,p);
-           
-           evenementCRUD pcd= new   evenementCRUD();
-           LocalDate d= pcd.date();
-           String s=pcd.temps();
-           if(!d.isEqual(resdate)||(!s.equals(Temps)))
-           {
-                 pcd.addEvenement(e);
-            JOptionPane.showMessageDialog(null, "Reservation ajouté");
-           
-           }
-           
-       if(d.isEqual(resdate)&&(s.equals(temps)))
-       {
-           JOptionPane.showMessageDialog(null, "Reservation refuse");
-       }
+          try {
+              String Terrain=terrain.getValue();
+              String Temps=temps.getValue();
+              LocalDate resdate= date.getValue();
+              String p= txtprix.getText();
+              evenement e = new evenement(22,Terrain,resdate,Temps,p);
+              
+              evenementCRUD pcd= new   evenementCRUD();
+              LocalDate d= pcd.date();
+              String s=pcd.temps();
+              if(!d.isEqual(resdate)||(!s.equals(Temps)))
+              {
+                  pcd.addEvenement(e);
+                  JOptionPane.showMessageDialog(null, "Reservation ajouté");
+                  
+              }
+              
+              if(d.isEqual(resdate)&&(s.equals(temps)))
+              {
+                  JOptionPane.showMessageDialog(null, "Reservation refuse");
+              }
+              Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affichereservation.fxml"));
+              Scene ex_section_scene = new Scene(exercices_parent);
+              Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+              
+              second_stage.setScene(ex_section_scene);
+              second_stage.show();
+          } catch (IOException ex) {
+              Logger.getLogger(AjouterservatiobController.class.getName()).log(Level.SEVERE, null, ex);
+          }
            
          
        
@@ -255,7 +265,7 @@ public class AjouterservatiobController implements Initializable {
     @FXML
     private void buttonaffiche(ActionEvent event) {
          try {
-           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affichereservation.fxml"));
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("affichereservation.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
            

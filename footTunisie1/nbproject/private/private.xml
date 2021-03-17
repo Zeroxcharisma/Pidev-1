@@ -3,12 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultCalController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/tests/EmailUtil.java</file>
             <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichageTournoiController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/tests/SmsSender.java</file>
             <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/AddTournoiController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/tests/MailSender.java</file>
+=======
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tests/SmsSender1.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatistiqueController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tests/SmsSender.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatistiqueController_1.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/cours/gui/AffichereservationController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AjouterservatiobController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichereservationController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AddPersonController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AddTournoiController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichageTerrainsController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/IntegrationController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/HomeScreen.java</file>
+>>>>>>> 065b6263e7ace8b39f2d57f601bc188586a7a51b
         </group>
     </open-files>
 </project-private>
