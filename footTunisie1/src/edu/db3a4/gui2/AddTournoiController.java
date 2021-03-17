@@ -84,7 +84,7 @@ public class AddTournoiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nbrEquipe.getItems().addAll(4,6,8,10);
+        nbrEquipe.getItems().addAll(4);
         
        
 

@@ -32,6 +32,7 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
         public ObservableList<Tournoi> observableListLocataire = FXCollections.observableArrayList();
         String equipes;
         Integer nbr;
+        LocalDate dt;
 
 
     @Override
@@ -151,5 +152,20 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
             System.out.println(ex.getMessage());
         }
      return nbr;
+}   
+  public LocalDate getDate(Integer id){
+     try {
+            String requete = "SELECT dateTournoi FROM tournoi WHERE id = " +id+ ";";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                 dt = rs.getDate("dateTournoi").toLocalDate();
+                 
+            }    
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+     return dt;
 }   
 }

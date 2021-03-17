@@ -23,6 +23,12 @@ public class Tournoi {
     private String terrainTournoi;
     private File image;
     private String equipes;
+    private int scoreEq1;
+    private int scoreEq2;
+    private int scoreEq3;
+    private int scoreEq4;
+    private String scoreFinal;
+
     
     public Tournoi() {
     }
@@ -63,6 +69,46 @@ public class Tournoi {
     
     public void setImage(File image) {
         this.image = image;
+    }
+
+    public int getScoreEq1() {
+        return scoreEq1;
+    }
+
+    public int getScoreEq2() {
+        return scoreEq2;
+    }
+
+    public int getScoreEq3() {
+        return scoreEq3;
+    }
+
+    public int getScoreEq4() {
+        return scoreEq4;
+    }
+
+    public String getScoreFinal() {
+        return scoreFinal;
+    }
+    
+    public void setScoreFinal(String scoreFinal) {
+        this.scoreFinal = scoreFinal;
+    }
+
+    public void setScoreEq4(int scoreEq4) {
+        this.scoreEq4 = scoreEq4;
+    }
+
+    public void setScoreEq3(int scoreEq3) {
+        this.scoreEq3 = scoreEq3;
+    }
+
+    public void setScoreEq2(int scoreEq2) {
+        this.scoreEq2 = scoreEq2;
+    }
+
+    public void setScoreEq1(int scoreEq1) {
+        this.scoreEq1 = scoreEq1;
     }
 
   

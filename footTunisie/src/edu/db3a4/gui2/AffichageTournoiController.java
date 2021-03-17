@@ -323,6 +323,7 @@ public class AffichageTournoiController implements Initializable {
             stage.show();
     }
 
+   
   
     }    
     
