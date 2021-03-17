@@ -103,7 +103,7 @@
             <Image url="@../../../images/ZLRxdI-winner-transparent-background-image.png" />
          </image>
       </ImageView>
-      <Label fx:id="gagnant" alignment="CENTER" layoutX="311.0" layoutY="340.0" text="Label" textAlignment="CENTER" textFill="#dd7e0d">
+      <Label fx:id="gagnant" alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="340.0" text="Label" textAlignment="CENTER" textFill="#dd7e0d" wrapText="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
