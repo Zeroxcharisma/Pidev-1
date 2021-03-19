@@ -7,8 +7,12 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Resultat;
 import edu.db3a4.services.ResultatCrud;
+import edu.db3a4.tools.MyConnection;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -21,6 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -59,9 +64,7 @@ public class Affiche2Controller implements Initializable {
     private TextField tid;
     @FXML
     private TextField tb2;
-    @FXML
     private TextField te1;
-    @FXML
     private TextField te2;
     @FXML
     private TextField tb1;
@@ -72,8 +75,6 @@ public class Affiche2Controller implements Initializable {
     private Button btnselect1;
     @FXML
     private Button btnselect11;
-    @FXML
-    private Button en2;
     private TableColumn<Resultat,String> dmtache1;
     @FXML
     private TableColumn<Resultat,Integer> carton;
@@ -86,10 +87,15 @@ public class Affiche2Controller implements Initializable {
     private TextField occcc;
     @FXML
     private TableColumn<Resultat,String> ga;
-    @FXML
     private TextField winner;
     @FXML
     private Button acceuil;
+    @FXML
+    private TextField cartonr1;
+    @FXML
+    private ComboBox<String> cc;
+    @FXML
+    private ComboBox<String> cc2;
 
     /**
      * Initializes the controller class.
@@ -101,6 +107,30 @@ public class Affiche2Controller implements Initializable {
 
        
        
+         try {
+            String requete = "SELECT nom FROM  equipe";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+               
+                
+                      cc.getItems().addAll(rs.getString("nom"));
+
+                     cc2.getItems().addAll(rs.getString("nom"));
+
+                        
+                         
+                           
+        
+                   
+                      
+              
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
           
                
               
@@ -137,15 +167,16 @@ public class Affiche2Controller implements Initializable {
            String id = tid.getText();
         Integer id1 = Integer.parseInt(id);
       ResultatCrud pcd = new  ResultatCrud();
-         
-        te1.setText(pcd.rechercherres(id1).getNomequipe1());
-         te2.setText(pcd.rechercherres(id1).getNomequipe2());
+     
+        cc.setValue(pcd.rechercherres(id1).getNomequipe1());
+             cc2.setValue(pcd.rechercherres(id1).getNomequipe2());
+    
   tb1.setText(String.valueOf(pcd.rechercherres(id1).getScoreequipe1()));
   tb2.setText(String.valueOf(pcd.rechercherres(id1).getScoreequipe2()));
   
    tnt.setText(String.valueOf(pcd.rechercherres(id1).getNote()));
  
-        winner.setText(pcd.rechercherres(id1).getGangant());
+ cartonr1.setText((pcd.rechercherres(id1).getGangant()));
  
  cartonr.setText(String.valueOf(pcd.rechercherres(id1).getCarton()));
   occcc.setText(String.valueOf(pcd.rechercherres(id1).getOccaison()));
@@ -154,7 +185,7 @@ public class Affiche2Controller implements Initializable {
     @FXML
     private void delte(ActionEvent event) {
         JOptionPane jop = new JOptionPane();
-    int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous déconnecter?", "Déconnexion", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+    int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous supprimer?", "supprimer", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
     if(option == JOptionPane.OK_OPTION) {
          Resultat r= tr.getSelectionModel().getSelectedItem();
            ResultatCrud pcd = new  ResultatCrud();
@@ -167,9 +198,9 @@ public class Affiche2Controller implements Initializable {
     private void update(ActionEvent event) {
           String id = tid.getText();
          Integer id1 = Integer.parseInt(id);
-         String nomT = te1.getText();
-            String nomTe = te2.getText();
-           String nbr_Equipe =tb1 .getText();
+         String nomT = cc.getValue();
+            String nomTe = cc2.getValue();
+           String nbr_Equipe =tb1.getText();
             Integer b1 = Integer.parseInt( nbr_Equipe);
              String b2 =tb2.getText();
             Integer bu2 = Integer.parseInt( b2);
@@ -182,7 +213,6 @@ public class Affiche2Controller implements Initializable {
             tr.setItems(pcd.displayPersons());
     }
 
-    @FXML
     private void englishaff(ActionEvent event) {
         try {
            Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affichageneglish.fxml"));
@@ -202,16 +232,14 @@ public class Affiche2Controller implements Initializable {
     @FXML
     private void tabv(MouseEvent event) {
        Resultat r = tr.getSelectionModel().getSelectedItem();   
-        te1.setText(r.getNomequipe1());
-         te2.setText(r.getNomequipe2());
+     
          tid.setText(String.valueOf(r.getId()));
   tb1.setText(String.valueOf(r.getScoreequipe1()));
   tb2.setText(String.valueOf(r.getScoreequipe2()));
-  
+cc.setValue(r.getNomequipe1());
+cc2.setValue(r.getNomequipe2());
    tnt.setText(String.valueOf(r.getNote()));
- 
-        
- 
+ cartonr1.setText((r.getGangant()));
  cartonr.setText(String.valueOf(r.getCarton()));
   occcc.setText(String.valueOf(r.getOccaison()));
        
@@ -303,6 +331,8 @@ public class Affiche2Controller implements Initializable {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+   
     
     
 }
