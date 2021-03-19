@@ -7,6 +7,7 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Personne;
 import edu.db3a4.services.PersonneCRUD;
+import edu.db3a4.tests.SmsSender;
 import edu.db3a4.tests.SmsSender1;
 import java.awt.Dialog;
 import java.awt.Image;
@@ -63,6 +64,8 @@ public class AddPersonController implements Initializable {
     @FXML
     private void ajouterPersonne(ActionEvent event) {
        
+         if ((tfNom.getText() != null && !tfNom.getText().isEmpty() && tfType.getValue() != null && tfLieu.getText() != null && !tfLieu.getText().isEmpty())){
+       
             /// SAUVEGARDE DANS LA BD
             String resNom = tfNom.getText();
             String resType = tfType.getValue();
@@ -70,13 +73,11 @@ public class AddPersonController implements Initializable {
             String resLieu = tfLieu.getText();
             Personne p = new Personne(14, resNom, resType, resTaille, resLieu);
             PersonneCRUD pcd = new PersonneCRUD();
-            SmsSender1 S=new  SmsSender1();
-            S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom + " | "+"Lieu : "+resLieu,"b");
             pcd.ajouterPersonne(p);
             JOptionPane.showMessageDialog(null, "Terrain ajouté");
-            
-                    
-            
+//   
+//            SmsSender1 S=new  SmsSender1();
+//            S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom + " | "+"Lieu : "+resLieu,"b");
      
                    
             //notif
@@ -92,9 +93,9 @@ public class AddPersonController implements Initializable {
                 }
                     });
             notificationBuilder.showInformation();
-                  
-                   
-            
+        } //fermeture de if 
+        
+        else {JOptionPane.showMessageDialog(null, "Merci de completer les champ manquants"); }
             //REDIRECTIO
     }
 
