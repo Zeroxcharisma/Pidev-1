@@ -19,7 +19,7 @@
          <children>
             <AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="726.0" style="-fx-background-color: white;">
                <children>
-                  <TableView fx:id="tr" layoutX="178.0" layoutY="363.0" onMouseClicked="#tabv" onMousePressed="#test" prefHeight="193.0" prefWidth="472.0" style="-fx-background-color: white;">
+                  <TableView fx:id="tr" layoutX="178.0" layoutY="363.0" onMouseClicked="#aaaaaa" onMousePressed="#test" prefHeight="193.0" prefWidth="472.0" style="-fx-background-color: white;">
                     <columns>
                       <TableColumn fx:id="cid" prefWidth="41.0" text="ID" />
                       <TableColumn fx:id="ce1" minWidth="0.0" prefWidth="54.0" text="equipe1" />

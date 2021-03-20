@@ -229,7 +229,6 @@ public class Affiche2Controller implements Initializable {
             
     }
 
-    @FXML
     private void tabv(MouseEvent event) {
        Resultat r = tr.getSelectionModel().getSelectedItem();   
      
@@ -330,6 +329,21 @@ cc2.setValue(r.getNomequipe2());
         } catch (IOException ex) {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void aaaaaa(MouseEvent event) {
+         Resultat r = tr.getSelectionModel().getSelectedItem();   
+     
+         tid.setText(String.valueOf(r.getId()));
+  tb1.setText(String.valueOf(r.getScoreequipe1()));
+  tb2.setText(String.valueOf(r.getScoreequipe2()));
+cc.setValue(r.getNomequipe1());
+cc2.setValue(r.getNomequipe2());
+   tnt.setText(String.valueOf(r.getNote()));
+ cartonr1.setText((r.getGangant()));
+ cartonr.setText(String.valueOf(r.getCarton()));
+  occcc.setText(String.valueOf(r.getOccaison()));
     }
 
    
