@@ -574,7 +574,17 @@ try {
         
        
     }
-      
+       public void updateTournoi(Integer id, Integer score1, Integer score2,Integer score3, Integer score4,Integer scoreF1,Integer scoreF2) {
+     try {
+            PreparedStatement pst = MyConnection.getInstance().getCnx()
+                    .prepareStatement("UPDATE tournoi SET scoreEq1 = '"+score1+"', scoreEq2 = '"+score2+"', scoreEq3 = '"+score3+"', scoreEq4 = '"+score4+"',scoreFinal1 = '"+scoreF1+"', scoreFinal2 = '"+scoreF2+"' WHERE id = '"+id+"'");
+            pst.executeUpdate();
+            System.out.println("tournoi modifiée");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
  
  
  
