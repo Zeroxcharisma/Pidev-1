@@ -12,9 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -80,11 +83,12 @@ public class CalculController implements Initializable {
     }
 
     @FXML
-    private void retourCalcul(ActionEvent event) throws IOException {
+    private void retourCalcul(ActionEvent event) throws IOException{
+
         FXMLLoader loader = new FXMLLoader(getClass()
                     .getResource("AffichageTerrains.fxml"));
             Parent root = loader.load();
-            mpm.getScene().setRoot(root);
+            dt.getScene().setRoot(root);
      
     }
     

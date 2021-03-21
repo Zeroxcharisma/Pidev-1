@@ -5,9 +5,9 @@
  */
 package edu.db3a4.gui2;
 
-import edu.db3a4.entities.Tournoi;
+import edu.db3a4.entities.Personne;
 import edu.db3a4.tools.MyConnection;
-import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,13 +17,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
 
 /**
  * FXML Controller class
@@ -33,38 +37,77 @@ import javafx.scene.control.TextField;
 public class StatistiqueController implements Initializable {
 
     @FXML
-    private BarChart<String, Integer> TerrainChart;
+    private BarChart<?, ?> dt;
     @FXML
     private NumberAxis y;
     @FXML
     private CategoryAxis x;
+    private TextField pms;
+    @FXML
+    private TextField p1;
+    @FXML
+    private TextField p3;
+    @FXML
+    private TextField p4;
+    @FXML
+    private TextField p2;
+    @FXML
+    private TextField anneé;
+    @FXML
+    private Label label;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                XYChart.Series set1 = new XYChart.Series<>();
-
-         try {
-            
-            String requete = "SELECT tournoi.terrainTournoi, Count(*) AS Nombre_de_Fois FROM tournoi GROUP BY tournoi.terrainTournoi";
-            Statement st;
-            st = MyConnection.getInstance().getCnx()
-                    .createStatement();
-             ResultSet rs =  st.executeQuery(requete);
-            while(rs.next()){
-                      set1.getData().add(new XYChart.Data(rs.getString(1),rs.getInt(2)));
-            }
-              TerrainChart.getData().add(set1);
-
-            }
-         catch (SQLException ex) {
-            Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-   
+        label.setWrapText(true); //ecrire un label sur plusieurs ligne
+                     
     }    
 
+    @FXML
     
+    private void stat(ActionEvent event) {
+        
+        
+        
+        
+        int dimS = 10*20;
+        int dimFS = 15*25;
+        int dimT = 25*35;
+        int dimG = 30*50;
+        
+        
+        
+            
+            int a = Integer.parseInt(p1.getText());
+            int b = Integer.parseInt(p2.getText());
+            int c = Integer.parseInt(p3.getText());
+            int d = Integer.parseInt(p4.getText());
+            
+           
+            
+                
+            
+            XYChart.Series set1 = new XYChart.Series<>();
+            for(int i=0;i<5;i++){ 
+            set1.setName(anneé.getText());
+            }
+            set1.getData().add(new XYChart.Data("Sable",a*dimS));
+            set1.getData().add(new XYChart.Data("Foot Salle",b*dimFS));
+            set1.getData().add(new XYChart.Data("Tarton",c*dimT));
+            set1.getData().add(new XYChart.Data("Gazon",d*dimG));
+            dt.getData().addAll(set1);
+            
+            
+            
+    }
+
+    @FXML
+    private void retourstat(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("AffichageTerrains.fxml"));
+            Parent root = loader.load();
+            p1.getScene().setRoot(root);
+    }      
 }

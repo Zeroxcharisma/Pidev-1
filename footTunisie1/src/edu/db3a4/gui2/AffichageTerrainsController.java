@@ -134,9 +134,10 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
 
     @FXML
     private void SupprimerID(ActionEvent event) throws IOException {
-        
-       
-      
+        if (id1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Veuillez selectionner un terrain"); 
+        }
+        else {
            
            
                       JOptionPane jop = new JOptionPane();
@@ -152,9 +153,15 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
              
     }       
     }
+    }
+    
 
     @FXML
     private void Modifer(ActionEvent event) {
+        if (id1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Veuillez selectionner un terrain"); 
+        }
+        else {
         String id = id1.getText();
          Integer id1 = Integer.parseInt(id);
          String nomT = nom1.getText();
@@ -165,7 +172,7 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
             pcd.updateTerrain(id1,nomT,type,taille,lieu);
             affichage.setItems(pcd.displayTerrain());
     }
-
+    }
     @FXML
     private void calculS(ActionEvent event) {
         
