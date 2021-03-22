@@ -340,6 +340,21 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
         }
     }
 
+    @FXML
+    private void tf(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("TerrainFront.fxml"));
+            Parent root = loader.load();
+            //nom1.getScene().setRoot(root); pour utiliser boutton Retour
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+             stage.setTitle("Terrain Front");
+            stage.show();
+        
+    }
+    
+
 }
 
   

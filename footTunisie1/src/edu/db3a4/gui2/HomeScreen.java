@@ -29,10 +29,10 @@ public class HomeScreen extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("statsfront.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Gestion Tournoi");
+            primaryStage.setTitle("FootTunisie");
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image("/images/logo.png"));
             primaryStage.show();

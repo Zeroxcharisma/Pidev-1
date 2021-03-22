@@ -5,11 +5,15 @@
  */
 package edu.db3a4.gui2;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -105,32 +109,61 @@ public class TerrainFrontController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Image image = new Image("/res/ivg.jpg");
+        gazoniv.setImage(image);
+        
+        Image image1 = new Image("/res/ivs.jpg");
+        sableiv.setImage(image1);
+        
+        Image image2 = new Image("/res/ivfs.jpg");
+        footsalleiv.setImage(image2);
+        
+        Image image3 = new Image("/res/ivt.jpg");
+        tartoniv.setImage(image3);
         // TODO
     }    
 
     @FXML
-    private void GazonFrontiv(MouseEvent event) {
+    private void GazonFrontiv(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("GazonDetails.fxml"));
+            Parent root = loader.load();
+            gazoniv.getScene().setRoot(root);
     }
 
 
     @FXML
-    private void FootsalleFrontiv(MouseEvent event) {
+    private void FootsalleFrontiv(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("FootalleDetails.fxml"));
+            Parent root = loader.load();
+            gazoniv.getScene().setRoot(root);
     }
 
     @FXML
-    private void TartonFrontiv(MouseEvent event) {
+    private void TartonFrontiv(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("TartonDetails.fxml"));
+            Parent root = loader.load();
+            tartoniv.getScene().setRoot(root);
     }
 
+    @FXML
+    private void SableFrontiv(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("SableDetails.fxml"));
+            Parent root = loader.load();
+            sableiv.getScene().setRoot(root);
+    }
+    
+    
     @FXML
     private void test(MouseEvent event) {
     }
 
     @FXML
     private void handleMouseEvent(MouseEvent event) {
-    }
-
-    @FXML
-    private void SableFrontiv(MouseEvent event) {
     }
     
 }
