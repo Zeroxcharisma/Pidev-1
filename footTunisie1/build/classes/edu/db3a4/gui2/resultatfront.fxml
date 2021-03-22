@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.ResultatfrontController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.ResultatfrontController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -258,46 +259,10 @@
                                     <Font name="System Bold" size="10.0" />
                                 </font>
                                 <graphic>
-                                    <VBox alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
-                                        <children>
-                                            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../icons/draft.png" />
-                                                </image>
-                                                <effect>
-                                                    <ColorAdjust brightness="0.55" />
-                                                </effect>
-                                            </ImageView>
-                                            <Text fill="#b1b1b1" strokeType="OUTSIDE" strokeWidth="0.0" text="Draft">
-                                                <font>
-                                                    <Font size="10.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                    </VBox>
-                                </graphic>
-                            </Button>
-                            <Button fx:id="btnThemes1" mnemonicParsing="false" onMouseClicked="#handleMouseEvent" prefHeight="35.0" prefWidth="117.0" styleClass="button13" stylesheets="@../Styles/design.css" textFill="WHITE">
-                                <font>
-                                    <Font name="System Bold" size="10.0" />
-                                </font>
-                                <graphic>
-                                    <VBox alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
-                                        <children>
-                                            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../icons/themes.png" />
-                                                </image>
-                                                <effect>
-                                                    <ColorAdjust brightness="0.55" />
-                                                </effect>
-                                            </ImageView>
-                                            <Text fill="#b1b1b1" strokeType="OUTSIDE" strokeWidth="0.0" text="Themes">
-                                                <font>
-                                                    <Font size="10.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
+                                    <VBox alignment="CENTER" prefHeight="29.0" prefWidth="108.0">
+                                 <children>
+                                    <TextField fx:id="test" />
+                                 </children>
                                     </VBox>
                                 </graphic>
                             </Button>
@@ -327,41 +292,9 @@
                                     <Font name="System Bold" size="10.0" />
                                 </font>
                                 <graphic>
-                                    <VBox alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
+                                    <VBox fx:id="id" alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
                                         <children>
-                                            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../icons/settings.png" />
-                                                </image>
-                                                <effect>
-                                                    <ColorAdjust brightness="0.55" />
-                                                </effect>
-                                            </ImageView>
-                                            <Text fill="#b1b1b1" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
-                                                <font>
-                                                    <Font size="10.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                    </VBox>
-                                </graphic>
-                            </Button>
-                            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="117.0" styleClass="button13" stylesheets="@../Styles/design.css" textFill="WHITE">
-                                <font>
-                                    <Font name="System Bold" size="10.0" />
-                                </font>
-                                <graphic>
-                                    <VBox alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
-                                        <children>
-                                            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../icons/help.png" />
-                                                </image>
-                                                <effect>
-                                                    <ColorAdjust brightness="0.55" />
-                                                </effect>
-                                            </ImageView>
-                                            <Text fill="#b1b1b1" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+                                            <Text fx:id="idmatche" fill="#b1b1b1" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
                                                 <font>
                                                     <Font size="10.0" />
                                                 </font>
@@ -392,16 +325,9 @@
                                     </RadialGradient>
                                  </textFill>
                               </Label>
-                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="256.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="256.0" style="-fx-background-color: white;">
                                  <children>
                                     <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="22.0" styleClass="transparent-background" stylesheets="@../../../../../../../Front/FootballApplication-master/src/styles/designStyling.css">
-                                       <graphic>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../../../Front/FootballApplication-master/src/images/Previous.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -423,14 +349,14 @@
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="186.0" prefWidth="223.0" stylesheets="@../../../../../../../Front/FootballApplication-master/src/styles/designStyling.css">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="27.0" prefWidth="72.0" text="Liverpool FC" textFill="#39a67f">
+                                          <Label fx:id="labelequipe1" alignment="CENTER" prefHeight="27.0" prefWidth="72.0" text="equipe 1" textFill="#39a67f">
                                              <font>
-                                                <Font size="8.0" />
+                                                <Font name="System Bold" size="7.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <Label alignment="CENTER" prefHeight="21.0" prefWidth="27.0" text="0" textFill="#39a67f">
+                                    <Label fx:id="labelscore1" alignment="CENTER" prefHeight="21.0" prefWidth="27.0" text="?" textFill="#39a67f">
                                        <font>
                                           <Font name="System Bold" size="10.0" />
                                        </font>
@@ -457,16 +383,16 @@
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <Label alignment="CENTER" prefHeight="62.0" prefWidth="37.0" text="0" textFill="#39a67f">
+                                    <Label fx:id="labelscore2" alignment="CENTER" prefHeight="62.0" prefWidth="37.0" text="?" textFill="#39a67f">
                                        <font>
                                           <Font name="System Bold" size="10.0" />
                                        </font>
                                     </Label>
                                     <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="186.0" prefWidth="224.0" stylesheets="@../../../../../../../Front/FootballApplication-master/src/styles/designStyling.css">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="26.0" prefWidth="168.0" text="Newcastle" textFill="#39a67f">
+                                          <Label fx:id="labelequipe2" alignment="CENTER" prefHeight="26.0" prefWidth="168.0" text="equipe 2" textFill="#39a67f">
                                              <font>
-                                                <Font name="System Bold" size="9.0" />
+                                                <Font name="System Bold" size="7.0" />
                                              </font>
                                           </Label>
                                        </children>
@@ -475,218 +401,57 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <Label alignment="CENTER" prefHeight="32.0" prefWidth="438.0" text="Statistics" textFill="#39a67f">
+                        <Label alignment="CENTER" prefHeight="32.0" prefWidth="438.0" text="Note de match" textFill="#39a67f">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="Possession %" textFill="#39a67fbf">
+                        <Label fx:id="labelnote" alignment="CENTER" prefHeight="27.0" prefWidth="167.0" textFill="#39a67fbf">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="Passes" textFill="#39a67fbf">
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="N.d occasion" textFill="#39a67fbf">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="Shots on Target" textFill="#39a67fbf">
+                        <Label fx:id="labeloccasion" alignment="CENTER" prefHeight="27.0" prefWidth="167.0" textFill="#39a67fbf">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="57.0" prefWidth="460.0" text="Head-to-Head" textFill="#39a67fbf">
+                        <Label alignment="CENTER" prefHeight="57.0" prefWidth="195.0" text="N.cartoon" textFill="#39a67fbf">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="118.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="labelcartoon" textFill="#3aa67ebf">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="33.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../photos/football.png" />
+                           </image></ImageView>
                      </children>
                   </VBox>
-                  <TableView fx:id="tableHistory" layoutX="228.0" layoutY="324.0" prefHeight="181.0" prefWidth="762.0" stylesheets="@../../../../../../../Front/Styles/fixtureView.css">
+                  <TableView fx:id="tableHistory" layoutX="216.0" layoutY="413.0" onMouseClicked="#resultat" prefHeight="160.0" prefWidth="646.0" stylesheets="@../../../../../../../Front/Styles/fixtureView.css">
                      <columns>
-                        <TableColumn fx:id="gw" prefWidth="51.0" text="GW" />
-                        <TableColumn fx:id="opponent" prefWidth="148.0" text="Opponent" />
-                        <TableColumn fx:id="pts" prefWidth="60.0" text="Pts" />
-                        <TableColumn fx:id="mp" prefWidth="60.0" text="MP" />
-                        <TableColumn fx:id="gs" prefWidth="60.0" text="GS" />
-                        <TableColumn fx:id="a" prefWidth="60.0" text="A" />
-                        <TableColumn fx:id="cs" prefWidth="60.0" text="CS" />
-                        <TableColumn fx:id="gc" prefWidth="60.0" text="GC" />
-                        <TableColumn fx:id="og" prefWidth="60.0" text="OG" />
-                        <TableColumn fx:id="rc" prefWidth="60.0" text="RC" />
-                        <TableColumn fx:id="yc" prefWidth="60.0" text="YC" />
-                        <TableColumn fx:id="pm" prefWidth="60.0" text="PM" />
-                        <TableColumn fx:id="ps" prefWidth="60.0" text="PS" />
-                        <TableColumn fx:id="s" prefWidth="60.0" text="S" />
-                        <TableColumn fx:id="b" prefWidth="60.0" text="B" />
+                        <TableColumn fx:id="idmatch" prefWidth="67.0" text="N.Match" />
+                        <TableColumn fx:id="equipe1" prefWidth="62.0" text="equipe 1" />
+                        <TableColumn fx:id="equipe2" prefWidth="70.0" text="equipe 2" />
+                        <TableColumn fx:id="butequipe1" prefWidth="77.0" text="But equipe1" />
+                        <TableColumn fx:id="butequipe2" prefWidth="75.0" text="But equipe2" />
+                        <TableColumn fx:id="cs" minWidth="0.0" prefWidth="0.0" text="CS" />
+                        <TableColumn fx:id="note" prefWidth="32.0" text="Note" />
+                        <TableColumn fx:id="gagant" prefWidth="115.0" text="l'équipe gagnante" />
+                        <TableColumn fx:id="occaison" prefWidth="93.0" text="N.occaison" />
+                        <TableColumn fx:id="yc" minWidth="0.0" prefWidth="0.0" text="YC" />
+                        <TableColumn fx:id="carton" minWidth="0.0" prefWidth="54.0" text="N.carton" />
                      </columns>
                   </TableView>
-                  <BorderPane fx:id="borderMenu1" layoutX="10.0" layoutY="10.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;">
-                     <top>
-                        <AnchorPane fx:id="topane2" prefHeight="50.0" prefWidth="970.0" style="-fx-background-color: transparent; -fx-background-radius: 0 0 30 30;" stylesheets="@../Styles/design.css" BorderPane.alignment="CENTER" />
-                     </top>
-                     <left>
-                        <Pane fx:id="sideBarBorder1" prefHeight="750.0" prefWidth="220.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Pane fx:id="sideUp1" layoutY="-50.0" prefHeight="200.0" prefWidth="220.0" style="-fx-background-radius: 0 0 40 0; -fx-border-color: linear-gradient(to bottom right, rgba(0,0,0,0),  rgba(255,255,255, .9)); -fx-border-radius: 0 0 40 0; -fx-background-color: rgba(255,255,255,.25);" stylesheets="@../Styles/design.css" />
-                              <Pane fx:id="sideDown1" layoutY="200.0" prefHeight="550.0" prefWidth="220.0" style="-fx-background-color: rgba(255,255,255,.25); -fx-background-radius: 0 40 0 0; -fx-border-color: linear-gradient(to top right, rgba(0,0,0,0), rgba(255,255,255, .9),); -fx-border-radius: 0 40 0 0;" stylesheets="@../Styles/design.css" />
-                              <AnchorPane fx:id="sidePane1" prefHeight="750.0" prefWidth="220.0" style="-fx-background-color: #2transparent92738;" stylesheets="@../Styles/design.css">
-                                 <children>
-                                    <VBox fx:id="sidePaneVbox1" alignment="TOP_CENTER" layoutY="140.0" prefHeight="610.0" prefWidth="220.0">
-                                       <children>
-                                          <HBox fx:id="status1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/leagues.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t11" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Resultat">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                          </HBox>
-                                          <HBox fx:id="myTeam1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#test" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/myteam.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t21" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My Team">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="points1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/points.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t31" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="transfers1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/transfer.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t41" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfers">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="leagues1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/leagues.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t51" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Leagues">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="fixtures1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/fixture.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t61" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Fixtures">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="statistics1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/statistics.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t71" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="rules1" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
-                                             <padding>
-                                                <Insets left="40.0" />
-                                             </padding>
-                                             <children>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../icons/rules.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Text fx:id="t81" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <padding>
-                                          <Insets top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                    <ImageView fx:id="fantasyIcon1" fitHeight="183.0" fitWidth="120.0" layoutX="55.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../photos/logo.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </Pane>
-                     </left>
-                  </BorderPane>
                 </children>
             </AnchorPane>
          </children>

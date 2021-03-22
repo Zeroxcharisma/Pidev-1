@@ -5,13 +5,27 @@
  */
 package edu.db3a4.gui2;
 
+import edu.db3a4.entities.Resultat;
+import edu.db3a4.services.ResultatCrud;
+import edu.db3a4.tools.MyConnection;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -122,66 +136,85 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private HBox topMenu;
     @FXML
-    private Button btnThemes1;
-    @FXML
-    private Text ccost;
-    @FXML
-    private Text psel;
-    @FXML
-    private Text cgw;
-    @FXML
-    private Text cgwp;
-    @FXML
-    private Text tpoints;
-    @FXML
-    private Text bp;
-    @FXML
-    private Text agw;
-    @FXML
-    private Text agwo;
-    @FXML
-    private Text aagw;
-    @FXML
-    private Text aagwo;
-    @FXML
-    private TableView<?> tableHistory;
-    @FXML
-    private TableColumn<?, ?> gw;
-    @FXML
-    private TableColumn<?, ?> opponent;
-    @FXML
-    private TableColumn<?, ?> pts;
-    @FXML
-    private TableColumn<?, ?> mp;
-    @FXML
-    private TableColumn<?, ?> gs;
-    @FXML
-    private TableColumn<?, ?> a;
+    private TableView<Resultat> tableHistory;
     @FXML
     private TableColumn<?, ?> cs;
     @FXML
-    private TableColumn<?, ?> gc;
-    @FXML
-    private TableColumn<?, ?> og;
-    @FXML
-    private TableColumn<?, ?> rc;
-    @FXML
     private TableColumn<?, ?> yc;
+    private Text nomequipe;
     @FXML
-    private TableColumn<?, ?> pm;
+    private VBox id;
     @FXML
-    private TableColumn<?, ?> ps;
+    private Text idmatche;
     @FXML
-    private TableColumn<?, ?> s;
+    private Label labelequipe1;
     @FXML
-    private TableColumn<?, ?> b;
+    private Label labelscore1;
+    @FXML
+    private Label labelscore2;
+    @FXML
+    private Label labelequipe2;
+    @FXML
+    private Label labelnote;
+    @FXML
+    private Label labeloccasion;
+    @FXML
+    private Label labelcartoon;
+    @FXML
+    private TableColumn<Resultat, Integer> idmatch;
+    @FXML
+    private TableColumn<Resultat, String> equipe1;
+    @FXML
+    private TableColumn<Resultat, String> equipe2;
+    @FXML
+    private TableColumn<Resultat, Integer> butequipe1;
+    @FXML
+    private TableColumn<Resultat, Integer> butequipe2;
+    @FXML
+    private TableColumn<Resultat, Integer> note;
+    @FXML
+    private TableColumn<Resultat,String> gagant;
+    @FXML
+    private TableColumn<Resultat, Integer> occaison;
+    @FXML
+    private TableColumn<Resultat,Integer> carton;
+    private ObservableList<Resultat> RecData = FXCollections.observableArrayList();
+    @FXML
+    private TextField test;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+           ResultatCrud rcr= new ResultatCrud();
+
+       
+       
+        
+         
+    
+          
+       
+           
+            idmatch.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("id"));
+                      equipe1.setCellValueFactory(new PropertyValueFactory<Resultat,String>("nomequipe1"));
+                                 equipe2.setCellValueFactory(new PropertyValueFactory<Resultat,String>("nomequipe2"));
+                                            butequipe1.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("scoreequipe1"));
+                                                       butequipe2.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("scoreequipe2"));
+                                                                 note.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("note"));
+                      
+                                                        gagant.setCellValueFactory(new PropertyValueFactory<Resultat,String>("gangant"));
+                                                               
+                                                                  
+                                                                carton.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("carton"));
+                                                                occaison.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("occaison"));
+                                                                             
+          
+          RechercheAV();
+                // Wrap t
+      // TODO
+        tableHistory.setItems(rcr.displayPersons());
     }    
 
     @FXML
@@ -195,5 +228,57 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private void enterResize(MouseEvent event) {
     }
+
+    @FXML
+    private void resultat(MouseEvent event) {
+           Resultat r = tableHistory.getSelectionModel().getSelectedItem();   
+     
+      
+  labelscore1.setText(String.valueOf(r.getScoreequipe1()));
+  labelscore2.setText(String.valueOf(r.getScoreequipe2()));
+labelequipe1.setText(r.getNomequipe1());
+labelequipe2.setText(r.getNomequipe2());
+   labelnote.setText(String.valueOf(r.getNote()));
+ labelcartoon.setText(String.valueOf(r.getCarton()));
+ labeloccasion.setText(String.valueOf(r.getOccaison()));
+    }
+public void RechercheAV(){
+    FilteredList<Resultat> filteredData = new FilteredList<>(RecData, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		test.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate( resultat-> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (resultat.getNomequipe1().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				}
+				else if (String.valueOf(resultat.getId()).indexOf(lowerCaseFilter)!=-1)
+				     return true;
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Resultat> sortedData = new SortedList<>(filteredData);
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableHistory.comparatorProperty());
+		// 5. Add sorted (and filtered) data to the table.
+		tableHistory.setItems(sortedData);
+                // Wrap the ObservableList in a FilteredList (initially display all data).
+
+    } 
+        
+        
+   
+    
     
 }
