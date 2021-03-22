@@ -5,14 +5,26 @@
  */
 package edu.db3a4.gui2;
 
-import java.io.IOException;
+import edu.db3a4.entities.Personne;
+import edu.db3a4.services.PersonneCRUD;
+import edu.db3a4.tools.MyConnection;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -29,8 +41,10 @@ import javafx.scene.text.Text;
  *
  * @author ASUS
  */
-public class TerrainFrontController implements Initializable {
+public class FootalleDetailsController implements Initializable {
 
+    @FXML
+    private ImageView detailsgazoniv;
     @FXML
     private AnchorPane MenuAnchorPane;
     @FXML
@@ -96,68 +110,47 @@ public class TerrainFrontController implements Initializable {
     @FXML
     private Text HierText;
     @FXML
-    private ImageView gazoniv;
+    private TableColumn<Personne, String> id;
     @FXML
-    private ImageView sableiv;
+    private TableColumn<Personne, String> rNom;
     @FXML
-    private ImageView footsalleiv;
+    private TableColumn<Personne, String> rType;
     @FXML
-    private ImageView tartoniv;
+    private TableColumn<Personne, String> rTaille;
+    @FXML
+    private TableColumn<Personne, String> rLieu;
+    @FXML
+    private TableView<Personne> affichageFS;
+    public ObservableList<Personne> observableListLocataire = FXCollections.observableArrayList();
+    @FXML
+    private Label superficiefootalle;
+    @FXML
+    private Label nbterrainfootalle;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Image image = new Image("/res/ivfsB.jpg");
+        detailsgazoniv.setImage(image);
+        superficiefootalle.setText("375 m2");
         
-        Image image = new Image("/res/ivg.jpg");
-        gazoniv.setImage(image);
         
-        Image image1 = new Image("/res/ivs.jpg");
-        sableiv.setImage(image1);
-        
-        Image image2 = new Image("/res/ivfs.jpg");
-        footsalleiv.setImage(image2);
-        
-        Image image3 = new Image("/res/ivt.jpg");
-        tartoniv.setImage(image3);
-        // TODO
+        PersonneCRUD pcd = new PersonneCRUD();
+            
+            id.setCellValueFactory(new PropertyValueFactory<>("id"));
+            rNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            rType.setCellValueFactory(new PropertyValueFactory<>("type"));
+            rTaille.setCellValueFactory(new PropertyValueFactory<>("taille"));
+            rLieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
+                                                                                                                                              
+            affichageFS.setItems(pcd.displayTerrainFS());
+            int i=pcd.b1e5();
+            nbterrainfootalle.setText(Integer.toString(i));
+     
     }    
 
-    @FXML
-    private void GazonFrontiv(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("GazonDetails.fxml"));
-            Parent root = loader.load();
-            gazoniv.getScene().setRoot(root);
-    }
-
-
-    @FXML
-    private void FootsalleFrontiv(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("FootalleDetails.fxml"));
-            Parent root = loader.load();
-            gazoniv.getScene().setRoot(root);
-    }
-
-    @FXML
-    private void TartonFrontiv(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("TartonDetails.fxml"));
-            Parent root = loader.load();
-            tartoniv.getScene().setRoot(root);
-    }
-
-    @FXML
-    private void SableFrontiv(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("SableDetails.fxml"));
-            Parent root = loader.load();
-            sableiv.getScene().setRoot(root);
-    }
-    
-    
     @FXML
     private void test(MouseEvent event) {
     }
@@ -165,5 +158,8 @@ public class TerrainFrontController implements Initializable {
     @FXML
     private void handleMouseEvent(MouseEvent event) {
     }
-    
+
+    @FXML
+    private void tabAffiche(MouseEvent event) {
+    }    
 }
