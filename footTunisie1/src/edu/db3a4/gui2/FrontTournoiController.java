@@ -201,7 +201,7 @@ public class FrontTournoiController implements Initializable {
                 if (rs.getInt("scoreEq3")<rs.getInt("scoreEq4") && rs.getInt("scoreFinal1")<rs.getInt("scoreFinal2"))
                     etatTournoi.setText("Tournoi términer "+parts[3]+" à gagner le tournoi");
                 if (rs.getDate("dateTournoi").toLocalDate().isAfter(lt))
-                    etatTournoi.setText("le tournoi commence dans "+ChronoUnit.DAYS.between(lt, rs.getDate("dateTournoi").toLocalDate())+" jrs");
+                    etatTournoi.setText("le tournoi commence dans "+ChronoUnit.DAYS.between(lt, rs.getDate("dateTournoi").toLocalDate())+" jours");
                   int value = rs.getInt("scoreEq1");
                 if(rs.getDate("dateTournoi").toLocalDate().isBefore(lt) && value == 0   )
                     etatTournoi.setText("attente des resultats");
