@@ -3,24 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainFrontController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultatfrontController.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/resultatfront3.css</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultatfront2.fxml</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/services/ResultatCrud.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultatfront3Controller.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/TopMatch.fxml</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/AddResultatController.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/TopMatchController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/fronttournoi.css</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/HomeScreen.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultatfront3.fxml</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Affiche2Controller.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/resultatfront2.css</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/tests/EmailUtil_1.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/services/evenementCRUD.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultatfront2Controller.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/fronttest.css</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/StatsfrontController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/cours/gui/AffichereservationController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Sondage.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultatTournoiController.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/tests/MailSender_1.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/services/TournoiCRUD.java</file>
         </group>
     </open-files>
 </project-private>
