@@ -35,6 +35,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,9 +134,10 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
 
     @FXML
     private void SupprimerID(ActionEvent event) throws IOException {
-        
-       
-      
+        if (id1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Veuillez selectionner un terrain"); 
+        }
+        else {
            
            
                       JOptionPane jop = new JOptionPane();
@@ -151,9 +153,15 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
              
     }       
     }
+    }
+    
 
     @FXML
     private void Modifer(ActionEvent event) {
+        if (id1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Veuillez selectionner un terrain"); 
+        }
+        else {
         String id = id1.getText();
          Integer id1 = Integer.parseInt(id);
          String nomT = nom1.getText();
@@ -164,7 +172,7 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
             pcd.updateTerrain(id1,nomT,type,taille,lieu);
             affichage.setItems(pcd.displayTerrain());
     }
-
+    }
     @FXML
     private void calculS(ActionEvent event) {
         
@@ -267,6 +275,53 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
              stage.setTitle("Calcul Paiement");
             stage.show();
     }
+    
+    @FXML
+    private void threezerosix(ActionEvent event) throws IOException {
+             
+               if (type1.getValue().equals("Sable"))
+               {
+                   ViewS s = new ViewS();
+                   String[] args = {};
+                   s.main(args);
+               } 
+               
+               else if (type1.getValue().equals("Foot Salle"))
+               {
+                   ViewFS fs = new ViewFS();
+                   String[] args = {};
+                   fs.main(args);
+               }
+               
+               else if (type1.getValue().equals("Tarton"))
+               {
+                   ViewT t = new ViewT();
+                   String[] args = {};
+                   t.main(args);
+               }
+               
+               else if (type1.getValue().equals("Gazon"))
+               {
+                   View g = new View();
+                   String[] args = {};
+                   g.main(args);
+               }
+                
+    
+     }
+          
+                   
+
+    private void showNewFrame() {
+    
+    JFrame frame = new JFrame("Search Window" );
+    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    frame.setSize( 500,120 );
+    frame.setLocationRelativeTo( null );
+    frame.setVisible( true );   
+    
+   
+}
 
     @FXML
     private void acceuil(ActionEvent event) {
@@ -284,6 +339,21 @@ public ObservableList<Personne> observableListLocataire = FXCollections.observab
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void tf(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("TerrainFront.fxml"));
+            Parent root = loader.load();
+            //nom1.getScene().setRoot(root); pour utiliser boutton Retour
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+             stage.setTitle("Terrain Front");
+            stage.show();
+        
+    }
+    
 
 }
 

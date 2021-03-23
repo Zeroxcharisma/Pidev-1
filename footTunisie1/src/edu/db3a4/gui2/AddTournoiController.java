@@ -5,7 +5,7 @@
  */
 package edu.db3a4.gui2;
 
-import com.mysql.jdbc.Blob;
+//import com.mysql.jdbc.Blob;
 import edu.db3a4.entities.Tournoi;
 import edu.db3a4.services.TournoiCRUD;
 import edu.db3a4.tools.MyConnection;
@@ -84,7 +84,7 @@ public class AddTournoiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nbrEquipe.getItems().addAll(4,6,8,10);
+        nbrEquipe.getItems().addAll(4);
         
        
 
@@ -113,7 +113,9 @@ public class AddTournoiController implements Initializable {
       
     @FXML
     private void ajouterTournoi(ActionEvent event)  {
-    
+     if (nomTournoi.getText().trim().isEmpty() || terrain.getValue().trim().isEmpty() || nbrEquipe.getValue().toString().trim().isEmpty() || dateTournoi.getValue().toString().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Veuillez inserer tout les champs");
+    }else{
         
         QuatreEquipeController eq = new QuatreEquipeController();
             /// SAUVEGARDE DANS LA BD
@@ -129,14 +131,15 @@ public class AddTournoiController implements Initializable {
 //            SmsSender s = new SmsSender();
 //            s.send("Welcome to FootTunisie : Tournoi "+nomT+" ajouté pour le "+dateT+" à " +nomTerrain ,"b");
     }
+    }
 
     private File addImg() {
        FileChooser fileChooser = new FileChooser();
        fileChooser.setTitle("Ajouter une image");
-       File defaultDirectory = new File("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images");
+       File defaultDirectory = new File("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie1\\src\\cup");
        fileChooser.setInitialDirectory(defaultDirectory);
  fileChooser.getExtensionFilters().addAll(
-   new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+   new ExtensionFilter("Image Files", "*.png"));
     File selectedFile = fileChooser.showOpenDialog(null);
     if (selectedFile != null) {
         System.out.println("File selected: " + selectedFile.getPath());
@@ -163,6 +166,7 @@ public class AddTournoiController implements Initializable {
             nomTournoi.getScene().setRoot(root);
             
     }
+    
 
     public void Previous(String nomTournoi1, String terrain1, Integer nbr, LocalDate date){
          nomTournoi.setText(nomTournoi1);
@@ -170,6 +174,8 @@ public class AddTournoiController implements Initializable {
             nbrEquipe.setValue(nbr);
             dateTournoi.setValue(date);
     }
+    
+    
     public String LabelEadd(String i){
         labelE.setText(i);
         return labelE.getText();
@@ -262,6 +268,7 @@ public class AddTournoiController implements Initializable {
               }
             }
     }
+    
 
     private void aficherCalen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass()

@@ -5,10 +5,15 @@
  */
 package edu.db3a4.gui2;
 
+import com.twilio.rest.api.v2010.account.message.Media;
 import edu.db3a4.entities.Resultat;
+import edu.db3a4.gui2.HomeScreen;
 import edu.db3a4.services.ResultatCrud;
 import edu.db3a4.tests.SmsSender;
+import edu.db3a4.tests.SmsSender11;
 import edu.db3a4.tools.MyConnection;
+import java.applet.AudioClip;
+import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,10 +42,11 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-
-
+ 
 
 /**
  * FXML Controller class
@@ -65,21 +71,21 @@ public class AddResultatController implements Initializable {
     private ComboBox<Integer> occaison;
     private ComboBox<Integer> checkid;
     @FXML
-    private DatePicker pickerd;
-    @FXML
     private ComboBox<Integer> idd1;
     @FXML
     private Button acceuil;
-
-
+  private MediaView Media; 
+ private MediaPlayer mediaplayer;
+ private String uri="aa.mp3";
+    
       
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+ 
        
-
          try {
             String requete = "SELECT nom FROM  equipe";
             Statement st = MyConnection.getInstance().getCnx()
@@ -137,7 +143,30 @@ public class AddResultatController implements Initializable {
             System.out.println(ex.getMessage());
         }
   
+                 try {
+            String requete = "SELECT id FROM resultat";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+               
                 
+                      idd1.getItems().removeAll(rs.getInt(1));
+                      
+
+                        
+                         
+                           
+        
+                   
+                      
+              
+            }
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+         
         
     }    
         // TODO
@@ -147,7 +176,7 @@ public class AddResultatController implements Initializable {
     private void aJOUTERRESULTAT(ActionEvent event) {
      
         Stage primaryStage= new Stage();
-          try {
+       
             /// SAUVEGARDE DANS LA BD
                Integer id = idd1.getValue();
             String resNom1 = check1.getValue();
@@ -189,13 +218,13 @@ public class AddResultatController implements Initializable {
            rcr.ajouterResultat(r);
             JOptionPane.showMessageDialog(null, "Resultat ajouté");
         
-          
+  
              
             /// SAUVEGARDE DANS LA BD
             
             
             //REDIRECTION
-          
+          try {   
              Parent exercices_parent = FXMLLoader.load(getClass().getResource("Affiche2.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -337,7 +366,8 @@ public class AddResultatController implements Initializable {
             Logger.getLogger(HomeScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+
   
 
   

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -15,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="729.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.AffichageTerrainsController">
     <stylesheets>
-        <URL value="@affichageterrains.css" />
+       
     </stylesheets>
    <children>
       <TableView fx:id="affichage" layoutX="297.0" layoutY="292.0" onMouseClicked="#tabAffiche" prefHeight="186.0" prefWidth="335.0">
@@ -58,6 +57,7 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
+                  <Button layoutX="370.0" layoutY="188.0" mnemonicParsing="false" onAction="#threezerosix" text="Voir Terrain en 360°" />
                </children>
             </AnchorPane>
          </children>
@@ -71,5 +71,6 @@
       <Button layoutX="29.0" layoutY="202.0" mnemonicParsing="false" onAction="#AjouterT" prefHeight="25.0" prefWidth="135.0" text="Ajouter" textFill="#39a67f" />
       <Button layoutX="29.0" layoutY="373.0" mnemonicParsing="false" onAction="#PaieT" prefHeight="25.0" prefWidth="135.0" text="Paiement" textFill="#39a67f" />
       <Button fx:id="acceuil" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" onAction="#acceuil" prefHeight="25.0" prefWidth="135.0" text="Accueil" textFill="#39a67f" />
+      <Button layoutX="658.0" layoutY="398.0" mnemonicParsing="false" onAction="#tf" text="TerrainFront" />
    </children>
 </AnchorPane>

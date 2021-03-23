@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -18,7 +19,7 @@
          <children>
             <AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="726.0" style="-fx-background-color: white;">
                <children>
-                  <TableView fx:id="tr" layoutX="178.0" layoutY="363.0" onMouseClicked="#tabv" onMousePressed="#test" prefHeight="193.0" prefWidth="472.0" style="-fx-background-color: white;">
+                  <TableView fx:id="tr" layoutX="178.0" layoutY="363.0" onMouseClicked="#aaaaaa" onMousePressed="#test" prefHeight="193.0" prefWidth="472.0" style="-fx-background-color: white;">
                     <columns>
                       <TableColumn fx:id="cid" prefWidth="41.0" text="ID" />
                       <TableColumn fx:id="ce1" minWidth="0.0" prefWidth="54.0" text="equipe1" />
@@ -38,12 +39,6 @@
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Button fx:id="en2" layoutX="701.0" layoutY="-2.0" mnemonicParsing="false" onAction="#englishaff" prefHeight="32.0" prefWidth="75.0" text="EN" />
-                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="660.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@201.jpg" />
-                           </image>
-                        </ImageView>
                         <ImageView fitHeight="44.0" fitWidth="46.0" layoutX="73.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Soccer_Ball_icon-icons.com_76265.png" />
@@ -57,11 +52,8 @@
                               </Label>
                               <TextField fx:id="tid" alignment="CENTER" layoutX="31.0" layoutY="70.0" promptText="id" />
                               <TextField fx:id="tb1" alignment="CENTER" layoutX="31.0" layoutY="118.0" promptText="but equipe 1" />
-                              <TextField fx:id="winner" alignment="CENTER" layoutX="31.0" layoutY="164.0" promptText="winner" />
-                              <TextField fx:id="te1" alignment="CENTER" layoutX="199.0" layoutY="70.0" promptText="equipe1" />
                               <TextField fx:id="tb2" alignment="CENTER" layoutX="199.0" layoutY="118.0" promptText="but equipe 2" />
                               <TextField fx:id="cartonr" alignment="CENTER" layoutX="199.0" layoutY="164.0" promptText="carton" />
-                              <TextField fx:id="te2" alignment="CENTER" cache="true" layoutX="371.0" layoutY="70.0" promptText="equipe2" />
                               <TextField fx:id="tnt" alignment="CENTER" layoutX="371.0" layoutY="118.0" promptText="note matche" />
                               <TextField fx:id="occcc" alignment="CENTER" layoutX="371.0" layoutY="164.0" promptText="occasion" />
                               <Button fx:id="btnselect11" layoutX="230.0" layoutY="222.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="98.0" text="modifier" textFill="#39a67f" />
@@ -69,6 +61,9 @@
                               <Button fx:id="btnselect" layoutX="469.0" layoutY="222.0" mnemonicParsing="false" onAction="#affiche" prefHeight="32.0" prefWidth="75.0" text="recherche" textFill="#39a67f" />
                               <BorderPane layoutX="8.0" prefHeight="6.0" prefWidth="531.0" style="-fx-background-color: #39A67f;" />
                               <BorderPane layoutX="7.0" layoutY="267.0" prefHeight="6.0" prefWidth="531.0" style="-fx-background-color: #39A67f;" />
+                              <TextField fx:id="cartonr1" alignment="CENTER" layoutX="31.0" layoutY="164.0" promptText="carton" />
+                              <ComboBox fx:id="cc" layoutX="197.0" layoutY="70.0" prefWidth="150.0" />
+                              <ComboBox fx:id="cc2" layoutX="370.0" layoutY="70.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
                      </children>

@@ -7,6 +7,8 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Tournoi;
 import edu.db3a4.services.TournoiCRUD;
+import edu.db3a4.tests.EmailUtil;
+import edu.db3a4.tests.MailSender;
 import edu.db3a4.tools.MyConnection;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -21,6 +23,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,6 +35,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,6 +46,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -106,6 +113,8 @@ public class AffichageTournoiController implements Initializable {
     private Button calendrier;
     @FXML
     private Button StatsTerrain;
+    @FXML
+    private Label etatTournoi;
 
     /**
      * Initializes the controller class.
@@ -145,7 +154,10 @@ public class AffichageTournoiController implements Initializable {
 
     @FXML
     private void rechercheTournoi(ActionEvent event) throws IOException {
-        
+         if (tf_id.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Veuillez selectionner un tournoi");
+    }
+     
         String id = tf_id.getText();
         Integer id1 = Integer.parseInt(id);
         TournoiCRUD pcd = new TournoiCRUD();
@@ -162,17 +174,26 @@ public class AffichageTournoiController implements Initializable {
 
     @FXML
     private void supprimerTournoi(ActionEvent event) {
-        int opt = JOptionPane.showConfirmDialog(null, "Confirmer la suppression ?","Supprimer",JOptionPane.YES_NO_OPTION);
-      if(opt==0){
+     if (tf_id.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Veuillez selectionner un tournoi");
+    }
+     else{
+         int opt = JOptionPane.showConfirmDialog(null, "Confirmer la suppression ?","Supprimer",JOptionPane.YES_NO_OPTION);
+
+        if(opt==0){
         String id = tf_id.getText();
          Integer id1 = Integer.parseInt(id);
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.supprimerTournoi(id1);
-            afficher.setItems(pcd.displayTournoi());}
+            afficher.setItems(pcd.displayTournoi());}}
     }
 
     @FXML
     private void modifierTournoi(ActionEvent event) {
+         if (tf_id.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Veuillez selectionner un tournoi");
+    }
+     else{
          int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","Modifier",JOptionPane.YES_NO_OPTION);
       if(opt==0){
         String id = tf_id.getText();
@@ -183,7 +204,7 @@ public class AffichageTournoiController implements Initializable {
             LocalDate dateT = pickerDate.getValue();
             TournoiCRUD pcd = new TournoiCRUD();
             pcd.updateTournoi(id1,nomT,nbr_Equipe,dateT,nomTe);
-            afficher.setItems(pcd.displayTournoi());   }
+            afficher.setItems(pcd.displayTournoi());   }}
                             
     }
 
@@ -206,14 +227,49 @@ public class AffichageTournoiController implements Initializable {
             tf_nbrE.setValue(tournoi.getNbr_equipe());
             pickerDate.setValue(tournoi.getDateTournoi());
             cmbTerrain.setValue(tournoi.getTerrainTournoi());
-            Image img = new Image("/images/"+tournoi.getImage());
+            Image img = new Image("/cup/"+tournoi.getImage());
             image.setImage(img);
+            TournoiCRUD pcd = new TournoiCRUD();
+            LocalDate lt = LocalDate.now(); 
+            
+            String[] parts = pcd.getEquipes(tournoi.getId()).split(",");
+             try {
+            
+            String requete = "SELECT * FROM tournoi WHERE id = " + tournoi.getId() + ";";
+            Statement st;
+            st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+             ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                if (rs.getInt("scoreEq1")>rs.getInt("scoreEq2") && rs.getInt("scoreFinal1")>rs.getInt("scoreFinal2"))
+                    etatTournoi.setText("Tournoi términer "+parts[0]+" à gagner le tournoi");
+                if (rs.getInt("scoreEq2")>rs.getInt("scoreEq1") && rs.getInt("scoreFinal1")>rs.getInt("scoreFinal2"))
+                    etatTournoi.setText("Tournoi términer "+parts[1]+" à gagner le tournoi");
+                if (rs.getInt("scoreEq3")>rs.getInt("scoreEq4") && rs.getInt("scoreFinal2")>rs.getInt("scoreFinal1"))
+                    etatTournoi.setText("Tournoi términer "+parts[2]+" à gagner le tournoi");
+                if (rs.getInt("scoreEq3")<rs.getInt("scoreEq4") && rs.getInt("scoreFinal1")<rs.getInt("scoreFinal2"))
+                    etatTournoi.setText("Tournoi términer "+parts[3]+" à gagner le tournoi");
+                if (rs.getDate("dateTournoi").toLocalDate().isAfter(lt))
+                    etatTournoi.setText("le tournoi commence dans "+ChronoUnit.DAYS.between(lt, rs.getDate("dateTournoi").toLocalDate())+" jrs");
+                  int value = rs.getInt("scoreEq1");
+                if(rs.getDate("dateTournoi").toLocalDate().isBefore(lt) && value == 0   )
+                    etatTournoi.setText("attente des resultats");
+            }
+            }
+         catch (SQLException ex) {
+            Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void afficheCalendar(ActionEvent event) throws IOException {
-       TournoiCRUD pcd = new TournoiCRUD();
-       if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 4){
+     LocalDate lt = LocalDate.now(); 
+        if (tf_id.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Veuillez selectionner un tournoi");
+    }
+     else{
+        TournoiCRUD pcd = new TournoiCRUD();
+       if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 4 && pcd.getDate(Integer.parseInt(tf_id.getText())).isAfter(lt)  ){
         FXMLLoader loader = new FXMLLoader(getClass()
                     .getResource("Calendar.fxml"));
                    Parent root = (Parent)loader.load();
@@ -231,82 +287,120 @@ public class AffichageTournoiController implements Initializable {
             stage.setTitle("Calendrier tournoi");
         stage.getIcons().add(new Image("/images/calendar.png"));
             stage.show();}
-       else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 8){
-            FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("Calendar1.fxml"));
+      else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 4 && pcd.getDate(Integer.parseInt(tf_id.getText())).isBefore(lt) && etatTournoi.getText() != "attente des resultats"  ){
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("resultCal.fxml"));
                    Parent root = (Parent)loader.load();
             Integer id = Integer.parseInt(tf_id.getText());
-            String date1 = pickerDate.getValue().toString();
             String nomTt = tf_nom.getText();
+            String date1 = pickerDate.getValue().toString();
             String[] parts = pcd.getEquipes(id).split(",");  
-            Random random = new Random();
-            int nb = 14+random.nextInt(21-14);
-            int nb1 = 14+random.nextInt(21-14);
-            int nb2 = 14+random.nextInt(21-14);
-            int nb3 = 14+random.nextInt(21-14);
-            Calendar1Controller calendar = loader.getController();
-            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
-                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
-                    String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
-                    pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
-                    String.valueOf(nb2),String.valueOf(nb3),nomTt);
+            ResultCalController calendar = loader.getController();
+            try {
+            
+            String requete = "SELECT * FROM tournoi WHERE id = " + id + ";";
+            Statement st;
+            st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+             ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                calendar.sett(parts[0], parts[1], parts[2], parts[3],nomTt,rs.getInt("scoreEq1"),rs.getInt("scoreEq2"),rs.getInt("scoreEq3"),rs.getInt("scoreEq4"),rs.getInt("scoreFinal1"),rs.getInt("scoreFinal2"));
+            }
+            }
+         catch (SQLException ex) {
+            Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-             stage.setTitle("Calendrier tournoi");
+            stage.setTitle("Calendrier tournoi");
         stage.getIcons().add(new Image("/images/calendar.png"));
-            stage.show();
-       }
-           else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 6){
-            FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("Calendar2.fxml"));
-                   Parent root = (Parent)loader.load();
-            Integer id = Integer.parseInt(tf_id.getText());
-            String date1 = pickerDate.getValue().toString();
-            String nomTt = tf_nom.getText();
-            String[] parts = pcd.getEquipes(id).split(",");  
-            Random random = new Random();
-            int nb = 14+random.nextInt(21-14);
-            int nb1 = 14+random.nextInt(21-14);
-            int nb2 = 14+random.nextInt(21-14);
-            Calendar2Controller calendar = loader.getController();
-            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
-                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
-                    String.valueOf(nb1),parts[4], parts[5],
-                    pickerDate.getValue().plusDays(2).toString(),
-                    String.valueOf(nb2),nomTt);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-             stage.setTitle("Calendrier tournoi");
-        stage.getIcons().add(new Image("/images/calendar.png"));
-            stage.show();
-       }
-      else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 10){
-            FXMLLoader loader = new FXMLLoader(getClass()
-                    .getResource("Calendar3.fxml"));
-                   Parent root = (Parent)loader.load();
-            Integer id = Integer.parseInt(tf_id.getText());
-            String date1 = pickerDate.getValue().toString();
-            String nomTt = tf_nom.getText();
-            String[] parts = pcd.getEquipes(id).split(",");  
-            Random random = new Random();
-            int nb = 14+random.nextInt(21-14);
-            int nb1 = 14+random.nextInt(21-14);
-            int nb2 = 14+random.nextInt(21-14);
-            int nb3 = 14+random.nextInt(21-14);
-            int nb4 = 14+random.nextInt(21-14);
-            Calendar3Controller calendar = loader.getController();
-            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
-                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
-                    String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
-                    pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
-                    String.valueOf(nb2),String.valueOf(nb3),
-                    parts[8],parts[9],pickerDate.getValue().plusDays(4).toString(),String.valueOf(nb4),
-                    nomTt);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-             stage.setTitle("Calendrier tournoi");
-        stage.getIcons().add(new Image("/images/calendar.png"));
-            stage.show();
+            stage.show();}
+        else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 4 && pcd.getDate(Integer.parseInt(tf_id.getText())).isBefore(lt) && etatTournoi.getText().equals("attente des resultats")  ){
+       String Newligne=System.getProperty("line.separator");
+            JOptionPane.showMessageDialog(null, "Les resultats ne sont pas encore saisie"+Newligne+" Un mail va etre envoyer a la direction des resultats");
+        	//	EmailUtil.sendEmail(session, toEmail,"tournoi", "TLSEmail Testing Body");
+                MailSender mail = new MailSender();
+            String[] args = null;
+             //   mail.main(args,tf_nom.getText());
+
+        }
+//       else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 8){
+//            FXMLLoader loader = new FXMLLoader(getClass()
+//                    .getResource("Calendar1.fxml"));
+//                   Parent root = (Parent)loader.load();
+//            Integer id = Integer.parseInt(tf_id.getText());
+//            String date1 = pickerDate.getValue().toString();
+//            String nomTt = tf_nom.getText();
+//            String[] parts = pcd.getEquipes(id).split(",");  
+//            Random random = new Random();
+//            int nb = 14+random.nextInt(21-14);
+//            int nb1 = 14+random.nextInt(21-14);
+//            int nb2 = 14+random.nextInt(21-14);
+//            int nb3 = 14+random.nextInt(21-14);
+//            Calendar1Controller calendar = loader.getController();
+//            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
+//                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
+//                    String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
+//                    pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
+//                    String.valueOf(nb2),String.valueOf(nb3),nomTt);
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//             stage.setTitle("Calendrier tournoi");
+//        stage.getIcons().add(new Image("/images/calendar.png"));
+//            stage.show();
+//       }
+//           else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 6){
+//            FXMLLoader loader = new FXMLLoader(getClass()
+//                    .getResource("Calendar2.fxml"));
+//                   Parent root = (Parent)loader.load();
+//            Integer id = Integer.parseInt(tf_id.getText());
+//            String date1 = pickerDate.getValue().toString();
+//            String nomTt = tf_nom.getText();
+//            String[] parts = pcd.getEquipes(id).split(",");  
+//            Random random = new Random();
+//            int nb = 14+random.nextInt(21-14);
+//            int nb1 = 14+random.nextInt(21-14);
+//            int nb2 = 14+random.nextInt(21-14);
+//            Calendar2Controller calendar = loader.getController();
+//            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
+//                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
+//                    String.valueOf(nb1),parts[4], parts[5],
+//                    pickerDate.getValue().plusDays(2).toString(),
+//                    String.valueOf(nb2),nomTt);
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//             stage.setTitle("Calendrier tournoi");
+//        stage.getIcons().add(new Image("/images/calendar.png"));
+//            stage.show();
+//       }
+//      else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 10){
+//            FXMLLoader loader = new FXMLLoader(getClass()
+//                    .getResource("Calendar3.fxml"));
+//                   Parent root = (Parent)loader.load();
+//            Integer id = Integer.parseInt(tf_id.getText());
+//            String date1 = pickerDate.getValue().toString();
+//            String nomTt = tf_nom.getText();
+//            String[] parts = pcd.getEquipes(id).split(",");  
+//            Random random = new Random();
+//            int nb = 14+random.nextInt(21-14);
+//            int nb1 = 14+random.nextInt(21-14);
+//            int nb2 = 14+random.nextInt(21-14);
+//            int nb3 = 14+random.nextInt(21-14);
+//            int nb4 = 14+random.nextInt(21-14);
+//            Calendar3Controller calendar = loader.getController();
+//            calendar.sett(parts[0], parts[1], parts[2], parts[3], date1, 
+//                    pickerDate.getValue().plusDays(1).toString(),String.valueOf(nb),
+//                    String.valueOf(nb1),parts[4], parts[5], parts[6], parts[7],
+//                    pickerDate.getValue().plusDays(2).toString(),pickerDate.getValue().plusDays(3).toString(),
+//                    String.valueOf(nb2),String.valueOf(nb3),
+//                    parts[8],parts[9],pickerDate.getValue().plusDays(4).toString(),String.valueOf(nb4),
+//                    nomTt);
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//             stage.setTitle("Calendrier tournoi");
+//        stage.getIcons().add(new Image("/images/calendar.png"));
+//            stage.show();
+//       }
        }
     }
 
@@ -340,6 +434,5 @@ public class AffichageTournoiController implements Initializable {
         }
     }
 
-  
-    }    
-    
+   
+}

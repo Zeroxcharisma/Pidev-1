@@ -25,6 +25,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import org.controlsfx.control.Notifications;
@@ -59,6 +60,8 @@ public class AddPersonController implements Initializable {
 
     @FXML
     private void ajouterPersonne(ActionEvent event) {
+        
+        if ((tfNom.getText() != null && !tfNom.getText().isEmpty() && tfType.getValue() != null && tfLieu.getText() != null && !tfLieu.getText().isEmpty())){
        
             /// SAUVEGARDE DANS LA BD
             String resNom = tfNom.getText();
@@ -67,13 +70,11 @@ public class AddPersonController implements Initializable {
             String resLieu = tfLieu.getText();
             Personne p = new Personne(14, resNom, resType, resTaille, resLieu);
             PersonneCRUD pcd = new PersonneCRUD();
-            //SmsSender S=new  SmsSender();
-            //S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom +"Lieu : "+resLieu,"b");
             pcd.ajouterPersonne(p);
             JOptionPane.showMessageDialog(null, "Terrain ajouté");
-            
-                    
-            
+   
+            SmsSender S=new  SmsSender();
+            S.send("FootTunisie : votre terrain et ajouté avec succés ! Nom du terrain ,"+resNom + " | "+"Lieu : "+resLieu,"b");
      
                    
             //notif
@@ -89,7 +90,9 @@ public class AddPersonController implements Initializable {
                 }
                     });
             notificationBuilder.showInformation();
-                  
+        } //fermeture de if 
+        
+        else {JOptionPane.showMessageDialog(null, "Merci de completer les champ manquants"); }      
                    
             
             //REDIRECTIO

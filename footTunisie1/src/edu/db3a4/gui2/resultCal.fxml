@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.ResultCalController">
+   <children>
+      <ImageView fitHeight="454.0" fitWidth="708.0" layoutX="-8.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/3637.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="76.0" fitWidth="500.0" layoutX="96.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/resul.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="500.0" layoutX="96.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/resul.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="77.0" fitWidth="500.0" layoutX="96.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/resul.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lab2" layoutX="115.0" layoutY="147.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="nomT" layoutX="276.0" layoutY="7.0" text="World cup" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="37.0" />
+         </font>
+      </Label>
+      <Label fx:id="lab3" layoutX="437.0" layoutY="62.0" prefHeight="41.0" prefWidth="151.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="lab1" layoutX="115.0" layoutY="62.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreEq1" layoutX="300.0" layoutY="57.0" text="0" textAlignment="RIGHT" textFill="#dad4d4">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreEq2" layoutX="370.0" layoutY="57.0" text="0" textFill="#dad4d4">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreEq3" layoutX="300.0" layoutY="142.0" text="0" textAlignment="RIGHT" textFill="#dad4d4">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreEq4" layoutX="372.0" layoutY="142.0" text="0" textFill="#dad4d4">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="lab4" layoutX="437.0" layoutY="147.0" prefHeight="41.0" prefWidth="141.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreF2" layoutX="370.0" layoutY="240.0" text="0" textAlignment="RIGHT" textFill="#dad4d4">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreF1" layoutX="302.0" layoutY="240.0" text="0" textAlignment="RIGHT" textFill="#dad4d4">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="Final1" layoutX="115.0" layoutY="242.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="Final2" layoutX="445.0" layoutY="242.0" prefHeight="41.0" prefWidth="151.0" text="dortmund" textAlignment="RIGHT">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="293.0" layoutY="194.0" text="Finale" textFill="#fc0000">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="48.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="176.0" fitWidth="143.0" layoutX="275.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/kisspng-ribbon-award-medal-clip-art-award-5abb0219176032.7437453115222052090958.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="gagnant" alignment="CENTER" contentDisplay="CENTER" layoutX="315.0" layoutY="338.0" prefHeight="30.0" prefWidth="63.0" text="Atletico" textAlignment="CENTER" textFill="#faf5cf" wrapText="true">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

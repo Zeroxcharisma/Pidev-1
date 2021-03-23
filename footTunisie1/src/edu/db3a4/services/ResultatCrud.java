@@ -574,9 +574,36 @@ try {
         
        
     }
-      
+       public void updateTournoi(Integer id, Integer score1, Integer score2,Integer score3, Integer score4,Integer scoreF1,Integer scoreF2) {
+     try {
+            PreparedStatement pst = MyConnection.getInstance().getCnx()
+                    .prepareStatement("UPDATE tournoi SET scoreEq1 = '"+score1+"', scoreEq2 = '"+score2+"', scoreEq3 = '"+score3+"', scoreEq4 = '"+score4+"',scoreFinal1 = '"+scoreF1+"', scoreFinal2 = '"+scoreF2+"' WHERE id = '"+id+"'");
+            pst.executeUpdate();
+            System.out.println("tournoi modifiée");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
  
- 
+     public    ObservableList<Resultat> TopMacthe(Integer id) {
+        
+         try {
+              String requete = "SELECT *FROM resultat where note='"+id+"'; ";
+            Statement st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()){
+            observableListLocataire.add( new Resultat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9)));
+            }
+            }
+         catch (SQLException ex) {
+          
+        }
+          
+          return observableListLocataire;
+        
+    }
  
     }
     
