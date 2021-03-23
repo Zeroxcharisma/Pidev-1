@@ -37,8 +37,6 @@
                         </image>
                     </ImageView>
                     <Pane fx:id="blackPane11" layoutX="220.0" prefHeight="190.0" prefWidth="980.0" styleClass="blackPane" stylesheets="@../Styles/design.css" />
-                    <Pane fx:id="hexPlane1" layoutX="-31.0" layoutY="-31.0" prefHeight="862.0" prefWidth="1241.0" />
-                    <Pane fx:id="hexPlane2" layoutX="-31.0" layoutY="-31.0" prefHeight="862.0" prefWidth="1241.0" />
                     <Pane fx:id="hexPlane3" layoutX="-31.0" layoutY="-31.0" prefHeight="862.0" prefWidth="1241.0" />
                     <Pane fx:id="hexPlane" layoutX="-31.0" layoutY="-31.0" prefHeight="862.0" prefWidth="1241.0" />
                     <Pane fx:id="topBorderPane" layoutX="220.0" prefHeight="50.0" prefWidth="980.0" style="-fx-background-color: rgba(0,0,0,0);" />
@@ -91,7 +89,7 @@
                                                                     <Image url="@../icons/myteam.png" />
                                                                 </image>
                                                             </ImageView>
-                                                            <Text fx:id="t2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My Team">
+                                                            <Text fx:id="t2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tournois">
                                                                 <font>
                                                                     <Font size="13.0" />
                                                                 </font>
@@ -108,7 +106,7 @@
                                                                     <Image url="@../icons/points.png" />
                                                                 </image>
                                                             </ImageView>
-                                                            <Text fx:id="t3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Points">
+                                                            <Text fx:id="t3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="evenement">
                                                                 <font>
                                                                     <Font size="13.0" />
                                                                 </font>
@@ -125,7 +123,7 @@
                                                                     <Image url="@../icons/transfer.png" />
                                                                 </image>
                                                             </ImageView>
-                                                            <Text fx:id="t4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfers">
+                                                            <Text fx:id="t4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Terrain">
                                                                 <font>
                                                                     <Font size="13.0" />
                                                                 </font>
@@ -142,7 +140,7 @@
                                                                     <Image url="@../icons/leagues.png" />
                                                                 </image>
                                                             </ImageView>
-                                                            <Text fx:id="t5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Leagues">
+                                                            <Text fx:id="t5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="equipes">
                                                                 <font>
                                                                     <Font size="13.0" />
                                                                 </font>
@@ -159,7 +157,7 @@
                                                                     <Image url="@../icons/fixture.png" />
                                                                 </image>
                                                             </ImageView>
-                                                            <Text fx:id="t6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Fixtures">
+                                                            <Text fx:id="t6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="paris sportifs">
                                                                 <font>
                                                                     <Font size="13.0" />
                                                                 </font>
@@ -176,7 +174,7 @@
                                                                     <Image url="@../icons/statistics.png" />
                                                                 </image>
                                                             </ImageView>
-                                                            <Text fx:id="t7" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
+                                                            <Text fx:id="t7" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="contact">
                                                                 <font>
                                                                     <Font size="13.0" />
                                                                 </font>
@@ -188,16 +186,18 @@
                                                             <Insets left="40.0" />
                                                         </padding>
                                                         <children>
-                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                                <image>
-                                                                    <Image url="@../icons/rules.png" />
-                                                                </image>
-                                                            </ImageView>
-                                                            <Text fx:id="t8" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules">
-                                                                <font>
-                                                                    <Font size="13.0" />
-                                                                </font>
-                                                            </Text>
+                                                  <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#handleMouseEvent" prefHeight="25.0" prefWidth="100.0" styleClass="button13" stylesheets="@../Styles/design.css" text="     Log Out">
+                                                      <graphic>
+                                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                              <image>
+                                                                  <Image url="@../icons/logout.png" />
+                                                              </image>
+                                                              <effect>
+                                                                  <ColorAdjust brightness="1.0" contrast="0.02" hue="-0.07" />
+                                                              </effect>
+                                                          </ImageView>
+                                                      </graphic>
+                                                  </Button>
                                                         </children>
                                                     </HBox>
                                                 </children>
@@ -216,11 +216,6 @@
                             </Pane>
                         </left>
                     </BorderPane>
-                    <Button fx:id="btnResize" layoutX="1178.0" layoutY="780.0" mnemonicParsing="false" onMouseEntered="#enterResize" prefHeight="25.0" prefWidth="30.0" rotate="-45.0" style="-fx-background-color: transparent;" text="V" textFill="WHITE">
-                        <font>
-                            <Font name="System Bold" size="12.0" />
-                        </font>
-                    </Button>
                     <AnchorPane fx:id="topane1" layoutX="220.0" prefHeight="40.0" prefWidth="982.0" stylesheets="@../Styles/design.css">
                         <children>
                             <Pane layoutX="45.0" layoutY="7.0" opacity="0.0" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: white;" />
@@ -240,75 +235,16 @@
                             </ImageView>
                         </children>
                     </AnchorPane>
-                    <Button fx:id="logout" layoutX="36.0" layoutY="740.0" mnemonicParsing="false" onMouseClicked="#handleMouseEvent" prefHeight="25.0" prefWidth="100.0" styleClass="button13" stylesheets="@../Styles/design.css" text="     Log Out">
-                        <graphic>
-                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../icons/logout.png" />
-                                </image>
-                                <effect>
-                                    <ColorAdjust brightness="1.0" contrast="0.02" hue="-0.07" />
-                                </effect>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <HBox fx:id="topMenu" layoutX="550.0" layoutY="5.0" prefHeight="37.0" prefWidth="321.0" style="-fx-background-color: rgba(255,255,255,.1); -fx-background-radius: 30;">
+                    <HBox fx:id="topMenu" layoutX="550.0" layoutY="5.0" prefHeight="37.0" prefWidth="111.0" style="-fx-background-color: rgba(255,255,255,.1); -fx-background-radius: 30;">
                         <children>
-                            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="117.0" styleClass="button13" stylesheets="@../Styles/design.css" textFill="WHITE">
-                                <font>
-                                    <Font name="System Bold" size="10.0" />
-                                </font>
-                                <graphic>
-                                    <VBox alignment="CENTER" prefHeight="29.0" prefWidth="108.0">
-                                 <children>
-                                    <TextField fx:id="test" />
-                                 </children>
-                                    </VBox>
-                                </graphic>
-                            </Button>
-                            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="117.0" style="-fx-background-color: #6229D2; -fx-background-radius: 30;" styleClass="button13" stylesheets="@../Styles/design.css" textFill="WHITE">
-                                <font>
-                                    <Font name="System Bold" size="10.0" />
-                                </font>
-                                <graphic>
-                                    <VBox alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
-                                        <children>
-                                            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../icons/status.png" />
-                                                </image>
-                                            </ImageView>
-                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Homes">
-                                                <font>
-                                                    <Font size="10.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                    </VBox>
-                                </graphic>
-                            </Button>
-                            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="117.0" styleClass="button13" stylesheets="@../Styles/design.css" textFill="WHITE">
-                                <font>
-                                    <Font name="System Bold" size="10.0" />
-                                </font>
-                                <graphic>
-                                    <VBox fx:id="id" alignment="CENTER" prefHeight="20.0" prefWidth="35.0">
-                                        <children>
-                                            <Text fx:id="idmatche" fill="#b1b1b1" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
-                                                <font>
-                                                    <Font size="10.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                    </VBox>
-                                </graphic>
-                            </Button>
+                        <TextField fx:id="recherche" prefHeight="37.0" prefWidth="140.0" promptText="recherche" />
+                              <VBox fx:id="id" alignment="CENTER" prefHeight="20.0" prefWidth="35.0" />
                         </children>
                     </HBox>
-                  <HBox layoutX="222.0" layoutY="126.0" prefHeight="67.0" prefWidth="593.0" />
+                  <HBox layoutX="222.0" layoutY="126.0" prefHeight="67.0" prefWidth="558.0" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-                  <VBox alignment="TOP_CENTER" layoutX="322.0" layoutY="64.0" prefHeight="344.0" prefWidth="159.0">
+                  <VBox alignment="TOP_CENTER" layoutX="283.0" layoutY="64.0" prefHeight="344.0" prefWidth="360.0">
                      <children>
                         <HBox prefHeight="50.0" prefWidth="200.0" styleClass="primary-background" stylesheets="@../../../../../../../Front/FootballApplication-master/src/styles/designStyling.css">
                            <children>
@@ -351,7 +287,7 @@
                                        <children>
                                           <Label fx:id="labelequipe1" alignment="CENTER" prefHeight="27.0" prefWidth="72.0" text="equipe 1" textFill="#39a67f">
                                              <font>
-                                                <Font name="System Bold" size="7.0" />
+                                                <Font name="Cambria" size="14.0" />
                                              </font>
                                           </Label>
                                        </children>
@@ -371,7 +307,7 @@
                                                 <RadialGradient centerX="0.5055555555555555" centerY="0.5" radius="0.5">
                                                    <stops>
                                                       <Stop color="BLACK" />
-                                                      <Stop color="#9e90d3" offset="1.0" />
+                                                      <Stop color="#39a67f" offset="1.0" />
                                                    </stops>
                                                 </RadialGradient>
                                              </textFill>
@@ -392,7 +328,7 @@
                                        <children>
                                           <Label fx:id="labelequipe2" alignment="CENTER" prefHeight="26.0" prefWidth="168.0" text="equipe 2" textFill="#39a67f">
                                              <font>
-                                                <Font name="System Bold" size="7.0" />
+                                                <Font name="Cambria Italic" size="14.0" />
                                              </font>
                                           </Label>
                                        </children>
@@ -434,10 +370,11 @@
                         <ImageView fitHeight="33.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../photos/football.png" />
-                           </image></ImageView>
+                           </image>
+                        </ImageView>
                      </children>
                   </VBox>
-                  <TableView fx:id="tableHistory" layoutX="216.0" layoutY="413.0" onMouseClicked="#resultat" prefHeight="160.0" prefWidth="646.0" stylesheets="@../../../../../../../Front/Styles/fixtureView.css">
+                  <TableView fx:id="tableHistory" layoutX="262.0" layoutY="429.0" onMouseClicked="#resultat" prefHeight="144.0" prefWidth="600.0" stylesheets="@../../../../../../../Front/Styles/fixtureView.css">
                      <columns>
                         <TableColumn fx:id="idmatch" prefWidth="67.0" text="N.Match" />
                         <TableColumn fx:id="equipe1" prefWidth="62.0" text="equipe 1" />

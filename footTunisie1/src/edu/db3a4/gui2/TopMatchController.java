@@ -7,18 +7,13 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Resultat;
 import edu.db3a4.services.ResultatCrud;
-import edu.db3a4.tools.MyConnection;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -42,38 +37,16 @@ import javafx.scene.text.Text;
  *
  * @author nidha
  */
-public class ResultatfrontController implements Initializable {
+public class TopMatchController implements Initializable {
 
-    @FXML
+     @FXML
     private AnchorPane MenuAnchorPane;
     @FXML
-    private Pane sideTransparentPane;
-    @FXML
-    private Pane sideBorderPane;
-    @FXML
-    private Pane hoverPane;
-    @FXML
-    private Pane topTransparentPane;
-    @FXML
     private ImageView backimg;
-    @FXML
-    private Pane blackPane11;
-    @FXML
-    private Pane hexPlane1;
-    @FXML
-    private Pane hexPlane2;
-    @FXML
-    private Pane hexPlane3;
-    @FXML
-    private Pane hexPlane;
-    @FXML
-    private Pane topBorderPane;
     @FXML
     private Pane blackPane;
     @FXML
     private Pane blackPane1;
-    @FXML
-    private ImageView topimage;
     @FXML
     private Pane topBlackTab;
     @FXML
@@ -125,15 +98,11 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private ImageView fantasyIcon;
     @FXML
-    private Button btnResize;
-    @FXML
     private AnchorPane topane1;
     @FXML
     private Text HierText;
     @FXML
     private Button logout;
-    @FXML
-    private HBox topMenu;
     @FXML
     private TableView<Resultat> tableHistory;
     @FXML
@@ -141,8 +110,6 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private TableColumn<?, ?> yc;
     private Text nomequipe;
-    @FXML
-    private VBox id;
     @FXML
     private Label labelequipe1;
     @FXML
@@ -179,6 +146,22 @@ public class ResultatfrontController implements Initializable {
     private TextField test;
     @FXML
     private TextField recherche;
+    @FXML
+    private ImageView detailsgazoniv;
+    @FXML
+    private Label superficiegazon;
+    @FXML
+    private Label nbterraingazon;
+    @FXML
+    private Pane playerOption;
+    @FXML
+    private Text plnforOption;
+    @FXML
+    private Button btnReplace;
+    @FXML
+    private Button btnInformation;
+    @FXML
+    private Button btnRemove;
 
     /**
      * Initializes the controller class.
@@ -212,42 +195,10 @@ public class ResultatfrontController implements Initializable {
          
                 // Wrap t
       // TODO
-        tableHistory.setItems(rcr.displayPersons());
-        ObservableList<Resultat> list = rcr.displayPersons();
-       FilteredList<Resultat> Filtered = new FilteredList<>(list,e-> true);
-        recherche.textProperty().addListener((Observablevalue,OldValue,NewValue)->{
-            Filtered.setPredicate((Predicate<? super Resultat>) ab ->{
-                if (NewValue ==null || NewValue.isEmpty()){
-                    return true;
-                }
-               
-                
-                String lowerCaseFilter  = NewValue.toLowerCase();
-                 
-                if(ab.getNomequipe1().toLowerCase().contains(lowerCaseFilter)){
-                    return true;
-                }else if(ab.getNomequipe2().toLowerCase().contains(lowerCaseFilter)){
-                    return true;
-                }else if(ab.getGangant().toLowerCase().contains(lowerCaseFilter)){
-                    return true;
-                }else if(String.valueOf(ab.getId()).contains(NewValue)){
-                    return true;
-                    }else if(String.valueOf(ab.getScoreequipe1()).contains(NewValue)){
-                    return true;
-                    }else if(String.valueOf(ab.getScoreequipe2()).contains(NewValue)){
-                    return true;
-                }else if(String.valueOf(ab.getOccaison()).contains(NewValue)){
-                    return true;
-                    }else if(String.valueOf(ab.getNote()).contains(NewValue)){
-                    return true;
-                }
-                return false;
-                
-            });
-            SortedList<Resultat> sorted = new SortedList<> (Filtered);
-            sorted.comparatorProperty().bind(  tableHistory.comparatorProperty());
-                      tableHistory.setItems(sorted);
-        });
+      int i=6;
+        tableHistory.setItems(rcr.TopMacthe(8));
+      
+        
     }    
 
     @FXML
@@ -258,10 +209,6 @@ public class ResultatfrontController implements Initializable {
     private void test(MouseEvent event) {
     }
 
-    @FXML
-    private void enterResize(MouseEvent event) {
-        
-    }
 
     @FXML
     private void resultat(MouseEvent event) {
