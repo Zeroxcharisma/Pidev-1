@@ -227,7 +227,7 @@ public class AffichageTournoiController implements Initializable {
             tf_nbrE.setValue(tournoi.getNbr_equipe());
             pickerDate.setValue(tournoi.getDateTournoi());
             cmbTerrain.setValue(tournoi.getTerrainTournoi());
-            Image img = new Image("/images/"+tournoi.getImage());
+            Image img = new Image("/cup/"+tournoi.getImage());
             image.setImage(img);
             TournoiCRUD pcd = new TournoiCRUD();
             LocalDate lt = LocalDate.now(); 

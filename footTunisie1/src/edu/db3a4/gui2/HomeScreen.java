@@ -29,7 +29,15 @@ public class HomeScreen extends Application {
     public void start(Stage primaryStage) {
         
         try {
+<<<<<<< HEAD
             Parent root = FXMLLoader.load(getClass().getResource("Resultat3.fxml"));
+=======
+<<<<<<< HEAD
+            Parent root = FXMLLoader.load(getClass().getResource("Integration.fxml"));
+=======
+            Parent root = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
+>>>>>>> 4ab6d306a7afdf459b69b89df6fdd58fc02a1f72
+>>>>>>> 6f239f02f0f4b0f703e43ccf15366cc01b481369
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("FootTunisie");

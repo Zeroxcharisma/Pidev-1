@@ -28,22 +28,22 @@
             <Image url="@../../../images/resul.png" />
          </image>
       </ImageView>
-      <Label fx:id="lab2" layoutX="134.0" layoutY="147.0" text="Label">
+      <Label fx:id="lab2" layoutX="115.0" layoutY="147.0" text="Label" textAlignment="CENTER">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
          </font>
       </Label>
-      <Label fx:id="nomT" layoutX="312.0" layoutY="6.0" text="Label" textFill="WHITE">
+      <Label fx:id="nomT" layoutX="276.0" layoutY="7.0" text="World cup" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="37.0" />
          </font>
       </Label>
-      <Label fx:id="lab3" layoutX="484.0" layoutY="62.0" text="Label">
+      <Label fx:id="lab3" layoutX="437.0" layoutY="62.0" prefHeight="41.0" prefWidth="151.0" text="Label" textAlignment="RIGHT">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
          </font>
       </Label>
-      <Label fx:id="lab1" layoutX="134.0" layoutY="62.0" text="Label">
+      <Label fx:id="lab1" layoutX="115.0" layoutY="62.0" text="Label" textAlignment="CENTER">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
          </font>
@@ -68,7 +68,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
          </font>
       </Label>
-      <Label fx:id="lab4" layoutX="484.0" layoutY="147.0" text="Label">
+      <Label fx:id="lab4" layoutX="437.0" layoutY="147.0" prefHeight="41.0" prefWidth="141.0" text="Label" textAlignment="RIGHT">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
          </font>
@@ -83,12 +83,12 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="47.0" />
          </font>
       </Label>
-      <Label fx:id="Final1" layoutX="134.0" layoutY="242.0" text="Label">
+      <Label fx:id="Final1" layoutX="115.0" layoutY="242.0" text="Label" textAlignment="CENTER">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
          </font>
       </Label>
-      <Label fx:id="Final2" layoutX="484.0" layoutY="242.0" text="Label">
+      <Label fx:id="Final2" layoutX="445.0" layoutY="242.0" prefHeight="41.0" prefWidth="151.0" text="dortmund" textAlignment="RIGHT">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="38.0" />
          </font>
@@ -98,14 +98,14 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="48.0" />
          </font>
       </Label>
-      <ImageView fitHeight="152.0" fitWidth="161.0" layoutX="273.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="176.0" fitWidth="143.0" layoutX="275.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/ZLRxdI-winner-transparent-background-image.png" />
+            <Image url="@../../../images/kisspng-ribbon-award-medal-clip-art-award-5abb0219176032.7437453115222052090958.png" />
          </image>
       </ImageView>
-      <Label fx:id="gagnant" alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="340.0" text="Label" textAlignment="CENTER" textFill="#dd7e0d" wrapText="true">
+      <Label fx:id="gagnant" alignment="CENTER" contentDisplay="CENTER" layoutX="315.0" layoutY="338.0" prefHeight="30.0" prefWidth="63.0" text="Atletico" textAlignment="CENTER" textFill="#faf5cf" wrapText="true">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
    </children>
