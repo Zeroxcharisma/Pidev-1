@@ -227,7 +227,7 @@ public class AffichageTournoiController implements Initializable {
             tf_nbrE.setValue(tournoi.getNbr_equipe());
             pickerDate.setValue(tournoi.getDateTournoi());
             cmbTerrain.setValue(tournoi.getTerrainTournoi());
-            Image img = new Image("/images/"+tournoi.getImage());
+            Image img = new Image("/cup/"+tournoi.getImage());
             image.setImage(img);
             TournoiCRUD pcd = new TournoiCRUD();
             LocalDate lt = LocalDate.now(); 
@@ -242,11 +242,11 @@ public class AffichageTournoiController implements Initializable {
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                 if (rs.getInt("scoreEq1")>rs.getInt("scoreEq2") && rs.getInt("scoreFinal1")>rs.getInt("scoreFinal2"))
-                    etatTournoi.setText(parts[0]+" à gagner le tournoi");
+                    etatTournoi.setText("Tournoi términer "+parts[0]+" à gagner le tournoi");
                 if (rs.getInt("scoreEq2")>rs.getInt("scoreEq1") && rs.getInt("scoreFinal1")>rs.getInt("scoreFinal2"))
-                    etatTournoi.setText(parts[1]+" à gagner le tournoi");
+                    etatTournoi.setText("Tournoi términer "+parts[1]+" à gagner le tournoi");
                 if (rs.getInt("scoreEq3")>rs.getInt("scoreEq4") && rs.getInt("scoreFinal2")>rs.getInt("scoreFinal1"))
-                    etatTournoi.setText(parts[2]+" à gagner le tournoi");
+                    etatTournoi.setText("Tournoi términer "+parts[2]+" à gagner le tournoi");
                 if (rs.getInt("scoreEq3")<rs.getInt("scoreEq4") && rs.getInt("scoreFinal1")<rs.getInt("scoreFinal2"))
                     etatTournoi.setText("Tournoi términer "+parts[3]+" à gagner le tournoi");
                 if (rs.getDate("dateTournoi").toLocalDate().isAfter(lt))

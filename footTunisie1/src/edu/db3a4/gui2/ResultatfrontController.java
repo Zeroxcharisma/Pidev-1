@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -122,8 +123,6 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private HBox rules;
     @FXML
-    private Text t8;
-    @FXML
     private ImageView fantasyIcon;
     @FXML
     private Button btnResize;
@@ -144,8 +143,6 @@ public class ResultatfrontController implements Initializable {
     private Text nomequipe;
     @FXML
     private VBox id;
-    @FXML
-    private Text idmatche;
     @FXML
     private Label labelequipe1;
     @FXML
@@ -179,8 +176,9 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private TableColumn<Resultat,Integer> carton;
     private ObservableList<Resultat> RecData = FXCollections.observableArrayList();
-    @FXML
     private TextField test;
+    @FXML
+    private TextField recherche;
 
     /**
      * Initializes the controller class.
@@ -211,10 +209,45 @@ public class ResultatfrontController implements Initializable {
                                                                 occaison.setCellValueFactory(new PropertyValueFactory<Resultat,Integer>("occaison"));
                                                                              
           
-          RechercheAV();
+         
                 // Wrap t
       // TODO
         tableHistory.setItems(rcr.displayPersons());
+        ObservableList<Resultat> list = rcr.displayPersons();
+       FilteredList<Resultat> Filtered = new FilteredList<>(list,e-> true);
+        recherche.textProperty().addListener((Observablevalue,OldValue,NewValue)->{
+            Filtered.setPredicate((Predicate<? super Resultat>) ab ->{
+                if (NewValue ==null || NewValue.isEmpty()){
+                    return true;
+                }
+               
+                
+                String lowerCaseFilter  = NewValue.toLowerCase();
+                 
+                if(ab.getNomequipe1().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if(ab.getNomequipe2().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if(ab.getGangant().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if(String.valueOf(ab.getId()).contains(NewValue)){
+                    return true;
+                    }else if(String.valueOf(ab.getScoreequipe1()).contains(NewValue)){
+                    return true;
+                    }else if(String.valueOf(ab.getScoreequipe2()).contains(NewValue)){
+                    return true;
+                }else if(String.valueOf(ab.getOccaison()).contains(NewValue)){
+                    return true;
+                    }else if(String.valueOf(ab.getNote()).contains(NewValue)){
+                    return true;
+                }
+                return false;
+                
+            });
+            SortedList<Resultat> sorted = new SortedList<> (Filtered);
+            sorted.comparatorProperty().bind(  tableHistory.comparatorProperty());
+                      tableHistory.setItems(sorted);
+        });
     }    
 
     @FXML
@@ -227,6 +260,7 @@ public class ResultatfrontController implements Initializable {
 
     @FXML
     private void enterResize(MouseEvent event) {
+        
     }
 
     @FXML
@@ -242,40 +276,7 @@ labelequipe2.setText(r.getNomequipe2());
  labelcartoon.setText(String.valueOf(r.getCarton()));
  labeloccasion.setText(String.valueOf(r.getOccaison()));
     }
-public void RechercheAV(){
-    FilteredList<Resultat> filteredData = new FilteredList<>(RecData, b -> true);
-		
-		// 2. Set the filter Predicate whenever the filter changes.
-		test.textProperty().addListener((observable, oldValue, newValue) -> {
-			filteredData.setPredicate( resultat-> {
-				// If filter text is empty, display all persons.
-								
-				if (newValue == null || newValue.isEmpty()) {
-					return true;
-				}
-				
-				// Compare first name and last name of every person with filter text.
-				String lowerCaseFilter = newValue.toLowerCase();
-				
-				if (resultat.getNomequipe1().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-					return true; // Filter matches first name.
-				}
-				else if (String.valueOf(resultat.getId()).indexOf(lowerCaseFilter)!=-1)
-				     return true;
-				     else  
-				    	 return false; // Does not match.
-			});
-		});
-		// 3. Wrap the FilteredList in a SortedList. 
-		SortedList<Resultat> sortedData = new SortedList<>(filteredData);
-		// 4. Bind the SortedList comparator to the TableView comparator.
-		// 	  Otherwise, sorting the TableView would have no effect.
-		sortedData.comparatorProperty().bind(tableHistory.comparatorProperty());
-		// 5. Add sorted (and filtered) data to the table.
-		tableHistory.setItems(sortedData);
-                // Wrap the ObservableList in a FilteredList (initially display all data).
 
-    } 
         
         
    

@@ -136,10 +136,10 @@ public class AddTournoiController implements Initializable {
     private File addImg() {
        FileChooser fileChooser = new FileChooser();
        fileChooser.setTitle("Ajouter une image");
-       File defaultDirectory = new File("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie\\src\\images");
+       File defaultDirectory = new File("C:\\Users\\ASUS\\Desktop\\git\\Pidev\\footTunisie1\\src\\cup");
        fileChooser.setInitialDirectory(defaultDirectory);
  fileChooser.getExtensionFilters().addAll(
-   new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+   new ExtensionFilter("Image Files", "*.png"));
     File selectedFile = fileChooser.showOpenDialog(null);
     if (selectedFile != null) {
         System.out.println("File selected: " + selectedFile.getPath());
