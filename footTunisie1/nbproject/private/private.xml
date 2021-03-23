@@ -14,11 +14,13 @@
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/View.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/GazonDetailsController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatsController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainPlayerController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichageTerrainsController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/FootalleDetailsController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatistiqueController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tests/SmsSender.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/GazonDetails.fxml</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainPlayer.fxml</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/FootalleDetails.fxml</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ViewFS.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TartonDetails.fxml</file>
@@ -28,8 +30,10 @@
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tools/MyConnection.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainFrontController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/FXMLController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainPlayer.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultatfrontController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/services/PersonneCRUD.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/JavaFX_Media.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ViewT.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainFront.fxml</file>
             <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultCalController.java</file>
