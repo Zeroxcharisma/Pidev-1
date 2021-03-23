@@ -188,7 +188,7 @@ public class FrontTournoiController implements Initializable {
             tf_nbrE.setValue(tournoi.getNbr_equipe());
             pickerDate.setValue(tournoi.getDateTournoi());
             cmbTerrain.setValue(tournoi.getTerrainTournoi());
-            Image img = new Image("/images/"+tournoi.getImage());
+            Image img = new Image("/cup/"+tournoi.getImage());
             image.setImage(img);
             TournoiCRUD pcd = new TournoiCRUD();
             LocalDate lt = LocalDate.now(); 
@@ -228,6 +228,7 @@ public class FrontTournoiController implements Initializable {
          catch (SQLException ex) {
             Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     @FXML
@@ -328,9 +329,9 @@ public class FrontTournoiController implements Initializable {
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
                   try {
-                      Integer a = ((int) rating.getRating()) + rs.getInt("rate");                   
+                      Integer a = ((int) rating.getRating()) + rs.getInt("rate");   
                       Integer b = rs.getInt("nbrRate") + 1;
-                      if (etatTournoi.getText() == "attente des resultats" || etatTournoi.getText().contains("le tournoi commence dans") )
+                      if (etatTournoi.getText().equals("attente des resultats") || etatTournoi.getText().contains("le tournoi commence dans") )
             JOptionPane.showMessageDialog(null, "Vous ne pouvez pas encore noter ce tournoi");
             
                       else {PreparedStatement pst = MyConnection.getInstance().getCnx() 
@@ -338,7 +339,6 @@ public class FrontTournoiController implements Initializable {
           
                       pst.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Tournoi noté");
-                        
                       }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -349,13 +349,14 @@ public class FrontTournoiController implements Initializable {
             Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
         }
              try {
-            
             String requete = "SELECT * from tournoi where id = '"+Integer.parseInt(tf_id.getText())+"'";
             Statement st;
             st = MyConnection.getInstance().getCnx()
                     .createStatement();
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
+                 Integer bb = rs.getInt("nbrRate");
+                      Integer b = rs.getInt("nbrRate") + 1;
                  Float a = rs.getFloat("rate")/rs.getFloat("nbrRate");
                 if (a.isNaN())
                 NoteTournoi.setText("Non disponible");
@@ -363,13 +364,13 @@ public class FrontTournoiController implements Initializable {
                     DecimalFormat frmt = new DecimalFormat();
 		frmt.setMaximumFractionDigits(2);
                 NoteTournoi.setText(String.valueOf(frmt.format(a)));
-                }
+                }             
             }
             }
          catch (SQLException ex) {
             Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+             
     }
     
 }
