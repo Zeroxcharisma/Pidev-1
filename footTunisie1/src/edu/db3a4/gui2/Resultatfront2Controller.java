@@ -7,11 +7,7 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Resultat;
 import edu.db3a4.services.ResultatCrud;
-import edu.db3a4.tools.MyConnection;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import javafx.collections.FXCollections;
@@ -42,38 +38,16 @@ import javafx.scene.text.Text;
  *
  * @author nidha
  */
-public class ResultatfrontController implements Initializable {
+public class Resultatfront2Controller implements Initializable {
 
     @FXML
     private AnchorPane MenuAnchorPane;
     @FXML
-    private Pane sideTransparentPane;
-    @FXML
-    private Pane sideBorderPane;
-    @FXML
-    private Pane hoverPane;
-    @FXML
-    private Pane topTransparentPane;
-    @FXML
     private ImageView backimg;
-    @FXML
-    private Pane blackPane11;
-    @FXML
-    private Pane hexPlane1;
-    @FXML
-    private Pane hexPlane2;
-    @FXML
-    private Pane hexPlane3;
-    @FXML
-    private Pane hexPlane;
-    @FXML
-    private Pane topBorderPane;
     @FXML
     private Pane blackPane;
     @FXML
     private Pane blackPane1;
-    @FXML
-    private ImageView topimage;
     @FXML
     private Pane topBlackTab;
     @FXML
@@ -125,15 +99,11 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private ImageView fantasyIcon;
     @FXML
-    private Button btnResize;
-    @FXML
     private AnchorPane topane1;
     @FXML
     private Text HierText;
     @FXML
     private Button logout;
-    @FXML
-    private HBox topMenu;
     @FXML
     private TableView<Resultat> tableHistory;
     @FXML
@@ -141,8 +111,6 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private TableColumn<?, ?> yc;
     private Text nomequipe;
-    @FXML
-    private VBox id;
     @FXML
     private Label labelequipe1;
     @FXML
@@ -179,6 +147,22 @@ public class ResultatfrontController implements Initializable {
     private TextField test;
     @FXML
     private TextField recherche;
+    @FXML
+    private ImageView detailsgazoniv;
+    @FXML
+    private Label superficiegazon;
+    @FXML
+    private Label nbterraingazon;
+    @FXML
+    private Pane playerOption;
+    @FXML
+    private Text plnforOption;
+    @FXML
+    private Button btnReplace;
+    @FXML
+    private Button btnInformation;
+    @FXML
+    private Button btnRemove;
 
     /**
      * Initializes the controller class.
@@ -258,10 +242,6 @@ public class ResultatfrontController implements Initializable {
     private void test(MouseEvent event) {
     }
 
-    @FXML
-    private void enterResize(MouseEvent event) {
-        
-    }
 
     @FXML
     private void resultat(MouseEvent event) {

@@ -12,12 +12,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -30,6 +36,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -112,12 +120,7 @@ public class StatsfrontController implements Initializable {
     private Text bee;
     @FXML
     private Text notee;
-    @FXML
     private BarChart<String,Integer> ResultatChart;
-    @FXML
-    private NumberAxis y;
-    @FXML
-    private CategoryAxis x;
     @FXML
     private AnchorPane sidePane;
     @FXML
@@ -156,13 +159,16 @@ public class StatsfrontController implements Initializable {
     private Text t8;
     @FXML
     private ImageView fantasyIcon;
+    @FXML
+    private PieChart pc;
+    ObservableList <PieChart.Data> ol = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        XYChart.Series set1 = new XYChart.Series<>();
+         pc.setTitle("resultat");
 
          try {
             
@@ -172,14 +178,40 @@ public class StatsfrontController implements Initializable {
                     .createStatement();
              ResultSet rs =  st.executeQuery(requete);
             while(rs.next()){
-                      set1.getData().add(new XYChart.Data(rs.getString(1),rs.getInt(2)));
+                       
+                       
+                        
+                        ol.addAll(new PieChart.Data(rs.getString(1),rs.getInt(2)));
+                        
+                             
+                        
+                        
+           
+                                                  pc.setData(ol);
+       
+        pc.setLegendSide(Side.LEFT);
+        
+        FadeTransition f = new FadeTransition(Duration.seconds(4),pc);
+        f.setFromValue(0);
+        f.setToValue(1);
+        f.play();  
             }
-              ResultatChart.getData().add(set1);
-
+       
             }
          catch (SQLException ex) {
         
         }
+         
+                     for (PieChart.Data data : pc.getData())
+                     {
+                         data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED,  new EventHandler<MouseEvent>() {
+                             @Override
+                             public void handle(MouseEvent event) {
+                               JOptionPane.showMessageDialog(null,"equipe -- "+ data.getName()+ "nombre de victoire --" +(int)data.getPieValue());   
+                             }
+                         });
+                     }
+              
         try {
             String requete = "SELECT *FROM  equipe";
             Statement st = MyConnection.getInstance().getCnx()
