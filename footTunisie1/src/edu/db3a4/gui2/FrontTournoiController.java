@@ -9,9 +9,11 @@ import edu.db3a4.entities.Tournoi;
 import edu.db3a4.services.TournoiCRUD;
 import edu.db3a4.tests.MailSender;
 import edu.db3a4.tools.MyConnection;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -47,6 +49,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Rating;
 
 /**
  * FXML Controller class
@@ -152,6 +155,12 @@ public class FrontTournoiController implements Initializable {
     private DatePicker pickerDate;
     @FXML
     private TextField tf_id;
+    @FXML
+    private Rating rating;
+    @FXML
+    private Button Rate;
+    @FXML
+    private Label NoteTournoi;
 
     /**
      * Initializes the controller class.
@@ -205,6 +214,12 @@ public class FrontTournoiController implements Initializable {
                   int value = rs.getInt("scoreEq1");
                 if(rs.getDate("dateTournoi").toLocalDate().isBefore(lt) && value == 0   )
                     etatTournoi.setText("attente des resultats");
+                Float a = rs.getFloat("rate")/rs.getFloat("nbrRate");
+                if (a.isNaN())
+                NoteTournoi.setText("Non disponible");
+                else{
+                NoteTournoi.setText(String.valueOf(a));
+                }
             }
             }
          catch (SQLException ex) {
@@ -297,6 +312,38 @@ public class FrontTournoiController implements Initializable {
 
     @FXML
     private void handleMouseEvent(MouseEvent event) {
+    }
+
+    @FXML
+    private void rating(ActionEvent event) {
+          try {
+            
+            String requete = "SELECT * from tournoi where id = '"+Integer.parseInt(tf_id.getText())+"'";
+            Statement st;
+            st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+             ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                  try {
+                      Integer a = ((int) rating.getRating()) + rs.getInt("rate");                   
+                      Integer b = rs.getInt("nbrRate") + 1;
+                      if (etatTournoi.getText() == "attente des resultats" || etatTournoi.getText().contains("le tournoi commence dans") )
+            JOptionPane.showMessageDialog(null, "Vous ne pouvez pas encore noter ce tournoi");
+            
+                      else {PreparedStatement pst = MyConnection.getInstance().getCnx() 
+                    .prepareStatement("UPDATE tournoi SET rate = '"+a+"', nbrRate = '"+b+"' WHERE id = '"+Integer.parseInt(tf_id.getText())+"'");
+            pst.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Tournoi noté");
+                      }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+            }
+            }
+         catch (SQLException ex) {
+            Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }
     
 }
