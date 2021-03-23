@@ -56,7 +56,7 @@ public class JavaMailUti {
             message.setSubject("Votre équipe a été crée avec succés");
 //            String htmlCode = "<h1>";
 //            message.setContent("","text/html");
-//            message.setText("Bonjour, \nVotre équipe a été crée avec succés. \nMerci d'avoir utiliser FOOTUNISIE ");
+            message.setText("Bonjour, \nVotre équipe a été crée avec succés. \nMerci d'avoir utilisé FOOTUNISIE ");
             return message;
         } catch (Exception ex) {
             Logger.getLogger(JavaMailUti.class.getName()).log(Level.SEVERE, null, ex);
