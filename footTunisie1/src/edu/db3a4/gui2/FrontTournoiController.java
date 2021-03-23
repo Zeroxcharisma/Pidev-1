@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
@@ -218,7 +219,9 @@ public class FrontTournoiController implements Initializable {
                 if (a.isNaN())
                 NoteTournoi.setText("Non disponible");
                 else{
-                NoteTournoi.setText(String.valueOf(a));
+                    DecimalFormat frmt = new DecimalFormat();
+		frmt.setMaximumFractionDigits(2);
+                NoteTournoi.setText(String.valueOf(frmt.format(a)));
                 }
             }
             }
@@ -332,12 +335,35 @@ public class FrontTournoiController implements Initializable {
             
                       else {PreparedStatement pst = MyConnection.getInstance().getCnx() 
                     .prepareStatement("UPDATE tournoi SET rate = '"+a+"', nbrRate = '"+b+"' WHERE id = '"+Integer.parseInt(tf_id.getText())+"'");
-            pst.executeUpdate();
+          
+                      pst.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Tournoi noté");
+                        
                       }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+            }
+            }
+         catch (SQLException ex) {
+            Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             try {
+            
+            String requete = "SELECT * from tournoi where id = '"+Integer.parseInt(tf_id.getText())+"'";
+            Statement st;
+            st = MyConnection.getInstance().getCnx()
+                    .createStatement();
+             ResultSet rs =  st.executeQuery(requete);
+            while(rs.next()){
+                 Float a = rs.getFloat("rate")/rs.getFloat("nbrRate");
+                if (a.isNaN())
+                NoteTournoi.setText("Non disponible");
+                else{
+                    DecimalFormat frmt = new DecimalFormat();
+		frmt.setMaximumFractionDigits(2);
+                NoteTournoi.setText(String.valueOf(frmt.format(a)));
+                }
             }
             }
          catch (SQLException ex) {
