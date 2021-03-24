@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -34,6 +36,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -43,11 +46,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import org.controlsfx.control.Rating;
+import org.controlsfx.control.ToggleSwitch;
 
 /**
  * FXML Controller class
@@ -188,18 +194,27 @@ public class Resultat3Controller implements Initializable {
     private Button btnRemove1;
     @FXML
     private Rating rating;
-
+    private ToggleButton button1;
+    private ToggleButton button2;
+  private MediaView Media; 
+ private MediaPlayer mediaplayer;
+ private String uri="aaa.mp3";
+ final java.net.URL resource = getClass().getResource("aaa.mp3");
+        
+        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
            ResultatCrud rcr= new ResultatCrud();
-
+ 
+        mediaPlayer.play();
        
        
-        
-         
+    
+       
     
           
        
@@ -263,9 +278,6 @@ public class Resultat3Controller implements Initializable {
     private void handleMouseEvent(MouseEvent event) {
     }
 
-    @FXML
-    private void test(MouseEvent event) {
-    }
 
 
     @FXML
@@ -366,6 +378,68 @@ cartonnn.setText(String.valueOf(r.getCarton()));
                    } catch (IOException ex) {
            Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
        }
+    }
+
+    @FXML
+    private void reservation(MouseEvent event) {
+          try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("terrainfront.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    @FXML
+    private void tournoi(MouseEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("fronttournoi.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    private void musique(ActionEvent event) {
+        if(event.getSource()==button1)
+        {
+             final java.net.URL resource = getClass().getResource("aaa.mp3");
+        
+        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
+        mediaPlayer.play();
+        }
+          if(event.getSource()==button2)
+        {
+             final java.net.URL resource = getClass().getResource("aaa.mp3");
+        
+        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
+        mediaPlayer.stop();
+        }
+    }
+
+    private void soundoff(MouseEvent event) {
+         final java.net.URL resource = getClass().getResource("aaa.mp3");
+        
+        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
+        mediaPlayer.stop();
+    }
+
+    @FXML
+    private void off(ActionEvent event) {
+
+        mediaPlayer.stop();
     }
     }
 

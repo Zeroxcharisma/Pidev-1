@@ -52,7 +52,7 @@
                                                 <Font name="System Bold Italic" size="15.0" />
                                              </font>
                                           </Label>
-                                          <TableView fx:id="tableHistory" layoutX="31.0" layoutY="480.0" onMouseClicked="#resultat" prefHeight="165.0" prefWidth="662.0" stylesheets="@fronttest.css">
+                                          <TableView fx:id="tableHistory" layoutX="31.0" layoutY="488.0" onMouseClicked="#resultat" prefHeight="157.0" prefWidth="646.0" stylesheets="@fronttest.css">
                                              <columns>
                                                 <TableColumn fx:id="idmatch" prefWidth="67.0" text="N.Match" />
                                                 <TableColumn fx:id="equipe1" prefWidth="62.0" text="equipe 1" />
@@ -179,7 +179,7 @@
                                                       <Font name="System Bold" size="25.0" />
                                                    </font>
                                                 </Label>
-                                                <Label />
+                                                <Label fx:id="cartoon" textFill="#39a67f" />
                                                 <HBox alignment="CENTER" prefHeight="78.0" prefWidth="327.0" spacing="20.0">
                                                    <children>
                                                       <VBox alignment="CENTER" prefHeight="186.0" prefWidth="223.0" stylesheets="@../../../../../../../Front/FootballApplication-master/src/styles/designStyling.css" />
@@ -203,7 +203,7 @@
                                                       </Text>
                                                    </children>
                                                 </HBox>
-                                                <Button fx:id="btnReplace" layoutX="73.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#handleMouseEvent" prefHeight="44.0" prefWidth="245.0" styleClass="button16" text="Statstique" textFill="#39a67f">
+                                                <Button fx:id="btnReplace" layoutX="73.0" layoutY="155.0" mnemonicParsing="false" onAction="#stats" onMouseClicked="#handleMouseEvent" prefHeight="44.0" prefWidth="245.0" styleClass="button16" text="Statstique" textFill="#39a67f">
                                                    <font>
                                                       <Font name="System Bold" size="15.0" />
                                                    </font>
@@ -212,12 +212,12 @@
                                                       <URL value="@fronttournoi.css" />
                                                    </stylesheets>
                                                 </Button>
-                                                <Button fx:id="btnInformation" layoutX="71.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#handleMouseEvent" prefHeight="44.0" prefWidth="245.0" styleClass="button16" stylesheets="@fronttournoi.css" text="Flop Match" textFill="#39a67f">
+                                                <Button fx:id="btnInformation" layoutX="71.0" layoutY="100.0" mnemonicParsing="false" onAction="#flopmatch" onMouseClicked="#handleMouseEvent" prefHeight="44.0" prefWidth="245.0" styleClass="button16" stylesheets="@fronttournoi.css" text="Flop Match" textFill="#39a67f">
                                                    <font>
                                                       <Font name="System Bold" size="15.0" />
                                                    </font>
                                                 </Button>
-                                                <Button fx:id="btnRemove" layoutX="72.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#handleMouseEvent" prefHeight="44.0" prefWidth="245.0" styleClass="button16" stylesheets="@fronttournoi.css" text="Top Match" textFill="#39a67f">
+                                                <Button fx:id="btnRemove" layoutX="72.0" layoutY="45.0" mnemonicParsing="false" onAction="#topmatch" onMouseClicked="#handleMouseEvent" prefHeight="44.0" prefWidth="245.0" styleClass="button16" stylesheets="@fronttournoi.css" text="Top Match" textFill="#39a67f">
                                                    <font>
                                                       <Font name="System Bold" size="15.0" />
                                                    </font>
@@ -246,7 +246,7 @@
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                                <children>
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#test" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#terrain" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../icons/myteam.png" />
                                                                      </image>
@@ -260,7 +260,7 @@
                                                             </HBox>
                                                             <HBox fx:id="status" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
                                                                <children>
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#resulatttt" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../icons/leagues.png" />
                                                                      </image>
@@ -280,7 +280,7 @@
                                                                   <Insets left="40.0" />
                                                                </padding>
                                                                <children>
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#tournoi" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../icons/leagues.png" />
                                                                      </image>

@@ -167,7 +167,7 @@ public class StatsfrontresultatController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         pc.setTitle("resultat");
+        
 
          try {
             

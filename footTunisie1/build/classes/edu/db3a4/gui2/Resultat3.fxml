@@ -55,7 +55,7 @@
                                                       <Font name="System Bold Italic" size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <TableView fx:id="tableHistory" layoutX="31.0" layoutY="510.0" onMouseClicked="#resultat" prefHeight="135.0" prefWidth="684.0" stylesheets="@fronttest.css">
+                                                <TableView fx:id="tableHistory" layoutX="31.0" layoutY="524.0" onMouseClicked="#resultat" prefHeight="121.0" prefWidth="646.0" stylesheets="@fronttest.css">
                                                    <columns>
                                                       <TableColumn fx:id="idmatch" prefWidth="67.0" text="N.Match" />
                                                       <TableColumn fx:id="equipe1" prefWidth="62.0" text="equipe 1" />
@@ -106,7 +106,7 @@
                                                                   </VBox>
                                                                   <Label fx:id="labelscore1" alignment="CENTER" prefHeight="21.0" prefWidth="27.0" text="?" textFill="#39a67f">
                                                                      <font>
-                                                                        <Font name="System Bold" size="10.0" />
+                                                                        <Font name="System Bold" size="23.0" />
                                                                      </font>
                                                                   </Label>
                                                                   <VBox prefHeight="186.0" prefWidth="142.0">
@@ -133,7 +133,7 @@
                                                                   </VBox>
                                                                   <Label fx:id="labelscore2" alignment="CENTER" prefHeight="62.0" prefWidth="37.0" text="?" textFill="#39a67f">
                                                                      <font>
-                                                                        <Font name="System Bold" size="10.0" />
+                                                                        <Font name="System Bold" size="23.0" />
                                                                      </font>
                                                                   </Label>
                                                                   <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="186.0" prefWidth="224.0" stylesheets="@../../../../../../../Front/FootballApplication-master/src/styles/designStyling.css">
@@ -159,7 +159,7 @@
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="N.d occasion" textFill="#39a67fbf">
+                                                      <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="N.d occasion" textFill="#3aa67e">
                                                          <font>
                                                             <Font name="System Bold" size="26.0" />
                                                          </font>
@@ -169,7 +169,7 @@
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label alignment="CENTER" prefHeight="57.0" prefWidth="195.0" text="N.cartoon" textFill="#39a67fbf">
+                                                      <Label alignment="CENTER" prefHeight="57.0" prefWidth="195.0" text="N.cartoon" textFill="#3aa67e">
                                                          <font>
                                                             <Font name="System Bold" size="25.0" />
                                                          </font>
@@ -259,7 +259,7 @@
                                                                         <Insets left="40.0" />
                                                                      </padding>
                                                                      <children>
-                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#test" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#reservation" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../icons/myteam.png" />
                                                                            </image>
@@ -293,7 +293,7 @@
                                                                         <Insets left="40.0" />
                                                                      </padding>
                                                                      <children>
-                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#tournoi" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../icons/leagues.png" />
                                                                            </image>
@@ -425,6 +425,7 @@
                                                    </effect>
                                                 </ImageView>
                                                 <TextField fx:id="recherche" layoutX="418.0" layoutY="4.0" prefHeight="28.0" prefWidth="143.0" promptText="recherche" />
+                                                <Button layoutX="914.0" layoutY="9.0" mnemonicParsing="false" onAction="#off" text="off" />
                                              </children>
                                           </AnchorPane>
                                           <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />

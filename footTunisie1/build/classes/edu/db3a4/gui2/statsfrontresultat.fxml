@@ -188,7 +188,12 @@
                                                       <DropShadow color="#00000049" height="50.66" radius="24.0875" spread="0.22" width="47.69" />
                                                    </effect>
                                                 </Pane>
-                                                <PieChart fx:id="pc" layoutX="147.0" layoutY="337.0" prefHeight="459.0" prefWidth="736.0" />
+                                                <PieChart fx:id="pc" layoutX="151.0" layoutY="293.0" prefHeight="503.0" prefWidth="732.0" />
+                                                <Label layoutX="336.0" layoutY="316.0" prefHeight="17.0" prefWidth="178.0" text="Nombre de victoire par equipe" textFill="#0a9046">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </Pane>
                                           <Pane fx:id="topBlackTab" layoutX="220.0" prefHeight="48.0" prefWidth="980.0" style="-fx-background-color: linear-gradient(to right, #0E0D1D, #080C33);" />

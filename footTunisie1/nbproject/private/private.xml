@@ -3,66 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainFrontController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Flopmatch.fxml</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/FlopmatchController.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/FrontTournoiController.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultat3Controller.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/AjouterservatiobController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/services/ResultatCrud.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/StatsfrontresultatController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultat3.fxml</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/AddResultatController.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/resultatchoix.fxml</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/TopMatchController.java</file>
             <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/HomeScreen.java</file>
-            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Affiche2Controller.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/SableDetails.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ViewS.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tests/SmsSender1.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/201_1.jpg</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/services/ResultatCrud.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/SableDetailsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatistiqueController_1.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/CalculController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/View.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/GazonDetailsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainPlayerController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichageTerrainsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/FootalleDetailsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/StatistiqueController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tests/SmsSender.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/GazonDetails.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainPlayer.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/FootalleDetails.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ViewFS.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TartonDetails.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichageTournoiController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/CalendarController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TartonDetailsController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/tools/MyConnection.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainFrontController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/FXMLController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainPlayer.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultatfrontController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/services/PersonneCRUD.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/JavaFX_Media.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ViewT.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/TerrainFront.fxml</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultCalController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/AddPersonController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/HomeScreen.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/res/salle.jpg</file>
-            <file>file:/C:/Users/ASUS/Desktop/Nouveau%20dossier/Pidev/footTunisie1/src/edu/db3a4/gui2/151633899_107329488066891_8765761299153868074_o_1.jpg</file>
-=======
-            <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/FrontTournoiController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/AffichageTournoiController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/services/TournoiCRUD.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/AddTournoiController.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/git/Pidev/footTunisie1/src/edu/db3a4/gui2/HomeScreen.java</file>
->>>>>>> 4ab6d306a7afdf459b69b89df6fdd58fc02a1f72
->>>>>>> 6f239f02f0f4b0f703e43ccf15366cc01b481369
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Resultat3Controller.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/IntegrationController.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/StatsfrontresultatController.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/Stats2Controller.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/ResultatchoixController.java</file>
+            <file>file:/C:/Users/nidha/OneDrive/Bureau/git2/Pidev/footTunisie1/src/edu/db3a4/gui2/AddPersonController.java</file>
         </group>
     </open-files>
 </project-private>
