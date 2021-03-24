@@ -46,7 +46,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
- 
+ import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -209,8 +209,10 @@ public class AddResultatController implements Initializable {
                {
                    S="Null";
                }
-              
-
+               
+                JOptionPane jop = new JOptionPane();
+ int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous  modfiier ?", "modifier", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+    if(option == JOptionPane.OK_OPTION) {
          Resultat r= new Resultat(id,resNom1,resnom2,resscore1,resscore2,note,S,c,o);
            ResultatCrud rcr= new ResultatCrud();
             
@@ -219,7 +221,7 @@ public class AddResultatController implements Initializable {
             JOptionPane.showMessageDialog(null, "Resultat ajouté");
         
   
-             
+    }
             /// SAUVEGARDE DANS LA BD
             
             
