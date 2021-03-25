@@ -184,6 +184,11 @@ public class Affiche2Controller implements Initializable {
 
     @FXML
     private void delte(ActionEvent event) {
+          if (tid.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Veuillez selectionner une resultat"); 
+        }
+          else
+          {
         JOptionPane jop = new JOptionPane();
     int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous supprimer?", "supprimer", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
     if(option == JOptionPane.OK_OPTION) {
@@ -192,10 +197,20 @@ public class Affiche2Controller implements Initializable {
 
            pcd.supprimerResultat(r);
            tr.setItems(pcd.displayPersons());
+           
     }
 }
+    }
     @FXML
     private void update(ActionEvent event) {
+          if (tid.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Veuillez selectionner une resultat"); 
+        }
+           else
+          {
+        JOptionPane jop = new JOptionPane();
+    int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous  modfiier ?", "modifier", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+    if(option == JOptionPane.OK_OPTION) {
           String id = tid.getText();
          Integer id1 = Integer.parseInt(id);
          String nomT = cc.getValue();
@@ -211,6 +226,8 @@ public class Affiche2Controller implements Initializable {
            ResultatCrud pcd= new ResultatCrud();
           pcd.updateResultat(id1, nomT,nomTe, b1, bu2);
             tr.setItems(pcd.displayPersons());
+    }
+          }
     }
 
     private void englishaff(ActionEvent event) {

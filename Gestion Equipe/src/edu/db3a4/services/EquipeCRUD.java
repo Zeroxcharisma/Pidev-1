@@ -5,6 +5,8 @@
  */
 package edu.db3a4.services;
 
+import SMS_Sender_Tarek.Sms_Sender_Tarek;
+import JavaMail.JavaMailUti;
 import edu.db3a4.entities.Equipe;
 import edu.db3a4.gui2.DisplayPersonController;
 import edu.db3a4.interfaces.IEquipe;
@@ -37,6 +39,10 @@ public class EquipeCRUD implements IEquipe<Equipe>{
             Statement st = MyConnection.getInstance().getCnx().createStatement();
             st.executeUpdate(requete);
             System.out.println("Equipe ajoutée");
+            JavaMail.JavaMailUti.sendMail("tarek.zaafrane@esprit.tn");
+            String[] tarek = null;
+            SMS_Sender_Tarek.Sms_Sender_Tarek.main(tarek);
+            
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

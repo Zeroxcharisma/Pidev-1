@@ -30,8 +30,15 @@ public class HomeScreen extends Application {
         
         try {
 
+<<<<<<< HEAD
             Parent root = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
 
+=======
+         
+            Parent root = FXMLLoader.load(getClass().getResource("integration.fxml"));
+
+        
+>>>>>>> 8d8a5c9b72b6457bc78ae165223765b7c98ad0d5
 
             Scene scene = new Scene(root);
             

@@ -7,20 +7,23 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.entities.Resultat;
 import edu.db3a4.services.ResultatCrud;
-import edu.db3a4.tools.MyConnection;
+import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -36,44 +39,23 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author nidha
  */
-public class ResultatfrontController implements Initializable {
+public class FlopmatchController implements Initializable {
 
-    @FXML
+     @FXML
     private AnchorPane MenuAnchorPane;
     @FXML
-    private Pane sideTransparentPane;
-    @FXML
-    private Pane sideBorderPane;
-    @FXML
-    private Pane hoverPane;
-    @FXML
-    private Pane topTransparentPane;
-    @FXML
     private ImageView backimg;
-    @FXML
-    private Pane blackPane11;
-    @FXML
-    private Pane hexPlane1;
-    @FXML
-    private Pane hexPlane2;
-    @FXML
-    private Pane hexPlane3;
-    @FXML
-    private Pane hexPlane;
-    @FXML
-    private Pane topBorderPane;
     @FXML
     private Pane blackPane;
     @FXML
     private Pane blackPane1;
-    @FXML
-    private ImageView topimage;
     @FXML
     private Pane topBlackTab;
     @FXML
@@ -125,15 +107,11 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private ImageView fantasyIcon;
     @FXML
-    private Button btnResize;
-    @FXML
     private AnchorPane topane1;
     @FXML
     private Text HierText;
     @FXML
     private Button logout;
-    @FXML
-    private HBox topMenu;
     @FXML
     private TableView<Resultat> tableHistory;
     @FXML
@@ -141,8 +119,6 @@ public class ResultatfrontController implements Initializable {
     @FXML
     private TableColumn<?, ?> yc;
     private Text nomequipe;
-    @FXML
-    private VBox id;
     @FXML
     private Label labelequipe1;
     @FXML
@@ -155,7 +131,6 @@ public class ResultatfrontController implements Initializable {
     private Label labelnote;
     @FXML
     private Label labeloccasion;
-    @FXML
     private Label labelcartoon;
     @FXML
     private TableColumn<Resultat, Integer> idmatch;
@@ -179,12 +154,31 @@ public class ResultatfrontController implements Initializable {
     private TextField test;
     @FXML
     private TextField recherche;
+    @FXML
+    private ImageView detailsgazoniv;
+    @FXML
+    private Label superficiegazon;
+    @FXML
+    private Label nbterraingazon;
+    @FXML
+    private Pane playerOption;
+    @FXML
+    private Text plnforOption;
+    @FXML
+    private Button btnReplace;
+    @FXML
+    private Button btnInformation;
+    @FXML
+    private Button btnRemove;
+    @FXML
+    private Label cartoon;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       
            ResultatCrud rcr= new ResultatCrud();
 
        
@@ -212,8 +206,9 @@ public class ResultatfrontController implements Initializable {
          
                 // Wrap t
       // TODO
-        tableHistory.setItems(rcr.displayPersons());
-        ObservableList<Resultat> list = rcr.displayPersons();
+      int i=6;
+        tableHistory.setItems(rcr.FlopMacthe(5));
+         ObservableList<Resultat> list = rcr.FlopMacthe(5);
        FilteredList<Resultat> Filtered = new FilteredList<>(list,e-> true);
         recherche.textProperty().addListener((Observablevalue,OldValue,NewValue)->{
             Filtered.setPredicate((Predicate<? super Resultat>) ab ->{
@@ -248,20 +243,15 @@ public class ResultatfrontController implements Initializable {
             sorted.comparatorProperty().bind(  tableHistory.comparatorProperty());
                       tableHistory.setItems(sorted);
         });
+      
+        
     }    
 
     @FXML
     private void handleMouseEvent(MouseEvent event) {
     }
 
-    @FXML
-    private void test(MouseEvent event) {
-    }
 
-    @FXML
-    private void enterResize(MouseEvent event) {
-        
-    }
 
     @FXML
     private void resultat(MouseEvent event) {
@@ -273,13 +263,91 @@ public class ResultatfrontController implements Initializable {
 labelequipe1.setText(r.getNomequipe1());
 labelequipe2.setText(r.getNomequipe2());
    labelnote.setText(String.valueOf(r.getNote()));
- labelcartoon.setText(String.valueOf(r.getCarton()));
- labeloccasion.setText(String.valueOf(r.getOccaison()));
+cartoon.setText(String.valueOf(r.getCarton()));
+labeloccasion.setText(String.valueOf(r.getOccaison()));
+    }
+
+    @FXML
+    private void stats(ActionEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Statsfrontresultat.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    @FXML
+    private void flopmatch(ActionEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("flopmatch.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    @FXML
+    private void topmatch(ActionEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("topmatch.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    @FXML
+    private void terrain(MouseEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("terrainfront.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    @FXML
+    private void tournoi(MouseEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("fronttournoi.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }
 
         
         
    
-    
-    
 }
