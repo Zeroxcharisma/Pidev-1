@@ -31,6 +31,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -352,6 +353,22 @@ labeloccasion.setText(String.valueOf(r.getOccaison()));
     private void tournoi(MouseEvent event) {
          try {
            Parent exercices_parent = FXMLLoader.load(getClass().getResource("fronttournoi.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+
+    @FXML
+    private void Tournoi(MouseEvent event) {
+          try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
            

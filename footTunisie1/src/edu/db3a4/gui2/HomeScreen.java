@@ -17,28 +17,30 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 /**
  *
  * @author House
  */
+
+
 public class HomeScreen extends Application {
+      private MediaView Media; 
+ private MediaPlayer mediaplayer;
+ private String uri="aaa.mp3";
+ final java.net.URL resource = getClass().getResource("aaa.mp3");
+        
+        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
     
     @Override
     public void start(Stage primaryStage) {
-        
+         mediaPlayer.play();
         try {
 
-<<<<<<< HEAD
             Parent root = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
-
-=======
-         
-            Parent root = FXMLLoader.load(getClass().getResource("integration.fxml"));
-
-        
->>>>>>> 8d8a5c9b72b6457bc78ae165223765b7c98ad0d5
 
             Scene scene = new Scene(root);
             

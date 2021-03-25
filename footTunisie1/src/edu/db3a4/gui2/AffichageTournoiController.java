@@ -321,7 +321,7 @@ public class AffichageTournoiController implements Initializable {
         	//EmailUtil.sendEmail(session, toEmail,"tournoi", "TLSEmail Testing Body");
                 MailSender mail = new MailSender();
             String[] args = null;
-               mail.main(args,tf_nom.getText());
+            //   mail.main(args,tf_nom.getText());
 
         }
 //       else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 8){

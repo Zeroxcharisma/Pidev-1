@@ -122,7 +122,7 @@
                                                             </Text>
                                                          </children>
                                                       </HBox>
-                                                      <HBox fx:id="status" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
+                                                      <HBox fx:id="status" alignment="CENTER_LEFT" onMouseClicked="#Resultats" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
                                                          <children>
                                                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>

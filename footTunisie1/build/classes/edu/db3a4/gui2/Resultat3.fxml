@@ -288,7 +288,7 @@
                                                                         <Insets left="40.0" />
                                                                      </padding>
                                                                   </HBox>
-                                                                  <HBox fx:id="points" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
+                                                                  <HBox fx:id="points" alignment="CENTER_LEFT" onMouseClicked="#tournoi" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
                                                                      <padding>
                                                                         <Insets left="40.0" />
                                                                      </padding>

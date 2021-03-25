@@ -196,13 +196,13 @@ public class Resultat3Controller implements Initializable {
     private Rating rating;
     private ToggleButton button1;
     private ToggleButton button2;
-  private MediaView Media; 
- private MediaPlayer mediaplayer;
- private String uri="aaa.mp3";
- final java.net.URL resource = getClass().getResource("aaa.mp3");
-        
-        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
-    
+//  private MediaView Media; 
+// private MediaPlayer mediaplayer;
+// private String uri="aaa.mp3";
+// final java.net.URL resource = getClass().getResource("aaa.mp3");
+//        
+//        final MediaPlayer mediaPlayer = new MediaPlayer(new javafx.scene.media.Media(resource.toString()));
+//    
     /**
      * Initializes the controller class.
      */
@@ -210,7 +210,7 @@ public class Resultat3Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
            ResultatCrud rcr= new ResultatCrud();
  
-        mediaPlayer.play();
+//        mediaPlayer.play();
        
        
     
@@ -399,7 +399,7 @@ cartonnn.setText(String.valueOf(r.getCarton()));
     @FXML
     private void tournoi(MouseEvent event) {
          try {
-           Parent exercices_parent = FXMLLoader.load(getClass().getResource("fronttournoi.fxml"));
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
            Scene ex_section_scene = new Scene(exercices_parent);
            Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
            
@@ -439,7 +439,7 @@ cartonnn.setText(String.valueOf(r.getCarton()));
     @FXML
     private void off(ActionEvent event) {
 
-        mediaPlayer.stop();
+        //mediaPlayer.stop();
     }
     }
 

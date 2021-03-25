@@ -28,6 +28,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -371,6 +372,22 @@ public class FrontTournoiController implements Initializable {
             Logger.getLogger(AffichageTournoiController.class.getName()).log(Level.SEVERE, null, ex);
         }
              
+    }
+
+    @FXML
+    private void Resultats(MouseEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("Resultat3.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }
     
 }
