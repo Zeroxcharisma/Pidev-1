@@ -69,6 +69,11 @@
                                           <Font name="System Bold Italic" size="15.0" />
                                        </font>
                                     </Label>
+                                    <Label layoutX="431.0" layoutY="37.0" onMouseClicked="#Trailerchoose" prefHeight="28.0" prefWidth="137.0" text="Watch Trailer" textFill="RED">
+                                       <font>
+                                          <Font name="Arial Bold" size="21.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </Pane>
                            </children>

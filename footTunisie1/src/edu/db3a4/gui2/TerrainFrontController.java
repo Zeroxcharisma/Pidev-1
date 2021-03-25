@@ -165,5 +165,13 @@ public class TerrainFrontController implements Initializable {
     @FXML
     private void handleMouseEvent(MouseEvent event) {
     }
+
+    @FXML
+    private void Trailerchoose(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass()
+                    .getResource("TerrainPlayer.fxml"));
+            Parent root = loader.load();
+            sableiv.getScene().setRoot(root);
+    }
     
 }
