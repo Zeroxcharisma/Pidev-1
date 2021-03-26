@@ -7,25 +7,33 @@ package edu.db3a4.gui2;
 
 import edu.db3a4.services.ResultatCrud;
 import edu.db3a4.tools.MyConnection;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +43,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
 
@@ -48,49 +57,21 @@ public class StatsfrontresultatController implements Initializable {
     @FXML
     private AnchorPane MenuAnchorPane;
     @FXML
-    private Pane sideTransparentPane;
-    @FXML
-    private Pane sideBorderPane;
-    @FXML
-    private Pane hoverPane;
-    @FXML
-    private Pane topTransparentPane;
-    @FXML
     private ImageView backimg;
-    @FXML
-    private Pane blackPane11;
-    @FXML
-    private Pane hexPlane1;
-    @FXML
-    private Pane hexPlane2;
-    @FXML
-    private Pane hexPlane3;
-    @FXML
-    private Pane hexPlane;
-    @FXML
-    private Pane topBorderPane;
     @FXML
     private Pane blackPane;
     @FXML
     private Pane blackPane1;
     @FXML
-    private ImageView topimage;
-    @FXML
     private Pane topBlackTab;
     @FXML
     private Rectangle rectanimB;
-    @FXML
-    private Button btnResize;
     @FXML
     private AnchorPane topane1;
     @FXML
     private Text HierText;
     @FXML
     private Button logout;
-    @FXML
-    private HBox topMenu;
-    @FXML
-    private Button btnThemes1;
     @FXML
     private Pane mainPane;
     @FXML
@@ -155,12 +136,28 @@ public class StatsfrontresultatController implements Initializable {
     @FXML
     private HBox rules;
     @FXML
-    private Text t8;
-    @FXML
     private ImageView fantasyIcon;
     @FXML
     private PieChart pc;
     ObservableList <PieChart.Data> ol = FXCollections.observableArrayList();
+    @FXML
+    private ImageView detailsgazoniv;
+    @FXML
+    private Label superficiegazon;
+    @FXML
+    private Label nbterraingazon;
+    @FXML
+    private BorderPane borderMenu;
+    @FXML
+    private AnchorPane topane;
+    @FXML
+    private Pane sideBarBorder;
+    @FXML
+    private Pane sideUp;
+    @FXML
+    private Pane sideDown;
+    @FXML
+    private TextField recherche;
 
     /**
      * Initializes the controller class.
@@ -241,9 +238,6 @@ public class StatsfrontresultatController implements Initializable {
     }
 
 
-    @FXML
-    private void enterResize(MouseEvent event) {
-    }
 
     @FXML
     private void stats(ActionEvent event) {
@@ -280,6 +274,22 @@ public class StatsfrontresultatController implements Initializable {
 
     @FXML
     private void test(MouseEvent event) {
+    }
+
+    @FXML
+    private void tournoi(MouseEvent event) {
+         try {
+           Parent exercices_parent = FXMLLoader.load(getClass().getResource("FrontTournoi.fxml"));
+           Scene ex_section_scene = new Scene(exercices_parent);
+           Stage second_stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
+           
+           second_stage.setScene(ex_section_scene);
+           second_stage.show();
+                   
+                   
+                   } catch (IOException ex) {
+           Logger.getLogger(AddResultatController.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }
         
     
