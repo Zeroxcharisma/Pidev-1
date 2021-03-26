@@ -88,10 +88,7 @@ public class ResultatTournoiController implements Initializable {
         pcd.updateTournoi(idd1.getValue(),scoreequipe1.getValue() , scoreequipe2.getValue(), scoreequipe3.getValue(), scoreequipe4.getValue(), final1.getValue(), final2.getValue());
         JOptionPane.showMessageDialog(null, "Resultat tournoi  ajouté et mail envoyez au gestion des tournoi");
         
-    MailSender_1 mail = new MailSender_1();
-            String[] args = null;
-            String a = "numero "+idd1.getValue();
-             mail.main(args,a);
+  
              
     }
 

@@ -31,7 +31,7 @@ public class HomeScreen extends Application {
         try {
 
          
-            Parent root = FXMLLoader.load(getClass().getResource("integration.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("resultat3.fxml"));
 
         
 

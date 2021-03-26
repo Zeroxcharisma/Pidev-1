@@ -208,7 +208,7 @@ public class TopMatchController implements Initializable {
                 // Wrap t
       // TODO
       int i=6;
-        tableHistory.setItems(rcr.FlopMacthe(6));
+        tableHistory.setItems(rcr.TopMacthe(7));
          ObservableList<Resultat> list = rcr.TopMacthe(6);
        FilteredList<Resultat> Filtered = new FilteredList<>(list,e-> true);
         recherche.textProperty().addListener((Observablevalue,OldValue,NewValue)->{

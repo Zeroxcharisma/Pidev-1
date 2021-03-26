@@ -211,7 +211,7 @@ public class AddResultatController implements Initializable {
                }
                
                 JOptionPane jop = new JOptionPane();
- int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous  modfiier ?", "modifier", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+ int option = jop.showConfirmDialog(null, "Voulez-vous vraiment vous ajouter ?", "ajouter", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
     if(option == JOptionPane.OK_OPTION) {
          Resultat r= new Resultat(id,resNom1,resnom2,resscore1,resscore2,note,S,c,o);
            ResultatCrud rcr= new ResultatCrud();
