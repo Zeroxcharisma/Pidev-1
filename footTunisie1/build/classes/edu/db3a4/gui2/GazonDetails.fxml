@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="762.0" prefWidth="1206.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.GazonDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="762.0" prefWidth="1206.0" stylesheets="@fronttournoi.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.GazonDetailsController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="10.0" prefHeight="751.0" prefWidth="1182.0">
          <children>
@@ -44,7 +44,7 @@
                                     <Font name="System Bold Italic" size="23.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="affichageG" layoutX="102.0" layoutY="391.0" onMouseClicked="#tabAffiche" prefHeight="237.0" prefWidth="454.0">
+                              <TableView fx:id="affichageG" layoutX="102.0" layoutY="391.0" onMouseClicked="#tabAffiche" prefHeight="237.0" prefWidth="454.0" stylesheets="@fronttournoi.css">
                                  <columns>
                                     <TableColumn fx:id="id" prefWidth="55.0" text="ID" />
                                     <TableColumn fx:id="rNom" prefWidth="94.0" text="Nom" />
@@ -99,7 +99,7 @@
                                                 </HBox>
                                                 <HBox fx:id="status" alignment="CENTER_LEFT" onMouseClicked="#handleMouseEvent" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="button8" stylesheets="@../Styles/design.css">
                                                    <children>
-                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#resultat" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../icons/leagues.png" />
                                                          </image>

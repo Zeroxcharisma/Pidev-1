@@ -19,12 +19,15 @@ import javafx.stage.Stage;
  * @author ASUS
  */
 public class JavaFX_Media extends Application{
+
+
     @Override  
-    public void start(Stage primaryStage) throws Exception {  
+    public void start(Stage primaryStage) throws Exception { 
+        
         // TODO Auto-generated method stub  
         //Initialising path of the media file, replace this with your file path   
         String path = "C:\\Users\\ASUS\\Desktop\\terrain.mp4";  
-          
+         
         //Instantiating Media class  
         Media media = new Media(new File(path).toURI().toString());  
           

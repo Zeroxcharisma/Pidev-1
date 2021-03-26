@@ -17,8 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="765.0" prefWidth="1194.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.db3a4.gui2.SableDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="765.0" prefWidth="1194.0" stylesheets="@fronttournoi.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db3a4.gui2.SableDetailsController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="762.0" prefWidth="1206.0">
          <children>
@@ -47,7 +46,7 @@
                                           <Font name="System Bold Italic" size="23.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="affichageS" layoutX="102.0" layoutY="391.0" onMouseClicked="#tabAffiche" prefHeight="237.0" prefWidth="454.0">
+                                    <TableView fx:id="affichageS" layoutX="102.0" layoutY="391.0" onMouseClicked="#tabAffiche" prefHeight="237.0" prefWidth="454.0" stylesheets="@fronttest.css">
                                        <columns>
                                           <TableColumn fx:id="id" prefWidth="55.0" text="ID" />
                                           <TableColumn fx:id="rNom" prefWidth="94.0" text="Nom" />
