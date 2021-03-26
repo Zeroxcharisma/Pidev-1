@@ -87,7 +87,7 @@ public class IntegrationController implements Initializable {
     @FXML
     private void resultat(ActionEvent event) {
          try {
-            Parent root = FXMLLoader.load(getClass().getResource("AddResultat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("resultatchoix.fxml"));
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
             primaryStage.setTitle("Gestion Resultats");

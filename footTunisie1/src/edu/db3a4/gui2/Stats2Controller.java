@@ -38,8 +38,6 @@ import javafx.stage.Stage;
 public class Stats2Controller implements Initializable {
 
     @FXML
-    private Button en2;
-    @FXML
     private TextField noteequipe;
     @FXML
     private ComboBox<String> equipe;
@@ -83,9 +81,6 @@ public class Stats2Controller implements Initializable {
     }    
 
 
-    @FXML
-    private void englishaff(ActionEvent event) {
-    }
 
     @FXML
     private void note(ActionEvent event) {

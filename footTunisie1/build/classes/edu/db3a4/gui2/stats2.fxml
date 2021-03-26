@@ -25,12 +25,6 @@
                                     <Font name="System Bold" size="21.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="en2" layoutX="701.0" layoutY="-2.0" mnemonicParsing="false" onAction="#englishaff" prefHeight="32.0" prefWidth="75.0" text="EN" />
-                              <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="660.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@201.jpg" />
-                                 </image>
-                              </ImageView>
                               <ImageView fitHeight="44.0" fitWidth="46.0" layoutX="73.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Soccer_Ball_icon-icons.com_76265.png" />
@@ -49,12 +43,18 @@
                            </image>
                         </ImageView>
                         <ComboBox fx:id="equipe" layoutX="275.0" layoutY="155.0" onAction="#note" prefWidth="150.0" />
-                        <TextField fx:id="noteequipe" alignment="CENTER" layoutX="467.0" layoutY="155.0" promptText="Note" />
+                        <TextField fx:id="noteequipe" alignment="CENTER" layoutX="542.0" layoutY="155.0" promptText="Note" />
                         <Button layoutX="407.0" layoutY="349.0" mnemonicParsing="false" onAction="#stats" style="-fx-background-color: #39A67f;" text="statistique" />
                         <TextField fx:id="m" alignment="CENTER" layoutX="276.0" layoutY="222.0" promptText="Matchs joués" />
-                        <TextField fx:id="bm" alignment="CENTER" layoutX="467.0" layoutY="222.0" promptText="Buts Marqués" />
+                        <TextField fx:id="bm" alignment="CENTER" layoutX="542.0" layoutY="217.0" promptText="Buts Marqués" />
                         <TextField fx:id="be" alignment="CENTER" layoutX="274.0" layoutY="288.0" promptText="Buts encaissés" />
-                        <TextField fx:id="g" alignment="CENTER" layoutX="492.0" layoutY="285.0" promptText="Matchs gagnée " />
+                        <TextField fx:id="g" alignment="CENTER" layoutX="549.0" layoutY="284.0" promptText="Matchs gagnée " />
+                        <Label layoutX="207.0" layoutY="159.0" prefHeight="17.0" prefWidth="51.0" text="equipe" />
+                        <Label layoutX="194.0" layoutY="229.0" prefHeight="17.0" prefWidth="71.0" text="Matchs joues" />
+                        <Label layoutX="198.0" layoutY="288.0" prefHeight="17.0" prefWidth="75.0" text="but encaisses" />
+                        <Label layoutX="478.0" layoutY="159.0" prefHeight="17.0" prefWidth="75.0" text="note" />
+                        <Label layoutX="447.0" layoutY="226.0" prefHeight="17.0" prefWidth="75.0" text="but marques" />
+                        <Label layoutX="445.0" layoutY="294.0" prefHeight="17.0" prefWidth="91.0" text="Match gagnée" />
                      </children>
                   </AnchorPane>
                </children>

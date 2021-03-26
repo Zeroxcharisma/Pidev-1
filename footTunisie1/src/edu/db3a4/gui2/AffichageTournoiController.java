@@ -318,10 +318,10 @@ public class AffichageTournoiController implements Initializable {
         else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 4 && pcd.getDate(Integer.parseInt(tf_id.getText())).isBefore(lt) && etatTournoi.getText().equals("attente des resultats")  ){
        String Newligne=System.getProperty("line.separator");
             JOptionPane.showMessageDialog(null, "Les resultats ne sont pas encore saisie"+Newligne+" Un mail va etre envoyer a la direction des resultats");
-        	//	EmailUtil.sendEmail(session, toEmail,"tournoi", "TLSEmail Testing Body");
+        	//EmailUtil.sendEmail(session, toEmail,"tournoi", "TLSEmail Testing Body");
                 MailSender mail = new MailSender();
             String[] args = null;
-             //   mail.main(args,tf_nom.getText());
+            //   mail.main(args,tf_nom.getText());
 
         }
 //       else if (pcd.getNombre(Integer.parseInt(tf_id.getText()))== 8){

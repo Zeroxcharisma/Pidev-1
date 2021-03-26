@@ -69,7 +69,7 @@ public class TournoiCRUD implements ITournoi<Tournoi>{
     public void updateTournoi(Integer id, String nomT, Integer nbrE, LocalDate date, String terrain) {
         try {
             PreparedStatement pst = MyConnection.getInstance().getCnx()
-                    .prepareStatement("UPDATE tournoi SET nomTournoi = '"+nomT+"', nbr_equipe = '"+nbrE+"', dateTournoi = '"+date+"', terrainTournoi = '"+terrain+"' WHERE id = '"+id+"'");
+                    .prepareStatement("UPDATE tournoi SET nbr_Points_Equipe = '"+nomT+"', nbr_equipe = '"+nbrE+"', dateTournoi = '"+date+"', terrainTournoi = '"+terrain+"' WHERE id = '"+id+"'");
             pst.executeUpdate();
             System.out.println("Tournoi modifiée");
         } catch (SQLException ex) {
